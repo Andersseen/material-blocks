@@ -1,9 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import {
   computed,
-  effect,
   inject,
-  Inject,
   Injectable,
   PLATFORM_ID,
   signal,
@@ -29,10 +27,10 @@ export default class ThemeState {
     ).matches;
 
     if (savedTheme) {
-      this.#currentTheme.set(savedTheme);
-    } else if (systemPrefersDark) {
-      this.#currentTheme.set('dark');
+      this.applyTheme(savedTheme);
+      return;
     }
+    this.#currentTheme.set('dark');
   }
 
   private applyTheme(theme: Theme) {
