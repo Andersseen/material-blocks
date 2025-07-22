@@ -1,24 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import Footer from '@components/footer';
-import Navbar from '@components/navbar';
+import Layout from './layout';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Footer],
+  imports: [RouterOutlet, Layout],
   template: `
-    <div class="min-h-screen  transition-colors duration-300">
-      <!-- Navigation -->
-      <app-navbar />
-
-      <!-- Main Content -->
-      <main class="relative">
+    <app-layout>
+      <main>
         <router-outlet />
       </main>
-
-      <!-- Footer -->
-      <app-footer />
-    </div>
+    </app-layout>
   `,
 })
 export default class App {}
