@@ -3,7 +3,7 @@ import routesConfig from '@data/routes.json';
 
 const COMPONENT_MAP: Record<string, () => Promise<any>> = {
   home: () => import('@components/home'),
-  sections: () => import('@components/sections'),
+  sections: () => import('@components/sections/index'),
   docs: () => import('@components/docs'),
 };
 
