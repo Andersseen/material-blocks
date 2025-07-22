@@ -9,12 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
-import Clipboard from '@services/clipboard.service';
-import { SectionsService, UISection } from '@services/sections.service';
+import Clipboard from '@services/clipboard';
+import Examples from '@services/examples';
+import { UISection } from '@data/sections';
 
 @Component({
   selector: 'app-sections',
-  providers: [Clipboard],
+  providers: [Clipboard, Examples],
   imports: [
     CommonModule,
     FormsModule,
@@ -223,7 +224,7 @@ import { SectionsService, UISection } from '@services/sections.service';
   ],
 })
 export default class Sections {
-  private sectionsService = inject(SectionsService);
+  private sectionsService = inject(Examples);
   private clipboardService = inject(Clipboard);
   private snackBar = inject(MatSnackBar);
 

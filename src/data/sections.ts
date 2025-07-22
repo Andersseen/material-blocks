@@ -1,5 +1,3 @@
-import { Injectable } from '@angular/core';
-
 export interface UISection {
   id: string;
   name: string;
@@ -14,20 +12,16 @@ export interface UISection {
   tags: string[];
 }
 
-@Injectable({
-  providedIn: 'root',
-})
-export class SectionsService {
-  private sections: UISection[] = [
-    {
-      id: 'hero-centered',
-      name: 'Centered Hero',
-      category: 'Heroes',
-      description:
-        'Clean centered hero section with title, description, and CTA buttons',
-      preview: 'hero-centered-preview',
-      code: {
-        html: `<section class="relative bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white">
+export const SECTIONS: UISection[] = [
+  {
+    id: 'hero-centered',
+    name: 'Centered Hero',
+    category: 'Heroes',
+    description:
+      'Clean centered hero section with title, description, and CTA buttons',
+    preview: 'hero-centered-preview',
+    code: {
+      html: `<section class="relative bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white">
   <div class="absolute inset-0 bg-black/10"></div>
   <div class="relative max-w-7xl mx-auto px-4 py-24 sm:py-32">
     <div class="text-center">
@@ -48,7 +42,7 @@ export class SectionsService {
     </div>
   </div>
 </section>`,
-        typescript: `import { Component } from '@angular/core';
+      typescript: `import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -58,18 +52,18 @@ import { MatButtonModule } from '@angular/material/button';
   template: \`<!-- HTML code here -->\`
 })
 export class HeroCenteredComponent {}`,
-        dependencies: ['@angular/material/button'],
-      },
-      tags: ['hero', 'centered', 'gradient', 'cta'],
+      dependencies: ['@angular/material/button'],
     },
-    {
-      id: 'features-grid',
-      name: 'Feature Grid',
-      category: 'Features',
-      description: 'Clean 3-column feature grid with icons and descriptions',
-      preview: 'features-grid-preview',
-      code: {
-        html: `<section class="py-24 bg-white dark:bg-gray-900">
+    tags: ['hero', 'centered', 'gradient', 'cta'],
+  },
+  {
+    id: 'features-grid',
+    name: 'Feature Grid',
+    category: 'Features',
+    description: 'Clean 3-column feature grid with icons and descriptions',
+    preview: 'features-grid-preview',
+    code: {
+      html: `<section class="py-24 bg-white dark:bg-gray-900">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -113,7 +107,7 @@ export class HeroCenteredComponent {}`,
     </div>
   </div>
 </section>`,
-        typescript: `import { Component } from '@angular/core';
+      typescript: `import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -123,19 +117,19 @@ import { MatIconModule } from '@angular/material/icon';
   template: \`<!-- HTML code here -->\`
 })
 export class FeaturesGridComponent {}`,
-        dependencies: ['@angular/material/icon'],
-      },
-      tags: ['features', 'grid', 'icons', '3-column'],
+      dependencies: ['@angular/material/icon'],
     },
-    {
-      id: 'testimonials-cards',
-      name: 'Testimonial Cards',
-      category: 'Testimonials',
-      description:
-        'Customer testimonials in card layout with avatars and ratings',
-      preview: 'testimonials-cards-preview',
-      code: {
-        html: `<section class="py-24 bg-gray-50 dark:bg-gray-800">
+    tags: ['features', 'grid', 'icons', '3-column'],
+  },
+  {
+    id: 'testimonials-cards',
+    name: 'Testimonial Cards',
+    category: 'Testimonials',
+    description:
+      'Customer testimonials in card layout with avatars and ratings',
+    preview: 'testimonials-cards-preview',
+    code: {
+      html: `<section class="py-24 bg-gray-50 dark:bg-gray-800">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -203,7 +197,7 @@ export class FeaturesGridComponent {}`,
     </div>
   </div>
 </section>`,
-        typescript: `import { Component } from '@angular/core';
+      typescript: `import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -215,18 +209,18 @@ import { MatIconModule } from '@angular/material/icon';
   template: \`<!-- HTML code here -->\`
 })
 export class TestimonialsCardsComponent {}`,
-        dependencies: ['@angular/material/card', '@angular/material/icon'],
-      },
-      tags: ['testimonials', 'cards', 'reviews', 'ratings'],
+      dependencies: ['@angular/material/card', '@angular/material/icon'],
     },
-    {
-      id: 'pricing-table',
-      name: 'Pricing Table',
-      category: 'Pricing',
-      description: '3-tier pricing table with highlighted popular plan',
-      preview: 'pricing-table-preview',
-      code: {
-        html: `<section class="py-24 bg-white dark:bg-gray-900">
+    tags: ['testimonials', 'cards', 'reviews', 'ratings'],
+  },
+  {
+    id: 'pricing-table',
+    name: 'Pricing Table',
+    category: 'Pricing',
+    description: '3-tier pricing table with highlighted popular plan',
+    preview: 'pricing-table-preview',
+    code: {
+      html: `<section class="py-24 bg-white dark:bg-gray-900">
   <div class="max-w-7xl mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -323,7 +317,7 @@ export class TestimonialsCardsComponent {}`,
     </div>
   </div>
 </section>`,
-        typescript: `import { Component } from '@angular/core';
+      typescript: `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -335,29 +329,12 @@ import { MatIconModule } from '@angular/material/icon';
   template: \`<!-- HTML code here -->\`
 })
 export class PricingTableComponent {}`,
-        dependencies: [
-          '@angular/material/card',
-          '@angular/material/button',
-          '@angular/material/icon',
-        ],
-      },
-      tags: ['pricing', 'plans', 'cards', '3-tier'],
+      dependencies: [
+        '@angular/material/card',
+        '@angular/material/button',
+        '@angular/material/icon',
+      ],
     },
-  ];
-
-  getAllSections(): UISection[] {
-    return this.sections;
-  }
-
-  getSectionsByCategory(category: string): UISection[] {
-    return this.sections.filter((section) => section.category === category);
-  }
-
-  getSectionById(id: string): UISection | undefined {
-    return this.sections.find((section) => section.id === id);
-  }
-
-  getCategories(): string[] {
-    return [...new Set(this.sections.map((section) => section.category))];
-  }
-}
+    tags: ['pricing', 'plans', 'cards', '3-tier'],
+  },
+];
