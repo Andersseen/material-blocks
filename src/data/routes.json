@@ -1,0 +1,30 @@
+{
+  "routes": [
+    {
+      "path": "",
+      "title": "Home - UI Components Library",
+      "name": "Home"
+    },
+    {
+      "path": "sections",
+      "title": "UI Components - Ready to use",
+      "name": "Sections"
+    },
+    {
+      "path": "docs",
+      "title": "Documentation - Getting Started",
+      "name": "Docs"
+    }
+  ],
+  "metadata": {
+    "projectName": "Angular UI Components Library",
+    "version": "1.0.0",
+    "description": "Copy-Paste ready Angular components built with Material and Tailwind CSS",
+    "defaultTitle": "UI Blocks - Copy-Paste Ready Components",
+    "links": {
+      "github": "https://github.com/your-repo",
+      "twitter": "https://twitter.com/your-handle",
+      "discord": "https://discord.gg/your-invite"
+    }
+  }
+}

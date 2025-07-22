@@ -18,7 +18,8 @@
       "@server/*": ["./src/server/*"],
       "@app/*": ["./src/app/*"],
       "@components/*": ["./src/components/*"],
-      "@services/*": ["./src/services/*"]
+      "@services/*": ["./src/services/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "angularCompilerOptions": {
