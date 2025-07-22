@@ -3,17 +3,20 @@
     {
       "path": "",
       "title": "Home - UI Components Library",
-      "name": "Home"
+      "name": "Home",
+      "code": "home"
     },
     {
       "path": "sections",
       "title": "UI Components - Ready to use",
-      "name": "Sections"
+      "name": "Sections",
+      "code": "sections"
     },
     {
       "path": "docs",
       "title": "Documentation - Getting Started",
-      "name": "Docs"
+      "name": "Docs",
+      "code": "docs"
     }
   ],
   "metadata": {

@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class ClipboardService {
-  
+@Injectable()
+export default class Clipboard {
   async copyToClipboard(text: string): Promise<boolean> {
     try {
       if (navigator.clipboard && window.isSecureContext) {

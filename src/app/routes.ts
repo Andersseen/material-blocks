@@ -1,37 +1,26 @@
 import { Routes } from '@angular/router';
 import routesConfig from '@data/routes.json';
 
-const data = routesConfig.routes;
+const COMPONENT_MAP: Record<string, () => Promise<any>> = {
+  home: () => import('@components/home'),
+  sections: () => import('@components/sections'),
+  docs: () => import('@components/docs'),
+};
+
+const getComponentLoader = (code: string) => {
+  const loader = COMPONENT_MAP[code];
+  if (!loader) {
+    throw new Error(`No component loader found for path: ${code}`);
+  }
+  return loader;
+};
 
 const routes: Routes = [
-  {
-    path: data[0].path,
-    loadComponent: () => import('@components/home'),
-    title: data[0].title,
-  },
-  {
-    path: data[1].path,
-    loadComponent: () => import('@components/sections'),
-    title: data[1].title,
-  },
-  {
-    path: data[2].path,
-    loadComponent: () => import('@components/docs'),
-    title: data[2].title,
-  },
-  // {
-  //   path: "login",
-  //   loadComponent: () =>
-  //     import("@components/auth/login.component").then((m) => m.LoginComponent),
-  //   title: "Login - UI Blocks",
-  // },
-  // {
-  //   path: "admin",
-  //   loadComponent: () =>
-  //     import("@components/admin/admin.component").then((m) => m.AdminComponent),
-  //   canActivate: [authGuard],
-  //   title: "Admin - UI Blocks",
-  // },
+  ...routesConfig.routes.map((route) => ({
+    path: route.path,
+    loadComponent: getComponentLoader(route.code),
+    title: route.title,
+  })),
   {
     path: '**',
     redirectTo: '',

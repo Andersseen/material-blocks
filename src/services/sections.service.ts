@@ -15,16 +15,16 @@ export interface UISection {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SectionsService {
-  
   private sections: UISection[] = [
     {
       id: 'hero-centered',
       name: 'Centered Hero',
       category: 'Heroes',
-      description: 'Clean centered hero section with title, description, and CTA buttons',
+      description:
+        'Clean centered hero section with title, description, and CTA buttons',
       preview: 'hero-centered-preview',
       code: {
         html: `<section class="relative bg-gradient-to-br from-primary-500 via-primary-600 to-primary-700 text-white">
@@ -58,9 +58,9 @@ import { MatButtonModule } from '@angular/material/button';
   template: \`<!-- HTML code here -->\`
 })
 export class HeroCenteredComponent {}`,
-        dependencies: ['@angular/material/button']
+        dependencies: ['@angular/material/button'],
       },
-      tags: ['hero', 'centered', 'gradient', 'cta']
+      tags: ['hero', 'centered', 'gradient', 'cta'],
     },
     {
       id: 'features-grid',
@@ -123,15 +123,16 @@ import { MatIconModule } from '@angular/material/icon';
   template: \`<!-- HTML code here -->\`
 })
 export class FeaturesGridComponent {}`,
-        dependencies: ['@angular/material/icon']
+        dependencies: ['@angular/material/icon'],
       },
-      tags: ['features', 'grid', 'icons', '3-column']
+      tags: ['features', 'grid', 'icons', '3-column'],
     },
     {
       id: 'testimonials-cards',
       name: 'Testimonial Cards',
       category: 'Testimonials',
-      description: 'Customer testimonials in card layout with avatars and ratings',
+      description:
+        'Customer testimonials in card layout with avatars and ratings',
       preview: 'testimonials-cards-preview',
       code: {
         html: `<section class="py-24 bg-gray-50 dark:bg-gray-800">
@@ -214,9 +215,9 @@ import { MatIconModule } from '@angular/material/icon';
   template: \`<!-- HTML code here -->\`
 })
 export class TestimonialsCardsComponent {}`,
-        dependencies: ['@angular/material/card', '@angular/material/icon']
+        dependencies: ['@angular/material/card', '@angular/material/icon'],
       },
-      tags: ['testimonials', 'cards', 'reviews', 'ratings']
+      tags: ['testimonials', 'cards', 'reviews', 'ratings'],
     },
     {
       id: 'pricing-table',
@@ -334,25 +335,29 @@ import { MatIconModule } from '@angular/material/icon';
   template: \`<!-- HTML code here -->\`
 })
 export class PricingTableComponent {}`,
-        dependencies: ['@angular/material/card', '@angular/material/button', '@angular/material/icon']
+        dependencies: [
+          '@angular/material/card',
+          '@angular/material/button',
+          '@angular/material/icon',
+        ],
       },
-      tags: ['pricing', 'plans', 'cards', '3-tier']
-    }
+      tags: ['pricing', 'plans', 'cards', '3-tier'],
+    },
   ];
-  
+
   getAllSections(): UISection[] {
     return this.sections;
   }
-  
+
   getSectionsByCategory(category: string): UISection[] {
-    return this.sections.filter(section => section.category === category);
+    return this.sections.filter((section) => section.category === category);
   }
-  
+
   getSectionById(id: string): UISection | undefined {
-    return this.sections.find(section => section.id === id);
+    return this.sections.find((section) => section.id === id);
   }
-  
+
   getCategories(): string[] {
-    return [...new Set(this.sections.map(section => section.category))];
+    return [...new Set(this.sections.map((section) => section.category))];
   }
 }
