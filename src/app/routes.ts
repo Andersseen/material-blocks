@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import routesConfig from '@data/routes.json';
 
 const COMPONENT_MAP: Record<string, () => Promise<any>> = {
-  home: () => import('@components/home'),
-  sections: () => import('@components/sections/index'),
-  docs: () => import('@components/docs'),
+  home: () => import('@app/home/routes'),
+  sections: () => import('@app/sections/routes'),
+  docs: () => import('@app/docs/routes'),
 };
 
 const getComponentLoader = (code: string) => {
@@ -18,7 +18,7 @@ const getComponentLoader = (code: string) => {
 const routes: Routes = [
   ...routesConfig.routes.map((route) => ({
     path: route.path,
-    loadComponent: getComponentLoader(route.code),
+    loadChildren: getComponentLoader(route.code),
     title: route.title,
   })),
   {

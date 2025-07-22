@@ -22,15 +22,8 @@ export default class ThemeState {
   public initializeTheme() {
     if (!this.isBrowser()) return;
     const savedTheme = localStorage.getItem('theme') as Theme;
-    const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)'
-    ).matches;
 
-    if (savedTheme) {
-      this.applyTheme(savedTheme);
-      return;
-    }
-    this.#currentTheme.set('dark');
+    this.applyTheme(savedTheme ?? 'dark');
   }
 
   private applyTheme(theme: Theme) {
