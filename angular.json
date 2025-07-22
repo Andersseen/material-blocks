@@ -27,10 +27,10 @@
               }
             ],
             "styles": ["src/custom-theme.scss", "src/styles.css"],
-            "server": "src/main.server.ts",
+            "server": "src/server/main.server.ts",
             "outputMode": "server",
             "ssr": {
-              "entry": "src/server.ts"
+              "entry": "src/server/server.ts"
             }
           },
           "configurations": {
