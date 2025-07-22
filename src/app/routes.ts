@@ -1,21 +1,24 @@
 import { Routes } from '@angular/router';
+import routesConfig from '@data/routes.json';
+
+const data = routesConfig.routes;
 
 const routes: Routes = [
   {
-    path: '',
+    path: data[0].path,
     loadComponent: () => import('@components/home'),
-    title: 'UI Blocks - Copy-Paste Ready Components',
+    title: data[0].title,
   },
-  //   {
-  //     path: "sections",
-  //     loadComponent: () => import("@components/sections"),
-  //     title: "Sections - UI Blocks",
-  //   },
-  //   {
-  //     path: "docs",
-  //     loadComponent: () => import("@components/docs"),
-  //     title: "Documentation - UI Blocks",
-  //   },
+  {
+    path: data[1].path,
+    loadComponent: () => import('@components/sections'),
+    title: data[1].title,
+  },
+  {
+    path: data[2].path,
+    loadComponent: () => import('@components/docs'),
+    title: data[2].title,
+  },
   // {
   //   path: "login",
   //   loadComponent: () =>

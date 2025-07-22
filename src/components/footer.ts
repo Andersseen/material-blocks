@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
         <div class="text-center">
           <p>Built with ❤️ using Angular, Material Design, and Tailwind CSS</p>
           <p class="text-sm mt-2">
-            Copy-paste ready components for modern web applications
+            Copy-paste ready blocks for modern web applications
           </p>
         </div>
       </div>
