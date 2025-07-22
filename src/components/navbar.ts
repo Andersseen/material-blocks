@@ -63,9 +63,9 @@ export interface Route {
           </button>
 
           <!-- Mobile Menu Toggle -->
-          <button mat-icon-button class="block md:hidden">
+          <!-- <button mat-icon-button class="block md:hidden">
             <mat-icon>menu</mat-icon>
-          </button>
+          </button> -->
         </div>
       </div>
     </mat-toolbar>
