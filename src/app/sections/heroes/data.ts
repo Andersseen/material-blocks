@@ -11,6 +11,38 @@ export interface BlockData {
   views: BlockView[];
   previewUrl?: string;
 }
+export interface BlockCard {
+  id: string;
+  title: string;
+  description: string;
+  previewUrl: string;
+}
+export const blocks: BlockCard[] = [
+  {
+    id: '1',
+    title: 'Auth Form',
+    description: 'Clean authentication form with validation',
+    previewUrl: 'https://placehold.co/600x400?text=Hero+1',
+  },
+  {
+    id: '2',
+    title: 'Dashboard Card',
+    description: 'Modern card component for dashboard metrics',
+    previewUrl: 'https://placehold.co/600x400?text=Hero+2',
+  },
+  {
+    id: '3',
+    title: 'Pricing Section',
+    description: 'Responsive pricing section with toggle',
+    previewUrl: 'https://placehold.co/600x400?text=Hero+3',
+  },
+  {
+    id: '4',
+    title: 'Navigation Bar',
+    description: 'Dark mode toggle included',
+    previewUrl: 'https://placehold.co/600x400?text=Hero+4',
+  },
+];
 
 export type ViewMode = 'code' | 'preview';
 export const blockData: BlockData = {

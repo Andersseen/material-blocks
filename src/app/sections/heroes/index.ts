@@ -1,87 +1,90 @@
-import { Component, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { BlockData, blockData, ViewMode } from './data';
+import { Component } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
+import { MatCard, MatCardContent } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { BlockCard, blocks } from './data';
 
 @Component({
-  selector: 'page-heroes',
-  imports: [
-    MatButtonModule,
-    MatIconModule,
-    MatTabsModule,
-    MatTooltipModule,
-    MatCardModule,
-    MatChipsModule,
-  ],
-  templateUrl: './template.html',
+  selector: 'page-blocks-list',
+  imports: [MatCard, MatCardContent, MatIcon, MatIconButton, RouterLink],
+  template: ` <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <button
+          mat-icon-button
+          class="text-gray-600 hover:text-gray-900"
+          matTooltip="Back to category"
+          routerLink=".."
+        >
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button
+          mat-icon-button
+          class="text-gray-600 hover:text-gray-900 disabled:text-gray-300"
+          matTooltip="Previous block"
+        >
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <button
+          mat-icon-button
+          class="text-gray-600 hover:text-gray-900 disabled:text-gray-300"
+          matTooltip="Next block"
+        >
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 py-8">
+      <!-- Header Section -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
+          UI Blocks Collection
+        </h1>
+        <p class="mt-2 text-gray-600 dark:text-gray-400">
+          Ready-to-use components for your Angular applications
+        </p>
+      </div>
+
+      <!-- Blocks Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        @for (block of blocks; track $index) {
+        <a [routerLink]="['/sections/heroes', block.id]">
+          <mat-card
+            class="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            <!-- Preview Image -->
+            <div class="h-48 relative overflow-hidden">
+              <img
+                [src]="block.previewUrl"
+                [alt]="block.title"
+                class="w-full h-full object-cover"
+              />
+            </div>
+
+            <!-- Block Content -->
+            <mat-card-content class="p-4">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3
+                    class="font-semibold text-lg text-gray-900 dark:text-white"
+                  >
+                    {{ block.title }}
+                  </h3>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">
+                    {{ block.description }}
+                  </p>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </a>
+        }
+      </div>
+    </div>`,
 })
-export default class Heroes {
-  @Input() blockData: BlockData = blockData;
-
-  @Input() currentBlockIndex: number = 0;
-  @Input() totalBlocks: number = 1;
-
-  public selectedTabIndex = 0;
-  public viewMode: ViewMode = 'code';
-  public isPreviewLoading = false;
-
-  // Navigation methods - you'll connect these to your routing
-  onBackToCategory() {
-    console.log('Navigate back to category');
-  }
-
-  onPreviousBlock() {
-    if (this.currentBlockIndex > 0) {
-      console.log('Navigate to previous block');
-    }
-  }
-
-  onNextBlock() {
-    if (this.currentBlockIndex < this.totalBlocks - 1) {
-      console.log('Navigate to next block');
-    }
-  }
-
-  // View mode methods
-  setViewMode(mode: ViewMode) {
-    this.viewMode = mode;
-    if (mode === 'preview') {
-      this.isPreviewLoading = true;
-      setTimeout(() => {
-        this.isPreviewLoading = false;
-      }, 1000);
-    }
-  }
-
-  refreshPreview() {
-    this.isPreviewLoading = true;
-    setTimeout(() => {
-      this.isPreviewLoading = false;
-    }, 500);
-  }
-
-  openInNewTab() {
-    if (this.blockData.previewUrl) {
-      window.open(this.blockData.previewUrl, '_blank');
-    }
-  }
-
-  // Your existing methods
-  copyCurrentView() {
-    const currentView = this.blockData.views[this.selectedTabIndex];
-    this.copyCode(currentView.content);
-  }
-
-  copyCode(content: string) {
-    navigator.clipboard.writeText(content);
-  }
-
-  getCurrentLanguage(): string {
-    const currentView = this.blockData.views[this.selectedTabIndex];
-    return currentView.language || 'typescript';
-  }
+export default class BlocksListComponent {
+  public blocks: BlockCard[] = blocks;
 }
