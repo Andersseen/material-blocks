@@ -4,6 +4,7 @@ const sectionRoutes: Routes = [
   {
     path: '',
     loadComponent: () => import('./page'),
+    children: [{ path: 'heroes', loadComponent: () => import('./heroes') }],
   },
 ];
 
