@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, input, output } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { Component, input } from '@angular/core';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatRipple } from '@angular/material/core';
 import { MatIcon } from '@angular/material/icon';
@@ -8,7 +7,7 @@ import { Section } from '@app/sections/data';
 
 @Component({
   selector: 'app-card',
-  imports: [NgClass, MatCard, MatCardContent, MatIcon, MatButton, MatRipple],
+  imports: [NgClass, MatCard, MatCardContent, MatIcon, MatRipple],
   template: `
     <mat-card
       class="group relative overflow-hidden cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 transform"
@@ -32,7 +31,9 @@ import { Section } from '@app/sections/data';
         </div>
       </div>
 
-      <mat-card-content class="p-4 sm:p-6 pt-0">
+      <mat-card-content
+        class="p-4 sm:p-6 pt-0 group-hover:blur-[1px] group-hover:opacity-20 transition-all duration-500"
+      >
         <!-- Title and Count -->
         <div class="text-center mb-3 sm:mb-4">
           <h3
@@ -59,11 +60,9 @@ import { Section } from '@app/sections/data';
       <div
         class="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0"
       >
-        <div class="flex gap-2">
-          <button mat-button class="flex-1 text-xs sm:text-sm">
-            <mat-icon class="mr-1 text-base">visibility</mat-icon>
-            Preview
-          </button>
+        <div class="flex justify-center items-center gap-2">
+          <mat-icon class="mr-1 text-base">visibility</mat-icon>
+          Preview
         </div>
       </div>
     </mat-card>
