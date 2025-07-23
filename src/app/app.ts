@@ -7,9 +7,7 @@ import Layout from './layout';
   imports: [RouterOutlet, Layout],
   template: `
     <app-layout>
-      <main>
-        <router-outlet />
-      </main>
+      <router-outlet />
     </app-layout>
   `,
 })
