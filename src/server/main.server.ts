@@ -1,6 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import config from '@app/config';
 import Container from '@app/container';
+import { config } from './config.server';
 
 const bootstrap = () => bootstrapApplication(Container, config);
 
