@@ -3,7 +3,7 @@ import { Component, input } from '@angular/core';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { MatRipple } from '@angular/material/core';
 import { MatIcon } from '@angular/material/icon';
-import { Section } from '@app/sections/data';
+import { type Section } from '@shared/interfaces';
 
 @Component({
   selector: 'app-card',

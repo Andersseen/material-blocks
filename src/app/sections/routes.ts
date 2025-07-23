@@ -15,6 +15,16 @@ const sectionRoutes: Routes = [
           },
         ],
       },
+      {
+        path: 'features',
+        children: [
+          { path: '', loadComponent: () => import('./features') },
+          {
+            path: ':id',
+            loadComponent: () => import('./heroes/block'),
+          },
+        ],
+      },
     ],
   },
 ];

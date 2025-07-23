@@ -1,13 +1,5 @@
-export interface Section {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-  componentCount: number;
-  tags: string[];
-  isPopular?: boolean;
-  gradient: string;
-}
+import { Section } from '../../shared/interfaces';
+
 export const sections: Section[] = [
   {
     id: 'heroes',

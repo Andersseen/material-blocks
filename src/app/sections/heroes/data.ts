@@ -1,4 +1,4 @@
-import { title } from 'process';
+import { type BlockCard } from '../../../shared/interfaces';
 
 export interface BlockView {
   label: string;
@@ -12,12 +12,6 @@ export interface BlockData {
   tags?: string[];
   views: BlockView[];
   previewUrl?: string;
-}
-export interface BlockCard {
-  id: string;
-  title: string;
-  description: string;
-  previewUrl: string;
 }
 
 export const heroBlocks: BlockCard[] = [

@@ -10,7 +10,8 @@ import Card from '@components/sections/card';
 import CTA from '@components/sections/cta';
 import Stats from '@components/sections/stats';
 import { filter } from 'rxjs/operators';
-import { Section, sections } from './data';
+import { sections } from './data';
+import { type Section } from '@shared/interfaces';
 
 @Component({
   selector: 'page-sections',
@@ -43,7 +44,10 @@ import { Section, sections } from './data';
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
           >
             @for (section of sections; track $index) {
-            <app-card [section]="section" (click)="onSectionClick()" />
+            <app-card
+              [section]="section"
+              (click)="onSectionClick(section.id)"
+            />
             }
           </div>
         </div>
@@ -57,7 +61,7 @@ import { Section, sections } from './data';
     }
   `,
 })
-export default class SectionPage {
+export default class Sections {
   #router = inject(Router);
   #route = inject(ActivatedRoute);
   public sections: Section[] = sections;
@@ -73,7 +77,7 @@ export default class SectionPage {
     );
   }
 
-  onSectionClick(): void {
-    this.#router.navigate(['heroes'], { relativeTo: this.#route });
+  onSectionClick(path: string): void {
+    this.#router.navigate([path], { relativeTo: this.#route });
   }
 }
