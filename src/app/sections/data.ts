@@ -1,25 +1,6 @@
-export interface Section {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
-  componentCount: number;
-  tags: string[];
-  isPopular?: boolean;
-  gradient: string;
-}
+import { Section } from '../../shared/interfaces';
+
 export const sections: Section[] = [
-  {
-    id: 'features',
-    title: 'Features',
-    description:
-      'Showcase product features and benefits with various layouts, grids, and interactive elements.',
-    icon: 'featured_play_list',
-    componentCount: 12,
-    tags: ['Product', 'Benefits', 'Showcase', 'Grid'],
-    isPopular: true,
-    gradient: 'bg-gradient-to-br from-blue-500 to-blue-600',
-  },
   {
     id: 'heroes',
     title: 'Heroes',
@@ -31,6 +12,18 @@ export const sections: Section[] = [
     isPopular: true,
     gradient: 'bg-gradient-to-br from-purple-500 to-purple-600',
   },
+  {
+    id: 'features',
+    title: 'Features',
+    description:
+      'Showcase product features and benefits with various layouts, grids, and interactive elements.',
+    icon: 'featured_play_list',
+    componentCount: 12,
+    tags: ['Product', 'Benefits', 'Showcase', 'Grid'],
+    isPopular: true,
+    gradient: 'bg-gradient-to-br from-blue-500 to-blue-600',
+  },
+
   {
     id: 'pricing',
     title: 'Pricing',

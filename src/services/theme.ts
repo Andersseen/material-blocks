@@ -9,7 +9,7 @@ import {
 
 type Theme = 'light' | 'dark';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export default class ThemeState {
   #platformId = inject(PLATFORM_ID);
   #currentTheme = signal<Theme>('dark');
@@ -18,7 +18,9 @@ export default class ThemeState {
   readonly isDark = computed(() => this.#currentTheme() === 'dark');
 
   private isBrowser = signal(isPlatformBrowser(this.#platformId));
-
+  constructor() {
+    this.initializeTheme();
+  }
   public initializeTheme() {
     if (!this.isBrowser()) return;
     const savedTheme = localStorage.getItem('theme') as Theme;

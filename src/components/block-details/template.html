@@ -1,0 +1,202 @@
+<section>
+  <!-- Navigation Header -->
+  <div class="flex items-center justify-between mb-6">
+    <div class="flex items-center gap-3">
+      <button
+        mat-icon-button
+        class="text-gray-600 hover:text-gray-900"
+        matTooltip="Back to category"
+        routerLink=".."
+      >
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="text-sm text-gray-500">
+        {{ currentBlockIndex + 1 }} of {{ totalBlocks }}
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2">
+      <button
+        mat-icon-button
+        [disabled]="currentBlockIndex === 0"
+        class="text-gray-600 hover:text-gray-900 disabled:text-gray-300"
+        matTooltip="Previous block"
+        (click)="onPreviousBlock()"
+      >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        [disabled]="currentBlockIndex === totalBlocks - 1"
+        class="text-gray-600 hover:text-gray-900 disabled:text-gray-300"
+        matTooltip="Next block"
+        (click)="onNextBlock()"
+      >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <div class="p-6">
+    <div class="flex items-start justify-between gap-4">
+      <div class="flex-1">
+        <h3 class="text-xl font-semibold text-foreground mb-2">
+          {{ blockData()?.title }}
+        </h3>
+        <p class="text-sm text-muted-foreground leading-relaxed mb-3">
+          {{ blockData()?.description }}
+        </p>
+      </div>
+
+      <!-- Copy Button -->
+      <button
+        mat-icon-button
+        class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
+        matTooltip="Copy code"
+        (click)="copyCurrentView()"
+      >
+        <mat-icon class="!text-lg">content_copy</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- View Mode Toggle -->
+  <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center rounded-lg p-1">
+      <button
+        mat-button
+        class="min-w-0 px-4 py-2 text-sm font-medium transition-colors"
+        (click)="setViewMode('code')"
+      >
+        <mat-icon class="text-base mr-2">code</mat-icon>
+        Code
+      </button>
+      <button
+        mat-button
+        class="min-w-0 px-4 py-2 text-sm font-medium"
+        [disabled]="!blockData()?.previewUrl"
+        (click)="setViewMode('preview')"
+      >
+        <mat-icon class="text-base mr-2">visibility</mat-icon>
+        Preview
+      </button>
+    </div>
+
+    <!-- Additional Actions -->
+    @if (viewMode === 'preview') {
+    <div class="flex items-center gap-2">
+      <button
+        mat-icon-button
+        class="text-gray-600 hover:text-gray-900"
+        matTooltip="Refresh preview"
+        (click)="refreshPreview()"
+      >
+        <mat-icon class="text-base">refresh</mat-icon>
+      </button>
+      @if (blockData()?.previewUrl) {
+      <button
+        mat-icon-button
+        class="text-gray-600 hover:text-gray-900"
+        matTooltip="Open in new tab"
+        (click)="openInNewTab()"
+      >
+        <mat-icon class="text-base">open_in_new</mat-icon>
+      </button>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Content Section -->
+  <div
+    class="h-[50dvh] border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
+  >
+    <!-- Code View -->
+    @if (viewMode === 'code') {
+    <div>
+      <mat-tab-group
+        [(selectedIndex)]="selectedTabIndex"
+        class="block-tabs"
+        animationDuration="200ms"
+      >
+        @for (view of blockData()?.views; track $index) {
+        <mat-tab [label]="view.label">
+          <!-- Code Content -->
+          <div class="relative">
+            <div class="absolute top-3 right-3 z-10">
+              <button
+                mat-icon-button
+                size="small"
+                class="!text-muted-foreground hover:!text-foreground !bg-background/80 backdrop-blur-sm !shadow-sm"
+                matTooltip="Copy"
+                (click)="copyCode(view.content)"
+              >
+                <mat-icon class="!text-base">content_copy</mat-icon>
+              </button>
+            </div>
+
+            <pre
+              class="bg-card text-card-foreground p-4 overflow-x-auto text-sm leading-relaxed"
+            ><code [class]="'language-' + (view.language || 'typescript')">{{ view.content }}</code></pre>
+          </div>
+        </mat-tab>
+        }
+      </mat-tab-group>
+    </div>
+    }
+
+    <!-- Preview View -->
+    @if (viewMode === 'preview') {
+    <div class="relative h-full">
+      @if (!blockData()?.previewUrl) {
+      <div class="flex items-center justify-center h-full">
+        <div class="text-center">
+          <mat-icon class="text-4xl mb-2">preview</mat-icon>
+          <p>No preview available for this block</p>
+        </div>
+      </div>
+      }@else{
+      <iframe
+        src="http://localhost:4200/examples"
+        class="w-full h-full border-0"
+        #previewFrame
+      >
+      </iframe>
+      }
+
+      <!-- Loading overlay -->
+      @if (isPreviewLoading && blockData()?.previewUrl) {
+      <div
+        class="absolute inset-0 bg-white/80 flex items-center justify-center"
+      >
+        <div class="flex items-center gap-2 text-gray-600">
+          <mat-icon class="animate-spin">refresh</mat-icon>
+          <span>Loading preview...</span>
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+
+  <!-- Footer Info -->
+  @if (viewMode === 'code') {
+  <div class="px-6 py-3 bg-muted/20">
+    <div
+      class="flex items-center justify-between text-xs text-muted-foreground"
+    >
+      <span
+        >{{ blockData()?.views?.length }} view{{
+          blockData()?.views?.length !== 1 ? "s" : ""
+        }}
+        available</span
+      >
+      <span class="flex items-center gap-1">
+        <mat-icon class="!text-xs">code</mat-icon>
+        {{ getCurrentLanguage() }}
+      </span>
+    </div>
+  </div>
+  }
+</section>

@@ -16,11 +16,23 @@ const getComponentLoader = (code: string) => {
 };
 
 const routes: Routes = [
-  ...routesConfig.routes.map((route) => ({
-    path: route.path,
-    loadChildren: getComponentLoader(route.code),
-    title: route.title,
-  })),
+  {
+    path: '',
+    loadComponent: () => import('@app/app'),
+    title: routesConfig.metadata.projectName,
+    children: [
+      ...routesConfig.routes.map((route) => ({
+        path: route.path,
+        loadChildren: getComponentLoader(route.code),
+        title: route.title,
+      })),
+    ],
+  },
+  {
+    path: 'examples',
+    loadComponent: () => import('@examples/heroes/hero-1'),
+    title: 'Hero Example',
+  },
   {
     path: '**',
     redirectTo: '',

@@ -19,7 +19,9 @@
       "@app/*": ["./src/app/*"],
       "@components/*": ["./src/components/*"],
       "@services/*": ["./src/services/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@examples/*": ["./src/examples/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   },
   "angularCompilerOptions": {
