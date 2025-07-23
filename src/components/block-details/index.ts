@@ -68,7 +68,7 @@ export default class BlockDetails {
 
   openInNewTab() {
     if (this.blockData()?.previewUrl) {
-      window.open(this.blockData()?.previewUrl, '_blank');
+      window.open('http://localhost:4200/examples', '_blank');
     }
   }
 

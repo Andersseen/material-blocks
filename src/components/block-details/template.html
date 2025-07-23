@@ -110,7 +110,7 @@
 
   <!-- Content Section -->
   <div
-    class="bg-muted/30 border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
+    class="h-[50dvh] border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
   >
     <!-- Code View -->
     @if (viewMode === 'code') {
@@ -148,18 +148,18 @@
 
     <!-- Preview View -->
     @if (viewMode === 'preview') {
-    <div class="relative">
+    <div class="relative h-full">
       @if (!blockData()?.previewUrl) {
-      <div class="flex items-center justify-center h-96 text-gray-500">
+      <div class="flex items-center justify-center h-full">
         <div class="text-center">
           <mat-icon class="text-4xl mb-2">preview</mat-icon>
           <p>No preview available for this block</p>
         </div>
       </div>
-      @if (blockData()?.previewUrl) {
+      }@else{
       <iframe
-        [src]="blockData()?.previewUrl"
-        class="w-full h-96 border-0 bg-white"
+        src="http://localhost:4200/examples"
+        class="w-full h-full border-0"
         #previewFrame
       >
       </iframe>
@@ -175,7 +175,7 @@
           <span>Loading preview...</span>
         </div>
       </div>
-      } }
+      }
     </div>
     }
   </div>
