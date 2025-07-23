@@ -11,7 +11,7 @@ const sectionRoutes: Routes = [
           { path: '', loadComponent: () => import('./heroes') },
           {
             path: ':id',
-            loadComponent: () => import('./heroes/block'),
+            loadComponent: () => import('./block'),
           },
         ],
       },
@@ -21,7 +21,7 @@ const sectionRoutes: Routes = [
           { path: '', loadComponent: () => import('./features') },
           {
             path: ':id',
-            loadComponent: () => import('./heroes/block'),
+            loadComponent: () => import('./block'),
           },
         ],
       },

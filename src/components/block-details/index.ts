@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -6,10 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink } from '@angular/router';
-import { BlockData, blockData, ViewMode } from './data';
+import { type ViewMode, type BlockData } from '@shared/interfaces';
 
 @Component({
-  selector: 'page-block-details',
+  selector: 'block-details',
   imports: [
     MatButtonModule,
     MatIconModule,
@@ -22,7 +22,7 @@ import { BlockData, blockData, ViewMode } from './data';
   templateUrl: './template.html',
 })
 export default class BlockDetails {
-  @Input() blockData: BlockData = blockData;
+  public blockData = input<BlockData>();
 
   @Input() currentBlockIndex: number = 0;
   @Input() totalBlocks: number = 1;
@@ -67,14 +67,14 @@ export default class BlockDetails {
   }
 
   openInNewTab() {
-    if (this.blockData.previewUrl) {
-      window.open(this.blockData.previewUrl, '_blank');
+    if (this.blockData()?.previewUrl) {
+      window.open(this.blockData()?.previewUrl, '_blank');
     }
   }
 
   // Your existing methods
   copyCurrentView() {
-    const currentView = this.blockData.views[this.selectedTabIndex];
+    const currentView = this.blockData()!.views[this.selectedTabIndex];
     this.copyCode(currentView.content);
   }
 
@@ -83,7 +83,7 @@ export default class BlockDetails {
   }
 
   getCurrentLanguage(): string {
-    const currentView = this.blockData.views[this.selectedTabIndex];
+    const currentView = this.blockData()!.views[this.selectedTabIndex];
     return currentView.language || 'typescript';
   }
 }

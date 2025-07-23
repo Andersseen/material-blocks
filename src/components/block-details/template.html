@@ -42,10 +42,10 @@
     <div class="flex items-start justify-between gap-4">
       <div class="flex-1">
         <h3 class="text-xl font-semibold text-foreground mb-2">
-          {{ blockData.title }}
+          {{ blockData()?.title }}
         </h3>
         <p class="text-sm text-muted-foreground leading-relaxed mb-3">
-          {{ blockData.description }}
+          {{ blockData()?.description }}
         </p>
       </div>
 
@@ -75,7 +75,7 @@
       <button
         mat-button
         class="min-w-0 px-4 py-2 text-sm font-medium"
-        [disabled]="!blockData.previewUrl"
+        [disabled]="!blockData()?.previewUrl"
         (click)="setViewMode('preview')"
       >
         <mat-icon class="text-base mr-2">visibility</mat-icon>
@@ -94,7 +94,7 @@
       >
         <mat-icon class="text-base">refresh</mat-icon>
       </button>
-      @if (blockData.previewUrl) {
+      @if (blockData()?.previewUrl) {
       <button
         mat-icon-button
         class="text-gray-600 hover:text-gray-900"
@@ -120,7 +120,7 @@
         class="block-tabs"
         animationDuration="200ms"
       >
-        @for (view of blockData.views; track $index) {
+        @for (view of blockData()?.views; track $index) {
         <mat-tab [label]="view.label">
           <!-- Code Content -->
           <div class="relative">
@@ -149,16 +149,16 @@
     <!-- Preview View -->
     @if (viewMode === 'preview') {
     <div class="relative">
-      @if (!blockData.previewUrl) {
+      @if (!blockData()?.previewUrl) {
       <div class="flex items-center justify-center h-96 text-gray-500">
         <div class="text-center">
           <mat-icon class="text-4xl mb-2">preview</mat-icon>
           <p>No preview available for this block</p>
         </div>
       </div>
-      @if (blockData.previewUrl) {
+      @if (blockData()?.previewUrl) {
       <iframe
-        [src]="blockData.previewUrl"
+        [src]="blockData()?.previewUrl"
         class="w-full h-96 border-0 bg-white"
         #previewFrame
       >
@@ -166,7 +166,7 @@
       }
 
       <!-- Loading overlay -->
-      @if (isPreviewLoading && blockData.previewUrl) {
+      @if (isPreviewLoading && blockData()?.previewUrl) {
       <div
         class="absolute inset-0 bg-white/80 flex items-center justify-center"
       >
@@ -187,8 +187,8 @@
       class="flex items-center justify-between text-xs text-muted-foreground"
     >
       <span
-        >{{ blockData.views.length }} view{{
-          blockData.views.length !== 1 ? "s" : ""
+        >{{ blockData()?.views?.length }} view{{
+          blockData()?.views?.length !== 1 ? "s" : ""
         }}
         available</span
       >

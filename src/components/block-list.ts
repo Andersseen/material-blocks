@@ -49,7 +49,7 @@ import { SectionData } from '@shared/interfaces';
       <!-- Blocks Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @for (block of data()?.blocks; track $index) {
-        <a [routerLink]="['/sections/heroes', block.id]">
+        <a [routerLink]="['/sections/' + data()?.path, block.id]">
           <mat-card
             class="overflow-hidden hover:shadow-lg transition-shadow duration-300"
           >
