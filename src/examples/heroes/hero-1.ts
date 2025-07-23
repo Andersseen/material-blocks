@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,42 +12,39 @@ import { MatIconModule } from '@angular/material/icon';
         <div
           class="flex flex-col items-center text-center lg:items-start lg:text-left"
         >
-          @if (badge) {
           <mat-chip
             class="!border-border !bg-background !text-foreground !font-normal"
           >
-            {{ badge }}
+            badge
             <mat-icon class="!w-4 !h-4 !text-sm ml-2">arrow_outward</mat-icon>
           </mat-chip>
-          }
+
           <h1 class="my-6 text-pretty text-4xl font-bold lg:text-6xl">
-            {{ heading }}
+            Blocks Built With Angular & Tailwind
           </h1>
           <p class="text-muted-foreground mb-8 max-w-xl lg:text-xl">
-            {{ description }}
+            Finely crafted components built with Angular, Tailwind and Angular
+            Material. Developers can use these blocks directly in their project.
           </p>
           <div
             class="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start"
           >
-            @if (buttons.primary) {
             <button mat-raised-button color="primary" class="w-full sm:w-auto">
-              <a [href]="buttons.primary.url" class="w-full">{{
-                buttons.primary.text
-              }}</a>
+              <a class="w-full">Discover all components</a>
             </button>
-            } @if (buttons.secondary) {
+
             <button mat-stroked-button color="primary" class="w-full sm:w-auto">
-              <a [href]="buttons.secondary.url" class="flex items-center">
-                {{ buttons.secondary.text }}
+              <a class="flex items-center">
+                View on GitHub
                 <mat-icon class="!w-4 !h-4 !text-sm ml-2">arrow_right</mat-icon>
+                d
               </a>
             </button>
-            }
           </div>
         </div>
         <img
-          [src]="image.src"
-          [alt]="image.alt"
+          src="https://placehold.co/600x400?text=Angular+Blocks"
+          alt="Hero section demo image showing interface components"
           class="max-h-96 w-full rounded-md object-cover"
         />
       </div>
@@ -55,11 +52,6 @@ import { MatIconModule } from '@angular/material/icon';
   </section>`,
   styles: [
     `
-      /* You can add custom styles here if needed */
-      .text-muted-foreground {
-        color: hsl(var(--muted-foreground));
-      }
-
       .container {
         max-width: 100%;
         width: 100%;
@@ -97,23 +89,4 @@ import { MatIconModule } from '@angular/material/icon';
     `,
   ],
 })
-export default class Hero1 {
-  @Input() badge = '✨ Your badge';
-  @Input() heading = 'Blocks Built With Angular & Tailwind';
-  @Input() description =
-    'Finely crafted components built with Angular, Tailwind and Angular Material. Developers can use these blocks directly in their project.';
-  @Input() buttons = {
-    primary: {
-      text: 'Discover all components',
-      url: 'https://angular.io/',
-    },
-    secondary: {
-      text: 'View on GitHub',
-      url: 'https://github.com/angular',
-    },
-  };
-  @Input() image = {
-    src: 'https://placehold.co/600x400?text=Angular+Blocks',
-    alt: 'Hero section demo image showing interface components',
-  };
-}
+export default class Hero1 {}
