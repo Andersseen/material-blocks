@@ -21,7 +21,7 @@ import { BlockData, blockData, ViewMode } from './data';
   ],
   templateUrl: './template.html',
 })
-export default class Heroes {
+export default class BlockDetails {
   @Input() blockData: BlockData = blockData;
 
   @Input() currentBlockIndex: number = 0;

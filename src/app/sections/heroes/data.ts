@@ -1,3 +1,5 @@
+import { title } from 'process';
+
 export interface BlockView {
   label: string;
   content: string;
@@ -17,32 +19,41 @@ export interface BlockCard {
   description: string;
   previewUrl: string;
 }
-export const blocks: BlockCard[] = [
+
+export const heroBlocks: BlockCard[] = [
   {
     id: '1',
-    title: 'Auth Form',
-    description: 'Clean authentication form with validation',
-    previewUrl: 'https://placehold.co/600x400?text=Hero+1',
+    title: 'Modern Hero Section',
+    description:
+      'Clean design with call-to-action button and gradient background',
+    previewUrl: 'https://placehold.co/600x400?text=Modern+Hero',
   },
   {
     id: '2',
-    title: 'Dashboard Card',
-    description: 'Modern card component for dashboard metrics',
-    previewUrl: 'https://placehold.co/600x400?text=Hero+2',
+    title: 'Product Hero',
+    description: 'Showcase your product with image and feature highlights',
+    previewUrl: 'https://placehold.co/600x400?text=Product+Hero',
   },
   {
     id: '3',
-    title: 'Pricing Section',
-    description: 'Responsive pricing section with toggle',
-    previewUrl: 'https://placehold.co/600x400?text=Hero+3',
+    title: 'Minimal Hero',
+    description: 'Typography-focused with subtle animations',
+    previewUrl: 'https://placehold.co/600x400?text=Minimal+Hero',
   },
   {
     id: '4',
-    title: 'Navigation Bar',
-    description: 'Dark mode toggle included',
-    previewUrl: 'https://placehold.co/600x400?text=Hero+4',
+    title: 'Video Background Hero',
+    description: 'Full-screen video background with overlay content',
+    previewUrl: 'https://placehold.co/600x400?text=Video+Hero',
   },
 ];
+
+export const heroesSectionData = {
+  title: 'UI Heroes Collection',
+  description:
+    'Eye-catching landing page headers with CTAs, background images, and compelling content.',
+  blocks: [...heroBlocks],
+};
 
 export type ViewMode = 'code' | 'preview';
 export const blockData: BlockData = {
