@@ -38,4 +38,10 @@ export interface BlockData {
   previewUrl?: string;
 }
 
+export interface Route {
+  path: string;
+  title: string;
+  name: string;
+}
+
 export type ViewMode = 'code' | 'preview';

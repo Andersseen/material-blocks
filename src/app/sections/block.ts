@@ -1,4 +1,10 @@
-import { Component, computed, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import BlockDetails from '@components/block-details';
@@ -8,6 +14,7 @@ import { featureBlocksWithViews } from './features/data';
 @Component({
   selector: 'page-block-details',
   imports: [BlockDetails],
+
   template: `<block-details [blockData]="block()" />`,
 })
 export default class BlockPage {

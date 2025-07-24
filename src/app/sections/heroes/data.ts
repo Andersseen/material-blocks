@@ -185,7 +185,7 @@ export class MinimalHeroComponent {}`,
     </div>
   </div>
   
-  <button mat-icon-button 
+  <button matIconButton 
           class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white bg-black/30 rounded-full"
           (click)="toggleMute()">
     <mat-icon>{{ isMuted ? 'volume_off' : 'volume_up' }}</mat-icon>

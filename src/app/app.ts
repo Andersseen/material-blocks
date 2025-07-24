@@ -5,6 +5,7 @@ import Layout from './layout';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Layout],
+
   template: `
     <app-layout>
       <router-outlet />

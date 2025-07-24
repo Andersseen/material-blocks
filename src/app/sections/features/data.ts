@@ -264,7 +264,7 @@ export class ComparisonTableComponent {
     <h2 class="text-3xl font-bold text-center mb-12">{{ title }}</h2>
     
     <div class="relative">
-      <button mat-icon-button class="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+      <button matIconButton class="absolute left-0 top-1/2 -translate-y-1/2 z-10">
         <mat-icon>chevron_left</mat-icon>
       </button>
       
@@ -287,14 +287,14 @@ export class ComparisonTableComponent {
         </div>
       </div>
       
-      <button mat-icon-button class="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+      <button matIconButton class="absolute right-0 top-1/2 -translate-y-1/2 z-10">
         <mat-icon>chevron_right</mat-icon>
       </button>
     </div>
     
     <div class="flex justify-center mt-6 gap-2">
       <button *ngFor="let _ of slides; let i = index" 
-              mat-icon-button 
+              matIconButton 
               [class.text-primary-600]="currentIndex === i"
               class="!w-2 !h-2 p-0 rounded-full">
         <mat-icon class="!text-xs">circle</mat-icon>
