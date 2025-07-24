@@ -157,24 +157,8 @@
         </div>
       </div>
       }@else{
-      <iframe
-        src="http://localhost:4200/examples"
-        class="w-full h-full border-0"
-        #previewFrame
-      >
+      <iframe [src]="safeUrl()" class="w-full h-full border-0" #previewFrame>
       </iframe>
-      }
-
-      <!-- Loading overlay -->
-      @if (isPreviewLoading && blockData()?.previewUrl) {
-      <div
-        class="absolute inset-0 bg-white/80 flex items-center justify-center"
-      >
-        <div class="flex items-center gap-2 text-gray-600">
-          <mat-icon class="animate-spin">refresh</mat-icon>
-          <span>Loading preview...</span>
-        </div>
-      </div>
       }
     </div>
     }

@@ -1,15 +1,25 @@
-import { Component, input, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  Input,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { type ViewMode, type BlockData } from '@shared/interfaces';
 
 @Component({
   selector: 'block-details',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatButtonModule,
     MatIconModule,
@@ -22,6 +32,7 @@ import { type ViewMode, type BlockData } from '@shared/interfaces';
   templateUrl: './template.html',
 })
 export default class BlockDetails {
+  #sanitizer = inject(DomSanitizer);
   public blockData = input<BlockData>();
 
   @Input() currentBlockIndex: number = 0;
@@ -31,10 +42,9 @@ export default class BlockDetails {
   public viewMode: ViewMode = 'code';
   public isPreviewLoading = false;
 
-  // Navigation methods - you'll connect these to your routing
-  onBackToCategory() {
-    // this.#router.navigate(['..'], { relativeTo: this.#route });
-  }
+  public safeUrl = signal(
+    this.#sanitizer.bypassSecurityTrustResourceUrl(`/examples`)
+  );
 
   onPreviousBlock() {
     if (this.currentBlockIndex > 0) {
