@@ -6,6 +6,7 @@ import { type BlockData, type ViewMode } from '@shared/interfaces';
 import BDCode from './code';
 import BDHeader from './header';
 import BDPreview from './preview';
+import BDFooter from './footer';
 
 @Component({
   selector: 'block-details',
@@ -16,8 +17,49 @@ import BDPreview from './preview';
     BDHeader,
     BDCode,
     BDPreview,
+    BDFooter,
   ],
-  templateUrl: './template.html',
+  template: `<section>
+    <!-- Navigation Header -->
+    <section-navigation />
+    <!-- Header Section -->
+    <section-header [data]="header()">
+      <!-- Copy Button -->
+      <button
+        matIconButton
+        class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
+        matTooltip="Copy code"
+        (click)="copyCurrentView()"
+      >
+        <mat-icon class="!text-lg">content_copy</mat-icon>
+      </button>
+    </section-header>
+
+    <!-- View Mode Toggle -->
+    <bd-header [(viewMode)]="viewMode" />
+
+    <!-- Content Section -->
+    <div class="h-[50dvh] border border-border rounded-lg overflow-hidden">
+      <!-- Code View -->
+      @if (!isPreview()) {
+      <bd-code
+        [blockViews]="blockData()?.views"
+        [(selectedTabIndex)]="selectedTabIndex"
+      />
+      } @else {
+      <!-- Preview View -->
+
+      <bd-preview [showIframe]="!!blockData()?.previewUrl" />
+      }
+    </div>
+
+    <!-- Footer Info -->
+    <bd-footer
+      [show]="!isPreview()"
+      [viewsLength]="blockData()!.views.length"
+      [currentLanguage]="getCurrentLanguage()"
+    />
+  </section> `,
 })
 export default class BlockDetails {
   public blockData = input<BlockData>();
@@ -32,15 +74,10 @@ export default class BlockDetails {
 
   public viewMode = signal<ViewMode>('code');
   public isPreview = computed(() => this.viewMode() === 'preview');
-  public isPreviewLoading = false;
 
   // View mode methods
   setViewMode(mode: ViewMode) {
     this.viewMode.set(mode);
-  }
-
-  refreshPreview() {
-    this.isPreviewLoading = true;
   }
 
   getCurrentLanguage(): string {

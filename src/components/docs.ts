@@ -30,23 +30,29 @@ import { RouterModule } from '@angular/router';
             <div class="space-y-6">
               <div>
                 <h3 class="text-lg font-semibold mb-3">
-                  1. Install Dependencies
+                  1. Install Angular CLI globally
                 </h3>
-                <div class="p-4 rounded-lg overflow-x-auto">
-                  <pre><code>npm install angular/material angular/cdk angular/animations
-npm install tailwindcss tailwindcss/forms tailwindcss/typography</code></pre>
+                <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
+                  <pre><code>npm install -g &commat;angular/cli
+# or using yarn
+yarn global add &commat;angular/cli
+# or using pnpm
+pnpm add -g &commat;angular/cli</code></pre>
                 </div>
               </div>
 
               <div>
                 <h3 class="text-lg font-semibold mb-3">
-                  2. Configure Tailwind CSS
+                  2. Install Dependencies
                 </h3>
-                <p class="mb-3">
-                  Create or update your
-                  <code class="px-2 py-1 rounded">tailwind.config.js</code>:
-                </p>
-                <div class="p-4 rounded-lg overflow-x-auto"></div>
+                <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
+                  <pre><code># Using npm
+npm install &commat;angular/material tailwindcss postcss autoprefixer
+# or using yarn
+yarn add &commat;angular/material tailwindcss postcss autoprefixer
+# or using pnpm
+pnpm add &commat;angular/material tailwindcss postcss autoprefixer</code></pre>
+                </div>
               </div>
 
               <div>
@@ -55,12 +61,13 @@ npm install tailwindcss tailwindcss/forms tailwindcss/typography</code></pre>
                   Add to your
                   <code class="px-2 py-1 rounded">styles.css</code>:
                 </p>
-                <div class="p-4 rounded-lg overflow-x-auto"></div>
+                <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
+                  <pre><code>&commat;import "tailwindcss";</code></pre>
+                </div>
               </div>
             </div>
           </div>
         </mat-card>
-
         <!-- Component Usage -->
         <mat-card class="mb-8">
           <div class="p-8">
