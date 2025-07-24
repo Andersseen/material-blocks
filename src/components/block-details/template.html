@@ -1,41 +1,6 @@
 <section>
   <!-- Navigation Header -->
-  <div class="flex items-center justify-between mb-6">
-    <div class="flex items-center gap-3">
-      <button
-        mat-icon-button
-        class="text-gray-600 hover:text-gray-900"
-        matTooltip="Back to category"
-        routerLink=".."
-      >
-        <mat-icon>arrow_back</mat-icon>
-      </button>
-      <div class="text-sm text-gray-500">
-        {{ currentBlockIndex + 1 }} of {{ totalBlocks }}
-      </div>
-    </div>
-
-    <div class="flex items-center gap-2">
-      <button
-        mat-icon-button
-        [disabled]="currentBlockIndex === 0"
-        class="text-gray-600 hover:text-gray-900 disabled:text-gray-300"
-        matTooltip="Previous block"
-        (click)="onPreviousBlock()"
-      >
-        <mat-icon>chevron_left</mat-icon>
-      </button>
-      <button
-        mat-icon-button
-        [disabled]="currentBlockIndex === totalBlocks - 1"
-        class="text-gray-600 hover:text-gray-900 disabled:text-gray-300"
-        matTooltip="Next block"
-        (click)="onNextBlock()"
-      >
-        <mat-icon>chevron_right</mat-icon>
-      </button>
-    </div>
-  </div>
+  <section-header />
 
   <!-- Header Section -->
   <div class="p-6">
@@ -51,7 +16,7 @@
 
       <!-- Copy Button -->
       <button
-        mat-icon-button
+        matIconButton
         class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
         matTooltip="Copy code"
         (click)="copyCurrentView()"
@@ -65,7 +30,7 @@
   <div class="flex items-center justify-between mb-4">
     <div class="flex items-center rounded-lg p-1">
       <button
-        mat-button
+        matButton
         class="min-w-0 px-4 py-2 text-sm font-medium transition-colors"
         (click)="setViewMode('code')"
       >
@@ -73,7 +38,7 @@
         Code
       </button>
       <button
-        mat-button
+        matButton
         class="min-w-0 px-4 py-2 text-sm font-medium"
         [disabled]="!blockData()?.previewUrl"
         (click)="setViewMode('preview')"

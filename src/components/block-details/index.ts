@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   inject,
   input,
   Input,
@@ -14,8 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
-import { RouterLink } from '@angular/router';
-import { type ViewMode, type BlockData } from '@shared/interfaces';
+import SectionHeader from '@components/section-header';
+import { type BlockData, type ViewMode } from '@shared/interfaces';
 
 @Component({
   selector: 'block-details',
@@ -27,7 +26,7 @@ import { type ViewMode, type BlockData } from '@shared/interfaces';
     MatTooltipModule,
     MatCardModule,
     MatChipsModule,
-    RouterLink,
+    SectionHeader,
   ],
   templateUrl: './template.html',
 })
