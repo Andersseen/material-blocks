@@ -2,11 +2,20 @@ import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterModule } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
+import { RouterLink } from '@angular/router';
+import DQuickStart from './quick-start';
 
 @Component({
   selector: 'app-docs',
-  imports: [MatCardModule, MatIconModule, MatButtonModule, RouterModule],
+  imports: [
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    RouterLink,
+    MatTabsModule,
+    DQuickStart,
+  ],
   template: `
     <div class="min-h-[calc(100vh-64px)]">
       <div class="max-w-4xl mx-auto px-4 py-12">
@@ -20,54 +29,7 @@ import { RouterModule } from '@angular/router';
         </div>
 
         <!-- Quick Start -->
-        <mat-card class="mb-8">
-          <div class="p-8">
-            <h2 class="text-2xl font-semibold mb-6 flex items-center">
-              <mat-icon class="mr-3">rocket_launch</mat-icon>
-              Quick Start
-            </h2>
-
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-lg font-semibold mb-3">
-                  1. Install Angular CLI globally
-                </h3>
-                <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
-                  <pre><code>npm install -g &commat;angular/cli
-# or using yarn
-yarn global add &commat;angular/cli
-# or using pnpm
-pnpm add -g &commat;angular/cli</code></pre>
-                </div>
-              </div>
-
-              <div>
-                <h3 class="text-lg font-semibold mb-3">
-                  2. Install Dependencies
-                </h3>
-                <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
-                  <pre><code># Using npm
-npm install &commat;angular/material tailwindcss postcss autoprefixer
-# or using yarn
-yarn add &commat;angular/material tailwindcss postcss autoprefixer
-# or using pnpm
-pnpm add &commat;angular/material tailwindcss postcss autoprefixer</code></pre>
-                </div>
-              </div>
-
-              <div>
-                <h3 class="text-lg font-semibold mb-3">3. Import Styles</h3>
-                <p class="mb-3">
-                  Add to your
-                  <code class="px-2 py-1 rounded">styles.css</code>:
-                </p>
-                <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
-                  <pre><code>&commat;import "tailwindcss";</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-        </mat-card>
+        <d-quick-start />
         <!-- Component Usage -->
         <mat-card class="mb-8">
           <div class="p-8">
