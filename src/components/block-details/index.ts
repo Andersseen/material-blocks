@@ -13,7 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
-import SectionHeader from '@components/section-header';
+import SectionNavigation from '@components/section-navigation';
 import { type BlockData, type ViewMode } from '@shared/interfaces';
 
 @Component({
@@ -26,7 +26,7 @@ import { type BlockData, type ViewMode } from '@shared/interfaces';
     MatTooltipModule,
     MatCardModule,
     MatChipsModule,
-    SectionHeader,
+    SectionNavigation,
   ],
   templateUrl: './template.html',
 })

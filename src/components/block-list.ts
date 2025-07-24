@@ -2,12 +2,12 @@ import { Component, input } from '@angular/core';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
 import { SectionData } from '@shared/interfaces';
-import SectionHeader from './section-header';
+import SectionNavigation from './section-navigation';
 
 @Component({
   selector: 'blocks-list',
-  imports: [MatCard, MatCardContent, RouterLink, SectionHeader],
-  template: `<section-header />
+  imports: [MatCard, MatCardContent, RouterLink, SectionNavigation],
+  template: `<section-navigation />
     <!-- Header Section -->
     <div class="mb-8">
       <h1 class="text-3xl font-bold">{{ data()?.title }}</h1>
