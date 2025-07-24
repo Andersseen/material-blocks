@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  effect,
-  inject,
-} from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import {
   ActivatedRoute,
@@ -15,14 +9,14 @@ import {
 import Card from '@components/sections/card';
 import CTA from '@components/sections/cta';
 import Stats from '@components/sections/stats';
+import { type Section } from '@shared/interfaces';
 import { filter } from 'rxjs/operators';
 import { sections } from './data';
-import { type Section } from '@shared/interfaces';
 
 @Component({
   selector: 'page-sections',
   imports: [CTA, Stats, Card, RouterOutlet],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
   template: `
     @if (currentRoute() === '/sections') {
     <section class="min-h-screen">

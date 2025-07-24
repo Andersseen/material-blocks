@@ -5,7 +5,7 @@ import { featuresSectionData } from './data';
 @Component({
   selector: 'page-blocks-list',
   imports: [BlocksList],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
   template: ` <blocks-list [data]="data" />`,
 })
 export default class FeaturesPage {

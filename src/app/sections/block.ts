@@ -14,7 +14,7 @@ import { featureBlocksWithViews } from './features/data';
 @Component({
   selector: 'page-block-details',
   imports: [BlockDetails],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
   template: `<block-details [blockData]="block()" />`,
 })
 export default class BlockPage {

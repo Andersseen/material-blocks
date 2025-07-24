@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'section-navigation',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
   imports: [MatIcon, MatIconButton, MatTooltip, RouterLink],
   template: `
     <div class="flex items-center justify-between mb-6">

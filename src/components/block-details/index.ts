@@ -1,11 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  input,
-  Input,
-  signal,
-} from '@angular/core';
+import { Component, inject, input, Input, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -18,7 +11,7 @@ import { type BlockData, type ViewMode } from '@shared/interfaces';
 
 @Component({
   selector: 'block-details',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
   imports: [
     MatButtonModule,
     MatIconModule,

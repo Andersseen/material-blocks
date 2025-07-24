@@ -17,7 +17,7 @@ import { Route } from '@shared/interfaces';
 
 @Component({
   selector: 'app-navbar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+
   imports: [
     RouterLink,
     RouterLinkActive,
