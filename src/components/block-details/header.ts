@@ -1,11 +1,12 @@
 import { Component, computed, input, model, signal } from '@angular/core';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
+import { MatTooltip } from '@angular/material/tooltip';
 import { ViewMode } from '@shared/interfaces';
 
 @Component({
   selector: 'bd-header',
-  imports: [MatButton, MatIconButton, MatIcon],
+  imports: [MatButton, MatIconButton, MatIcon, MatTooltip],
   template: ` <div class="flex items-center justify-between mb-4">
     <div class="flex items-center rounded-lg p-1">
       <button
@@ -33,14 +34,25 @@ import { ViewMode } from '@shared/interfaces';
         <mat-icon class="text-base">refresh</mat-icon>
       </button>
 
-      <button matIconButton matTooltip="Open in new tab">
+      <button
+        matIconButton
+        matTooltip="Open in new tab"
+        (click)="openInNewTab()"
+      >
         <mat-icon class="text-base">open_in_new</mat-icon>
       </button>
     </div>
     }
   </div>`,
 })
-export default class BDHeadder {
-  public viewMode = model<ViewMode>('preview');
+export default class BDHeader {
+  public viewMode = model<ViewMode>('code');
   public isPreview = computed(() => this.viewMode() === 'preview');
+
+  openInNewTab() {
+    const parsedUrl = new URL(window.location.href);
+    const baseUrl = parsedUrl.origin;
+    console.log(baseUrl);
+    window.open(`${baseUrl}/examples`, '_blank');
+  }
 }

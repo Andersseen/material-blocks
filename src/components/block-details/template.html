@@ -1,7 +1,6 @@
 <section>
   <!-- Navigation Header -->
   <section-navigation />
-
   <!-- Header Section -->
   <section-header [data]="header()">
     <!-- Copy Button -->
@@ -22,58 +21,19 @@
   <div class="h-[50dvh] border border-border rounded-lg overflow-hidden">
     <!-- Code View -->
     @if (!isPreview()) {
-    <div>
-      <mat-tab-group
-        [(selectedIndex)]="selectedTabIndex"
-        class="block-tabs"
-        animationDuration="200ms"
-      >
-        @for (view of blockData()?.views; track $index) {
-        <mat-tab [label]="view.label">
-          <!-- Code Content -->
-          <div class="relative">
-            <div class="absolute top-3 right-3 z-10">
-              <button
-                matIconButton
-                size="small"
-                class="!text-muted-foreground hover:!text-foreground !bg-background/80 backdrop-blur-sm !shadow-sm"
-                matTooltip="Copy"
-                (click)="copyCode(view.content)"
-              >
-                <mat-icon class="!text-base">content_copy</mat-icon>
-              </button>
-            </div>
-
-            <pre
-              class="bg-card text-card-foreground p-4 overflow-x-auto text-sm leading-relaxed"
-            ><code [class]="'language-' + (view.language || 'typescript')">{{ view.content }}</code></pre>
-          </div>
-        </mat-tab>
-        }
-      </mat-tab-group>
-    </div>
-    }
-
+    <bd-code
+      [blockViews]="blockData()?.views"
+      [(selectedTabIndex)]="selectedTabIndex"
+    />
+    } @else {
     <!-- Preview View -->
-    <!-- @if (isPreview()) {
-    <div class="relative h-full">
-      @if (!blockData()?.previewUrl) {
-      <div class="flex items-center justify-center h-full">
-        <div class="text-center">
-          <mat-icon class="text-4xl mb-2">preview</mat-icon>
-          <p>No preview available for this block</p>
-        </div>
-      </div>
-      }@else{
-      <iframe [src]="safeUrl()" class="w-full h-full border-0" #previewFrame>
-      </iframe>
-      }
-    </div>
-    } -->
+
+    <bd-preview [showIframe]="!!blockData()?.previewUrl" />
+    }
   </div>
 
   <!-- Footer Info -->
-  <!-- @if (!isPreview()) {
+  @if (!isPreview()) {
   <div class="px-6 py-3 bg-muted/20">
     <div
       class="flex items-center justify-between text-xs text-muted-foreground"
@@ -90,5 +50,5 @@
       </span>
     </div>
   </div>
-  } -->
+  }
 </section>
