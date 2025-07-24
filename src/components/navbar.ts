@@ -1,4 +1,10 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -7,16 +13,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import ThemeState from '@services/theme';
-
-export interface Route {
-  path: string;
-  title: string;
-  name: string;
-}
+import { Route } from '@shared/interfaces';
 
 @Component({
   selector: 'app-navbar',
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterLink,
     RouterLinkActive,
@@ -41,10 +42,11 @@ export interface Route {
           @for (route of routes(); track route.path) {
           <a
             [routerLink]="route.path"
-            mat-button
-            routerLinkActive="bg-background/20"
+            [matButton]="rla.isActive ? 'tonal' : 'elevated'"
+            routerLinkActive
             [routerLinkActiveOptions]="{ exact: true }"
-            class="text-foreground hover:bg-background/10 transition-colors"
+            #rla="routerLinkActive"
+            class="text-lg"
           >
             {{ route.name }}
           </a>
@@ -54,7 +56,7 @@ export interface Route {
         <div class="flex items-center gap-4">
           <!-- Theme Toggle -->
           <button
-            mat-icon-button
+            matIconButton
             (click)="toggleTheme()"
             class="text-foreground hover:bg-background/10"
             aria-label="Toggle theme"
