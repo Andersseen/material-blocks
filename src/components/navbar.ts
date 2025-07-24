@@ -64,7 +64,7 @@ import { Route } from '@shared/interfaces';
           </button>
 
           <!-- Mobile Menu Toggle -->
-          <!-- <button mat-icon-button class="block md:hidden">
+          <!-- <button matIconButton class="block md:hidden">
             <mat-icon>menu</mat-icon>
           </button> -->
         </div>

@@ -3,82 +3,25 @@
   <section-navigation />
 
   <!-- Header Section -->
-  <div class="p-6">
-    <div class="flex items-start justify-between gap-4">
-      <div class="flex-1">
-        <h3 class="text-xl font-semibold text-foreground mb-2">
-          {{ blockData()?.title }}
-        </h3>
-        <p class="text-sm text-muted-foreground leading-relaxed mb-3">
-          {{ blockData()?.description }}
-        </p>
-      </div>
-
-      <!-- Copy Button -->
-      <button
-        matIconButton
-        class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
-        matTooltip="Copy code"
-        (click)="copyCurrentView()"
-      >
-        <mat-icon class="!text-lg">content_copy</mat-icon>
-      </button>
-    </div>
-  </div>
+  <section-header [data]="header()">
+    <!-- Copy Button -->
+    <button
+      matIconButton
+      class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
+      matTooltip="Copy code"
+      (click)="copyCurrentView()"
+    >
+      <mat-icon class="!text-lg">content_copy</mat-icon>
+    </button>
+  </section-header>
 
   <!-- View Mode Toggle -->
-  <div class="flex items-center justify-between mb-4">
-    <div class="flex items-center rounded-lg p-1">
-      <button
-        matButton
-        class="min-w-0 px-4 py-2 text-sm font-medium transition-colors"
-        (click)="setViewMode('code')"
-      >
-        <mat-icon class="text-base mr-2">code</mat-icon>
-        Code
-      </button>
-      <button
-        matButton
-        class="min-w-0 px-4 py-2 text-sm font-medium"
-        [disabled]="!blockData()?.previewUrl"
-        (click)="setViewMode('preview')"
-      >
-        <mat-icon class="text-base mr-2">visibility</mat-icon>
-        Preview
-      </button>
-    </div>
-
-    <!-- Additional Actions -->
-    @if (viewMode === 'preview') {
-    <div class="flex items-center gap-2">
-      <button
-        mat-icon-button
-        class="text-gray-600 hover:text-gray-900"
-        matTooltip="Refresh preview"
-        (click)="refreshPreview()"
-      >
-        <mat-icon class="text-base">refresh</mat-icon>
-      </button>
-      @if (blockData()?.previewUrl) {
-      <button
-        mat-icon-button
-        class="text-gray-600 hover:text-gray-900"
-        matTooltip="Open in new tab"
-        (click)="openInNewTab()"
-      >
-        <mat-icon class="text-base">open_in_new</mat-icon>
-      </button>
-      }
-    </div>
-    }
-  </div>
+  <bd-header [(viewMode)]="viewMode" />
 
   <!-- Content Section -->
-  <div
-    class="h-[50dvh] border border-border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200"
-  >
+  <div class="h-[50dvh] border border-border rounded-lg overflow-hidden">
     <!-- Code View -->
-    @if (viewMode === 'code') {
+    @if (!isPreview()) {
     <div>
       <mat-tab-group
         [(selectedIndex)]="selectedTabIndex"
@@ -91,7 +34,7 @@
           <div class="relative">
             <div class="absolute top-3 right-3 z-10">
               <button
-                mat-icon-button
+                matIconButton
                 size="small"
                 class="!text-muted-foreground hover:!text-foreground !bg-background/80 backdrop-blur-sm !shadow-sm"
                 matTooltip="Copy"
@@ -112,7 +55,7 @@
     }
 
     <!-- Preview View -->
-    @if (viewMode === 'preview') {
+    <!-- @if (isPreview()) {
     <div class="relative h-full">
       @if (!blockData()?.previewUrl) {
       <div class="flex items-center justify-center h-full">
@@ -126,11 +69,11 @@
       </iframe>
       }
     </div>
-    }
+    } -->
   </div>
 
   <!-- Footer Info -->
-  @if (viewMode === 'code') {
+  <!-- @if (!isPreview()) {
   <div class="px-6 py-3 bg-muted/20">
     <div
       class="flex items-center justify-between text-xs text-muted-foreground"
@@ -147,5 +90,5 @@
       </span>
     </div>
   </div>
-  }
+  } -->
 </section>

@@ -1,4 +1,11 @@
-import { Component, inject, input, Input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  Input,
+  signal,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -8,10 +15,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import SectionNavigation from '@components/section-navigation';
 import { type BlockData, type ViewMode } from '@shared/interfaces';
+import SectionHeader from '@components/section-header';
+import BDHeadder from './header';
 
 @Component({
   selector: 'block-details',
-
   imports: [
     MatButtonModule,
     MatIconModule,
@@ -20,6 +28,8 @@ import { type BlockData, type ViewMode } from '@shared/interfaces';
     MatCardModule,
     MatChipsModule,
     SectionNavigation,
+    SectionHeader,
+    BDHeadder,
   ],
   templateUrl: './template.html',
 })
@@ -27,11 +37,17 @@ export default class BlockDetails {
   #sanitizer = inject(DomSanitizer);
   public blockData = input<BlockData>();
 
+  public header = computed(() => ({
+    title: this.blockData()!.title,
+    description: this.blockData()!.description,
+  }));
+
   @Input() currentBlockIndex: number = 0;
   @Input() totalBlocks: number = 1;
 
   public selectedTabIndex = 0;
-  public viewMode: ViewMode = 'code';
+  public viewMode = signal<ViewMode>('preview');
+  public isPreview = computed(() => this.viewMode() === 'preview');
   public isPreviewLoading = false;
 
   public safeUrl = signal(
@@ -52,20 +68,11 @@ export default class BlockDetails {
 
   // View mode methods
   setViewMode(mode: ViewMode) {
-    this.viewMode = mode;
-    if (mode === 'preview') {
-      this.isPreviewLoading = true;
-      setTimeout(() => {
-        this.isPreviewLoading = false;
-      }, 1000);
-    }
+    this.viewMode.set(mode);
   }
 
   refreshPreview() {
     this.isPreviewLoading = true;
-    setTimeout(() => {
-      this.isPreviewLoading = false;
-    }, 500);
   }
 
   openInNewTab() {
