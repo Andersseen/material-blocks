@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+:root {
+  --mat-toolbar-standard-height: 64px;
+}
+
 html,
 body {
   height: 100%;
@@ -7,4 +11,8 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.preventScrolling {
+  overflow-y: hidden;
 }
