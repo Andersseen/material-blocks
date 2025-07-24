@@ -3,6 +3,7 @@ import {
   Component,
   inject,
   input,
+  output,
   signal,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,7 +30,7 @@ import { Route } from '@shared/interfaces';
     MatListModule,
   ],
   template: `
-    <mat-toolbar class="bg-background shadow-sm sticky top-0 z-50">
+    <mat-toolbar class="h-[var(--navbar-height)]">
       <div class="container mx-auto flex justify-between items-center">
         <a routerLink="/" class="flex items-center gap-2">
           <span class="text-xl font-bold text-foreground">{{
@@ -64,9 +65,11 @@ import { Route } from '@shared/interfaces';
           </button>
 
           <!-- Mobile Menu Toggle -->
-          <!-- <button matIconButton class="block md:hidden">
-            <mat-icon>menu</mat-icon>
-          </button> -->
+          <div class="block md:hidden">
+            <button matIconButton (click)="hamburgerClick.emit()">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
         </div>
       </div>
     </mat-toolbar>
@@ -74,10 +77,11 @@ import { Route } from '@shared/interfaces';
 })
 export default class Navbar {
   #themeService = inject(ThemeState);
-
   // Inputs
   public projectName = input('Project Name');
   public routes = input<Route[]>([]);
+  public hamburgerClick = output();
+
   public mobileMenuOpen = signal(false);
 
   // Theme state
