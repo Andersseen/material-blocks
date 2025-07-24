@@ -1,4 +1,9 @@
-import { Component, computed, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  signal,
+} from '@angular/core';
 import Footer from '@components/footer';
 import Navbar from '@components/navbar';
 import routesConfig from '@data/routes.json';
@@ -6,6 +11,7 @@ import routesConfig from '@data/routes.json';
 @Component({
   selector: 'app-layout',
   imports: [Footer, Navbar],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="min-h-screen transition-colors duration-300">
       <!-- Navigation -->
