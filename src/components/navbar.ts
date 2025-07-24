@@ -44,7 +44,6 @@ import { Route } from '@shared/interfaces';
             [routerLink]="route.path"
             [matButton]="rla.isActive ? 'tonal' : 'elevated'"
             routerLinkActive
-            [routerLinkActiveOptions]="{ exact: true }"
             #rla="routerLinkActive"
             class="text-lg"
           >

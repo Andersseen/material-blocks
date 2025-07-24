@@ -21,6 +21,11 @@ const routes: Routes = [
     loadComponent: () => import('@app/app'),
     title: routesConfig.metadata.projectName,
     children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
       ...routesConfig.routes.map((route) => ({
         path: route.path,
         loadChildren: getComponentLoader(route.code),
@@ -36,6 +41,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '',
+    pathMatch: 'full',
   },
 ];
 
