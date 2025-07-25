@@ -28,12 +28,13 @@ import routesConfig from '@data/routes.json';
     >
       <!-- Navigation -->
       <app-navbar
+        class="fixed w-full z-10 shadow-lg shadow-foreground/10 bg-background/95"
         [routes]="data().routes"
         [projectName]="data().metadata.projectName"
         (hamburgerClick)="sidenav.toggle()"
       />
       <!-- Main Content -->
-      <mat-sidenav-container>
+      <mat-sidenav-container class="main-margin-top">
         <mat-sidenav
           (closedStart)="sidenavClosed()"
           (openedStart)="sidenavOpened()"
@@ -77,6 +78,9 @@ import routesConfig from '@data/routes.json';
     `
       .sidebar-container {
         height: calc(100dvh - var(--mat-toolbar-standard-height));
+      }
+      .main-margin-top {
+        margin-top: var(--mat-toolbar-standard-height);
       }
     `,
   ],

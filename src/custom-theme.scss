@@ -3,9 +3,17 @@
 // components according to the Material 3 design spec.
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
-@use "tailwindcss";
+// @use "tailwindcss";
 @use "@angular/material" as mat;
-
+:root {
+  --mat-toolbar-standard-height: 64px;
+  --mat-sys-background: light-dark(#f5f5f5, #171717);
+  @include mat.toolbar-overrides(
+    (
+      container-background-color: transparent,
+    )
+  );
+}
 html {
   @include mat.theme(
     (

@@ -1,19 +1,12 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatButtonModule,
-    MatIconModule,
-    MatCardModule,
-  ],
+  imports: [RouterModule, MatButtonModule, MatIconModule, MatCardModule],
   template: `
     <!-- Hero Section -->
     <section class="relative   overflow-hidden">
@@ -24,7 +17,7 @@ import { MatCardModule } from '@angular/material/card';
           >
             Copy-Paste Ready
             <span
-              class="block text-transparent bg-clip-text bg-gradient-to-r from-background to-foreground"
+              class="block text-transparent bg-clip-text bg-gradient-to-r from-foreground/50 to-foreground"
             >
               Angular Components
             </span>
