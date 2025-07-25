@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'd-quick-start',
-  imports: [MatIcon, MatTabGroup, MatTab, MatCard],
+  imports: [MatIcon, MatTabGroup, MatTab, MatCard, MatIconButton],
   template: `
     <mat-card class="mb-8">
       <div class="p-8">
@@ -21,7 +22,7 @@ import { MatTab, MatTabGroup } from '@angular/material/tabs';
               Install Angular CLI globally
             </h3>
 
-            <mat-tab-group>
+            <mat-tab-group animationDuration="0ms">
               <mat-tab label="npm">
                 <div class="justify-between flex overflow-y-hidden">
                   <pre
