@@ -30,7 +30,7 @@ import { Route } from '@shared/interfaces';
     MatListModule,
   ],
   template: `
-    <mat-toolbar class="h-[var(--navbar-height)]">
+    <mat-toolbar color="dark">
       <div class="container mx-auto flex justify-between items-center">
         <a routerLink="/" class="flex items-center gap-2">
           <span class="text-xl font-bold text-foreground">{{
