@@ -1,5 +1,4 @@
 import { BlockCard, SectionData } from '@shared/interfaces';
-import path from 'path';
 
 // Features Section
 export const featureBlocks: BlockCard[] = [
@@ -8,24 +7,28 @@ export const featureBlocks: BlockCard[] = [
     title: 'Feature Grid',
     description: 'Responsive grid layout showcasing key features with icons',
     previewUrl: 'https://placehold.co/600x400?text=Feature+Grid',
+    iframeUrl: '/examples/features/1',
   },
   {
     id: '2',
     title: 'Feature Tabs',
     description: 'Interactive tabs to display different feature sets',
     previewUrl: 'https://placehold.co/600x400?text=Feature+Tabs',
+    iframeUrl: '/examples/features/2',
   },
   {
     id: '3',
     title: 'Comparison Table',
     description: 'Side-by-side feature comparison between plans',
     previewUrl: 'https://placehold.co/600x400?text=Comparison+Table',
+    iframeUrl: '/examples/features/3',
   },
   {
     id: '4',
     title: 'Feature Carousel',
     description: 'Animated carousel to highlight product features',
     previewUrl: 'https://placehold.co/600x400?text=Feature+Carousel',
+    iframeUrl: '/examples/features/4',
   },
 ];
 

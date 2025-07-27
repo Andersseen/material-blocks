@@ -49,7 +49,10 @@ import BDFooter from './footer';
       } @else {
       <!-- Preview View -->
 
-      <bd-preview [showIframe]="!!blockData()?.previewUrl" />
+      <bd-preview
+        [showIframe]="!!blockData()?.previewUrl"
+        [path]="blockData()?.iframeUrl!"
+      />
       }
     </div>
 
@@ -88,5 +91,6 @@ export default class BlockDetails {
   copyCurrentView() {
     const currentView = this.blockData()?.views[this.selectedTabIndex()];
     console.log(currentView);
+    console.log(this.blockData());
   }
 }

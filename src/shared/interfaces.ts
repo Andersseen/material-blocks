@@ -14,6 +14,7 @@ export interface BlockCard {
   title: string;
   description: string;
   previewUrl: string;
+  iframeUrl?: string;
 }
 
 export interface SectionData {
@@ -29,13 +30,9 @@ export interface BlockView {
   language?: string;
 }
 
-export interface BlockData {
-  id: string;
-  title: string;
-  description: string;
+export interface BlockData extends BlockCard {
   tags?: string[];
   views: BlockView[];
-  previewUrl?: string;
 }
 
 export interface Route {
