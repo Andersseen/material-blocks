@@ -65,7 +65,9 @@ import routesConfig from '@data/routes.json';
         </mat-sidenav>
 
         <mat-sidenav-content>
-          <main class="container mx-auto px-4 py-8">
+          <main
+            class="main-container container mx-auto px-4 py-8 grid grid-rows-[auto_1fr_auto]"
+          >
             <ng-content />
             <!-- Footer -->
             <app-footer />
@@ -78,6 +80,9 @@ import routesConfig from '@data/routes.json';
     `
       .sidebar-container {
         height: calc(100dvh - var(--mat-toolbar-standard-height));
+      }
+      .main-container {
+        min-height: calc(100dvh - var(--mat-toolbar-standard-height));
       }
       .main-margin-top {
         margin-top: var(--mat-toolbar-standard-height);
