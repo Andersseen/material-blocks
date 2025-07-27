@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: 'examples',
-    loadComponent: () => import('@examples/heroes/hero-1'),
+    loadComponent: () => import('@examples/pricing/pricing-1'),
     title: 'Hero Example',
   },
   {
