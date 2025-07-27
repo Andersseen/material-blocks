@@ -28,7 +28,7 @@ import routesConfig from '@data/routes.json';
     >
       <!-- Navigation -->
       <app-navbar
-        class="fixed w-full z-10 shadow-lg shadow-foreground/10 bg-background/95"
+        class="fixed w-full z-10 shadow-sm shadow-foreground/10 bg-background/95"
         [routes]="data().routes"
         [projectName]="data().metadata.projectName"
         (hamburgerClick)="sidenav.toggle()"
