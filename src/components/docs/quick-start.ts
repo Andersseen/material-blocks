@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
-import { MatCard } from '@angular/material/card';
-import { MatIcon } from '@angular/material/icon';
-import { MatTab, MatTabGroup } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import CommandTabs from './command-tabs';
 
 @Component({
-  selector: 'd-quick-start',
-  imports: [MatIcon, MatTabGroup, MatTab, MatCard, MatIconButton],
+  selector: 'quick-start',
+  imports: [MatIconModule, MatCardModule, MatButtonModule, CommandTabs],
   template: `
     <mat-card class="mb-8">
       <div class="p-8">
@@ -22,52 +22,12 @@ import { MatTab, MatTabGroup } from '@angular/material/tabs';
               Install Angular CLI globally
             </h3>
 
-            <mat-tab-group animationDuration="0ms">
-              <mat-tab label="npm">
-                <div class="justify-between flex overflow-y-hidden">
-                  <pre
-                    class="p-4 rounded"
-                  ><code #npmCommand>npm install -g &commat;angular/cli</code></pre>
-                  <button mat-icon-button class="absolute right-2 top-2">
-                    <mat-icon>content_copy</mat-icon>
-                  </button>
-                </div>
-              </mat-tab>
-
-              <mat-tab label="yarn">
-                <div class="justify-between flex overflow-y-hidden">
-                  <pre
-                    class="p-4 rounded"
-                  ><code #yarnCommand>yarn global add &commat;angular/cli</code></pre>
-                  <button mat-icon-button class="absolute right-2 top-2">
-                    <mat-icon>content_copy</mat-icon>
-                  </button>
-                </div>
-              </mat-tab>
-
-              <mat-tab label="pnpm">
-                <div class="justify-between flex overflow-y-hidden">
-                  <pre
-                    class="p-4 rounded"
-                  ><code #pnpmCommand>pnpm add -g &commat;angular/cli</code></pre>
-                  <button mat-icon-button class="absolute right-2 top-2">
-                    <mat-icon>content_copy</mat-icon>
-                  </button>
-                </div>
-              </mat-tab>
-            </mat-tab-group>
+            <command-tabs [commands]="cliInstallCommands" />
           </div>
 
           <div>
             <h3 class="text-lg font-semibold mb-3">2. Install Dependencies</h3>
-            <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
-              <pre><code># Using npm
-npm install &commat;angular/material tailwindcss postcss autoprefixer
-# or using yarn
-yarn add &commat;angular/material tailwindcss postcss autoprefixer
-# or using pnpm
-pnpm add &commat;angular/material tailwindcss postcss autoprefixer</code></pre>
-            </div>
+            <command-tabs [commands]="dependenciesCommands" />
           </div>
 
           <div>
@@ -76,13 +36,37 @@ pnpm add &commat;angular/material tailwindcss postcss autoprefixer</code></pre>
               Add to your
               <code class="px-2 py-1 rounded">styles.css</code>:
             </p>
-            <div class="p-4 bg-neutral-500/50 rounded-lg overflow-x-auto">
-              <pre><code>&commat;import "tailwindcss";</code></pre>
-            </div>
+            <command-tabs [commands]="importStylesCommands" />
           </div>
         </div>
       </div>
     </mat-card>
   `,
 })
-export default class DQuickStart {}
+export default class QuickStart {
+  public cliInstallCommands = [
+    { label: 'npm', code: 'npm install -g @angular/cli' },
+    { label: 'yarn', code: 'yarn global add @angular/cli' },
+    { label: 'pnpm', code: 'pnpm add -g @angular/cli' },
+  ];
+
+  public dependenciesCommands = [
+    {
+      label: 'npm',
+      code: 'npm install @angular/material tailwindcss postcss autoprefixer',
+    },
+    {
+      label: 'yarn',
+      code: 'yarn add @angular/material tailwindcss postcss autoprefixer',
+    },
+    {
+      label: 'pnpm',
+      code: 'pnpm add @angular/material tailwindcss postcss autoprefixer',
+    },
+  ];
+
+  public importStylesCommands = [
+    { label: 'CSS', code: '@import "tailwindcss";' },
+    { label: 'SCSS', code: '@use "tailwindcss";' },
+  ];
+}

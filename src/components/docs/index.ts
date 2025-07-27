@@ -1,21 +1,12 @@
 import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
-import { RouterLink } from '@angular/router';
-import DQuickStart from './quick-start';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+import { ComponentsUsage } from './components-usage';
+import QuickStart from './quick-start';
 
 @Component({
   selector: 'app-docs',
-  imports: [
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    RouterLink,
-    MatTabsModule,
-    DQuickStart,
-  ],
+  imports: [MatCard, MatIcon, QuickStart, ComponentsUsage],
   template: `
     <div class="min-h-[calc(100vh-64px)]">
       <div class="max-w-4xl mx-auto px-4 py-12">
@@ -23,57 +14,14 @@ import DQuickStart from './quick-start';
         <div class="text-center mb-12">
           <h1 class="text-4xl font-bold mb-4">Documentation</h1>
           <p class="text-xl">
-            Everything you need to know to get started with our component
-            library
+            Everything you need to know to get started with our block library
           </p>
         </div>
 
         <!-- Quick Start -->
-        <d-quick-start />
+        <quick-start />
         <!-- Component Usage -->
-        <mat-card class="mb-8">
-          <div class="p-8">
-            <h2 class="text-2xl font-semibold mb-6 flex items-center">
-              <mat-icon class="mr-3">widgets</mat-icon>
-              Using Components
-            </h2>
-
-            <div class="space-y-6">
-              <div>
-                <h3 class="text-lg font-semibold mb-3">Copy & Paste</h3>
-                <p class="mb-4">
-                  All components are designed to be copied and pasted directly
-                  into your Angular project:
-                </p>
-                <ol class="list-decimal list-inside space-y-2">
-                  <li>
-                    Browse components in the
-                    <a routerLink="/sections" class="hover:underline">
-                      Sections
-                    </a>
-                    page
-                  </li>
-                  <li>Click the copy button to copy the complete code</li>
-                  <li>Paste into your component file</li>
-                  <li>Install any required dependencies</li>
-                  <li>Import necessary modules</li>
-                </ol>
-              </div>
-
-              <div>
-                <h3 class="text-lg font-semibold mb-3">
-                  Standalone Components
-                </h3>
-                <p>
-                  All components are built as standalone components, making them
-                  easy to integrate:
-                </p>
-                <div class="p-4 rounded-lg overflow-x-auto mt-3"></div>
-              </div>
-            </div>
-          </div>
-        </mat-card>
-
+        <components-usage />
         <!-- Customization -->
         <mat-card class="mb-8">
           <div class="p-8">
