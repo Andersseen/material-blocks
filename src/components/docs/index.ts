@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink } from '@angular/router';
-import DQuickStart from './quick-start';
+import QuickStart from './quick-start';
 
 @Component({
   selector: 'app-docs',
@@ -14,7 +14,7 @@ import DQuickStart from './quick-start';
     MatButtonModule,
     RouterLink,
     MatTabsModule,
-    DQuickStart,
+    QuickStart,
   ],
   template: `
     <div class="min-h-[calc(100vh-64px)]">
@@ -29,7 +29,7 @@ import DQuickStart from './quick-start';
         </div>
 
         <!-- Quick Start -->
-        <d-quick-start />
+        <quick-start />
         <!-- Component Usage -->
         <mat-card class="mb-8">
           <div class="p-8">
