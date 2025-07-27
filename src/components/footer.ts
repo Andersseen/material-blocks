@@ -13,7 +13,7 @@ import { MatIcon } from '@angular/material/icon';
           <!-- Product -->
           <div class="col-span-2">
             <div class="flex items-center gap-2 mb-4">
-              <mat-icon class="text-primary">widgets</mat-icon>
+              <mat-icon>widgets</mat-icon>
               <span class="text-lg font-semibold">Material Blocks</span>
             </div>
             <p class="text-sm text-muted-foreground max-w-md">

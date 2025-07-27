@@ -18,7 +18,6 @@ import { Route } from '@shared/interfaces';
 
 @Component({
   selector: 'app-navbar',
-
   imports: [
     RouterLink,
     RouterLinkActive,
@@ -30,9 +29,10 @@ import { Route } from '@shared/interfaces';
     MatListModule,
   ],
   template: `
-    <mat-toolbar color="dark">
+    <mat-toolbar>
       <div class="container mx-auto flex justify-between items-center">
         <a routerLink="/" class="flex items-center gap-2">
+          <mat-icon>widgets</mat-icon>
           <span class="text-xl font-bold text-foreground">{{
             projectName()
           }}</span>
