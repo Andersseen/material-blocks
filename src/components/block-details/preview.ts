@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -23,8 +23,9 @@ export default class BDPreview {
   #sanitizer = inject(DomSanitizer);
 
   public showIframe = input(false);
+  public path = input('');
 
-  public safeUrl = signal(
-    this.#sanitizer.bypassSecurityTrustResourceUrl(`/examples`)
+  public safeUrl = computed(() =>
+    this.#sanitizer.bypassSecurityTrustResourceUrl(this.path())
   );
 }
