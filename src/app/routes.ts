@@ -35,8 +35,8 @@ const routes: Routes = [
   },
   {
     path: 'examples',
-    loadComponent: () => import('@examples/pricing/pricing-1'),
-    title: 'Hero Example',
+    loadComponent: () => import('@examples/heroes/hero-4'),
+    title: 'Block Example',
   },
   {
     path: '**',
