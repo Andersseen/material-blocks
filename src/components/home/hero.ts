@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router';
             <span
               class="block text-transparent bg-clip-text bg-gradient-to-r from-foreground/50 to-foreground"
             >
-              Angular Components
+              Angular Blocks
             </span>
           </h1>
           <p

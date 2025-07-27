@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
             </div>
             <h3 class="text-xl font-semibold  mb-4">Lightning Fast</h3>
             <p>
-              Optimized for performance with lazy loading and minimal bundle
+              Optimized for performance with laz∏y loading and minimal bundle
               size
             </p>
           </div>
