@@ -1,20 +1,14 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  computed,
-  inject,
-  input,
-} from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import BlockDetails from '@components/block-details';
-import { heroBlocksWithViews } from './heroes/data';
-import { featureBlocksWithViews } from './features/data';
+import { featureBlocksWithViews } from '@examples/features/data';
+import { heroBlocksWithViews } from '@examples/heroes/data';
+import { pricingBlocksWithViews } from '@examples/pricing/data';
 
 @Component({
   selector: 'page-block-details',
   imports: [BlockDetails],
-
   template: `<block-details [blockData]="block()" />`,
 })
 export default class BlockPage {
@@ -35,4 +29,5 @@ export default class BlockPage {
 const sectionBlocks = {
   heroes: heroBlocksWithViews,
   features: featureBlocksWithViews,
+  pricing: pricingBlocksWithViews,
 };

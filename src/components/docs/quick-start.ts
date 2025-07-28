@@ -19,19 +19,41 @@ import CommandTabs from './command-tabs';
           <div class="mb-8">
             <h3 class="text-lg font-semibold mb-4 flex items-center">
               <mat-icon class="mr-2">settings</mat-icon>
-              Install Angular CLI globally
+              Choose your package manager command
             </h3>
 
-            <command-tabs [commands]="cliInstallCommands" />
+            <command-tabs [commands]="pmCommands" />
+          </div>
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold mb-4 flex items-center">
+              <mat-icon class="mr-2">settings</mat-icon>
+              Install Angular CLI globally
+            </h3>
+            <pre class="p-2">
+            -g <code>&#64;angular/cli</code></pre>
+          </div>
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold mb-4 flex items-center">
+              <mat-icon class="mr-2">settings</mat-icon>
+              Install Angular Materia
+            </h3>
+            <pre class="p-2">
+            <code>ng add &#64;angular/materia</code></pre>
+          </div>
+          <div class="mb-8">
+            <h3 class="text-lg font-semibold mb-4 flex items-center">
+              <mat-icon class="mr-2">settings</mat-icon>
+              Install Tailwind 4 Dependencies
+            </h3>
+            <pre class="p-2">
+          <code>tailwindcss postcss autoprefixer</code></pre>
           </div>
 
+          <div class="flex justify-between overflow-y-hidden relative"></div>
           <div>
-            <h3 class="text-lg font-semibold mb-3">2. Install Dependencies</h3>
-            <command-tabs [commands]="dependenciesCommands" />
-          </div>
-
-          <div>
-            <h3 class="text-lg font-semibold mb-3">3. Import Styles</h3>
+            <h3 class="text-lg font-semibold mb-3">
+              <mat-icon class="mr-2">styles</mat-icon>Import Tailwind Styles
+            </h3>
             <p class="mb-3">
               Add to your
               <code class="px-2 py-1 rounded">styles.css</code>:
@@ -44,25 +66,10 @@ import CommandTabs from './command-tabs';
   `,
 })
 export default class QuickStart {
-  public cliInstallCommands = [
-    { label: 'npm', code: 'npm install -g @angular/cli' },
-    { label: 'yarn', code: 'yarn global add @angular/cli' },
-    { label: 'pnpm', code: 'pnpm add -g @angular/cli' },
-  ];
-
-  public dependenciesCommands = [
-    {
-      label: 'npm',
-      code: 'npm install @angular/material tailwindcss postcss autoprefixer',
-    },
-    {
-      label: 'yarn',
-      code: 'yarn add @angular/material tailwindcss postcss autoprefixer',
-    },
-    {
-      label: 'pnpm',
-      code: 'pnpm add @angular/material tailwindcss postcss autoprefixer',
-    },
+  public pmCommands = [
+    { label: 'npm', code: 'npm install' },
+    { label: 'yarn', code: 'yarn add' },
+    { label: 'pnpm', code: 'pnpm add' },
   ];
 
   public importStylesCommands = [

@@ -33,9 +33,7 @@ import { Route } from '@shared/interfaces';
       <div class="container mx-auto flex justify-between items-center">
         <a routerLink="/" class="flex items-center gap-2">
           <mat-icon>widgets</mat-icon>
-          <span class="text-xl font-bold text-foreground">{{
-            projectName()
-          }}</span>
+          <span class="text-xl font-bold">{{ projectName() }}</span>
         </a>
 
         <!-- Desktop Navigation -->
@@ -46,7 +44,6 @@ import { Route } from '@shared/interfaces';
             [matButton]="rla.isActive ? 'tonal' : 'elevated'"
             routerLinkActive
             #rla="routerLinkActive"
-            class="text-lg"
           >
             {{ route.name }}
           </a>
@@ -58,7 +55,6 @@ import { Route } from '@shared/interfaces';
           <button
             matIconButton
             (click)="toggleTheme()"
-            class="text-foreground hover:bg-background/10"
             aria-label="Toggle theme"
           >
             <mat-icon>{{ isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>

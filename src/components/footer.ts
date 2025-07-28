@@ -57,7 +57,7 @@ import { MatIcon } from '@angular/material/icon';
             </ul>
           </div>
 
-          <div>
+          <div class="mb-8">
             <h3 class="text-sm font-semibold mb-4">Resources</h3>
             <ul class="space-y-2">
               <li>
@@ -92,7 +92,7 @@ import { MatIcon } from '@angular/material/icon';
           </div>
         </div>
 
-        <mat-divider class="my-8" />
+        <mat-divider class="py-8" />
 
         <!-- Legal & Copyright -->
         <div

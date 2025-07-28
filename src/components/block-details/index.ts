@@ -1,4 +1,11 @@
-import { Component, computed, input, Input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  input,
+  Input,
+  signal,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import SectionHeader from '@components/section-header';
 import SectionNavigation from '@components/section-navigation';
@@ -77,6 +84,13 @@ export default class BlockDetails {
 
   public viewMode = signal<ViewMode>('code');
   public isPreview = computed(() => this.viewMode() === 'preview');
+
+  constructor() {
+    effect(() => {
+      console.log(this.blockData());
+      console.log(this.header());
+    });
+  }
 
   // View mode methods
   setViewMode(mode: ViewMode) {

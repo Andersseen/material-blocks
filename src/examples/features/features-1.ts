@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'example-features-1',
-  imports: [MatCardModule, MatIconModule],
+  imports: [MatCard, MatIcon],
   template: `<section class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
@@ -26,14 +26,10 @@ import { MatIconModule } from '@angular/material/icon';
           <div
             class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4"
           >
-            <mat-icon class="text-3xl text-primary-600 dark:text-primary-400"
-              >speed</mat-icon
-            >
+            <mat-icon class="text-3xl">speed</mat-icon>
           </div>
-          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-            Fast Development
-          </h3>
-          <p class="text-gray-600 dark:text-gray-300">
+          <h3 class="text-xl font-semibold mb-3">Fast Development</h3>
+          <p>
             Copy and paste components to build your UI in minutes, not hours.
           </p>
         </mat-card>
