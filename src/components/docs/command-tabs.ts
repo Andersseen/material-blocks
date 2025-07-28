@@ -7,7 +7,7 @@ import { MatTab, MatTabGroup } from '@angular/material/tabs';
   selector: 'command-tabs',
   imports: [MatTabGroup, MatTab, MatIcon, MatIconButton],
   template: `
-    <mat-tab-group animationDuration="0ms">
+    <mat-tab-group animationDuration="0ms" mat-stretch-tabs="false">
       @for (command of commands(); track $index) {
       <mat-tab [label]="command.label">
         <div class="flex justify-between overflow-y-hidden relative">
