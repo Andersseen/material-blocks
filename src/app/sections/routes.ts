@@ -25,6 +25,16 @@ const sectionRoutes: Routes = [
           },
         ],
       },
+      {
+        path: 'pricing',
+        children: [
+          { path: '', loadComponent: () => import('./pricing') },
+          {
+            path: ':id',
+            loadComponent: () => import('./block'),
+          },
+        ],
+      },
     ],
   },
 ];
