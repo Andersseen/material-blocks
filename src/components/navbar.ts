@@ -46,7 +46,6 @@ import { Route } from '@shared/interfaces';
             [matButton]="rla.isActive ? 'tonal' : 'elevated'"
             routerLinkActive
             #rla="routerLinkActive"
-            class="text-lg"
           >
             {{ route.name }}
           </a>
