@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import BlocksList from '@components/block-list';
-import { featuresSectionData } from './data';
+import { featuresSectionData } from '@examples/features/data';
 
 @Component({
   selector: 'page-blocks-list',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import BlocksList from '@components/block-list';
-import { pricingSectionsData } from './data';
+import { pricingSectionsData } from '../../../examples/pricing/data';
 
 @Component({
   selector: 'page-blocks-list',
