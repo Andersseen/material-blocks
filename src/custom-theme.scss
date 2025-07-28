@@ -6,9 +6,17 @@
 // @use "tailwindcss";
 @use "@angular/material" as mat;
 :root {
+  --background: 20.463% 0 -0.00002;
+  --foreground: 97.015% 0 -0.00011;
   --mat-toolbar-standard-height: 64px;
-  --mat-sys-background: light-dark(#f5f5f5, #171717);
-  --mat-sys-foreground: light-dark(#171717, #f5f5f5);
+  --mat-sys-background: light-dark(
+    oklab(var(--foreground)),
+    oklab(var(--background))
+  );
+  --mat-sys-foreground: light-dark(
+    oklab(var(--background)),
+    oklab(var(--foreground))
+  );
   --mat-sys-level1: 0px 2px 1px -1px var(--mat-sys-foreground-shadow),
     0px 1px 1px 0px var(--mat-sys-foreground-shadow),
     0px 1px 3px 0px var(--mat-sys-foreground-shadow);
@@ -16,12 +24,21 @@
     0px 3px 4px 0px var(--mat-sys-foreground-shadow),
     0px 1px 8px 0px var(--mat-sys-foreground-shadow);
   --mat-sys-foreground-shadow: light-dark(
-    oklab(20.463% 0 -0.00002 / 0.15),
-    oklab(97.015% 0 -0.00011 / 0.1)
+    oklab(var(--background) / 0.15),
+    oklab(var(--foreground) / 0.1)
   );
   @include mat.toolbar-overrides(
     (
       container-background-color: transparent,
+    )
+  );
+  @include mat.button-overrides(
+    (
+      tonal-container-color: var(--mat-sys-primary),
+      tonal-label-text-color: var(--mat-sys-background),
+      outlined-label-text-color: var(--mat-sys-foreground),
+      protected-container-color: var(--mat-sys-background),
+      protected-label-text-color: var(--mat-sys-foreground),
     )
   );
 }
@@ -34,15 +51,6 @@ html {
       ),
       typography: Roboto,
       density: 0,
-    )
-  );
-
-  @include mat.button-overrides(
-    (
-      tonal-container-color: var(--mat-sys-primary),
-      tonal-label-text-color: var(--mat-sys-background),
-      protected-container-color: var(--mat-sys-background),
-      protected-label-text-color: var(--mat-sys-foreground),
     )
   );
 
