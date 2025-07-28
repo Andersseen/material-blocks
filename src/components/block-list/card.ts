@@ -4,40 +4,47 @@ import { RouterLink } from '@angular/router';
 import { type BlockCard } from '@shared/interfaces';
 
 @Component({
-  selector: 'bl-card',
+  selector: 'card',
   imports: [MatCard, MatCardContent, RouterLink],
   template: `
     <a [routerLink]="['/sections/' + path(), block()?.id]">
       <mat-card
-        class="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+        class="group overflow-hidden hover:shadow-lg transition-shadow duration-300"
       >
         <!-- Preview Image -->
         <div class="h-48 relative overflow-hidden">
           <img
             [src]="block()?.previewUrl"
             [alt]="block()?.title"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
 
         <!-- Block Content -->
-        <mat-card-content class="p-4">
-          <div class="flex justify-between items-start">
-            <div>
-              <h3 class="font-semibold text-lg">
-                {{ block()?.title }}
-              </h3>
-              <p class="text-sm mt-1">
-                {{ block()?.description }}
-              </p>
-            </div>
+        <mat-card-content class="p-0">
+          <div
+            class="relative h-20 flex flex-col items-center justify-center text-center px-4"
+          >
+            <!-- Title -->
+            <h3
+              class="font-semibold text-lg translate-y-1 scale-110 transition-transform duration-300 group-hover:-translate-y-3 group-hover:scale-100"
+            >
+              {{ block()?.title }}
+            </h3>
+
+            <!-- Description -->
+            <p
+              class="absolute top-[60%] text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            >
+              {{ block()?.description }}
+            </p>
           </div>
         </mat-card-content>
       </mat-card>
     </a>
   `,
 })
-export default class BLCard {
+export default class Card {
   public block = input<BlockCard>();
   public path = input('');
 }
