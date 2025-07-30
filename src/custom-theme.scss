@@ -6,9 +6,9 @@
 // @use "tailwindcss";
 @use "@angular/material" as mat;
 :root {
+  //colors
   --background: 20.463% 0 -0.00002;
   --foreground: 97.015% 0 -0.00011;
-  --mat-toolbar-standard-height: 64px;
   --mat-sys-background: light-dark(
     oklab(var(--foreground)),
     oklab(var(--background))
@@ -17,6 +17,8 @@
     oklab(var(--background)),
     oklab(var(--foreground))
   );
+
+  //shadow -box
   --mat-sys-level1: 0px 2px 1px -1px var(--mat-sys-foreground-shadow),
     0px 1px 1px 0px var(--mat-sys-foreground-shadow),
     0px 1px 3px 0px var(--mat-sys-foreground-shadow);
@@ -27,6 +29,10 @@
     oklab(var(--background) / 0.15),
     oklab(var(--foreground) / 0.1)
   );
+  //toolbar-height
+  --mat-toolbar-standard-height: 64px;
+  --mat-toolbar-mobile-height: 56px;
+  --mat-toolbar-height: var(--mat-toolbar-standard-height);
   @include mat.toolbar-overrides(
     (
       container-background-color: transparent,
@@ -41,6 +47,10 @@
       protected-label-text-color: var(--mat-sys-foreground),
     )
   );
+
+  @media (max-width: 600px) {
+    --mat-toolbar-height: var(--mat-toolbar-mobile-height);
+  }
 }
 html {
   @include mat.theme(
