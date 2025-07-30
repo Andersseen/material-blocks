@@ -8,8 +8,10 @@ import QuickStart from './quick-start';
   selector: 'app-docs',
   imports: [MatCard, MatIcon, QuickStart, ComponentsUsage],
   template: `
-    <div class="min-h-[calc(100vh-64px)]">
-      <div class="max-w-4xl mx-auto px-4 py-12">
+    <div>
+      <div
+        class="max-w-4xl mx-auto px-4 py-12 flex flex-col items-center sm:items-stretch"
+      >
         <!-- Header -->
         <div class="text-center mb-12">
           <h1 class="text-4xl font-bold mb-4">Documentation</h1>
@@ -23,7 +25,7 @@ import QuickStart from './quick-start';
         <!-- Component Usage -->
         <components-usage />
         <!-- Customization -->
-        <mat-card class="mb-8">
+        <mat-card class="mb-8 shadow-sm sm:w-full w-96">
           <div class="p-8">
             <h2 class="text-2xl font-semibold mb-6 flex items-center">
               <mat-icon class="mr-3">palette</mat-icon>
@@ -96,7 +98,7 @@ import QuickStart from './quick-start';
         </mat-card>
 
         <!-- Help -->
-        <mat-card>
+        <mat-card class="mb-8 shadow-sm sm:w-full w-[25rem]">
           <div class="p-8">
             <h2 class="text-2xl font-semibold mb-6 flex items-center">
               <mat-icon class="mr-3">help</mat-icon>

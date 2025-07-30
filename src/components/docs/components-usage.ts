@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   template: `
-    <mat-card class="mb-8 shadow-sm">
+    <mat-card class="mb-8 shadow-sm sm:w-full w-96">
       <div class="p-6">
         <!-- Header -->
         <div class="flex items-center mb-6">
