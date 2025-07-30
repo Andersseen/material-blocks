@@ -7,53 +7,23 @@ const sectionRoutes: Routes = [
     children: [
       {
         path: 'heroes',
-        children: [
-          { path: '', loadComponent: () => import('./heroes') },
-          {
-            path: ':id',
-            loadComponent: () => import('./block'),
-          },
-        ],
+        loadChildren: () => import('./heroes/routes'),
       },
       {
         path: 'features',
-        children: [
-          { path: '', loadComponent: () => import('./features') },
-          {
-            path: ':id',
-            loadComponent: () => import('./block'),
-          },
-        ],
+        loadChildren: () => import('./features/routes'),
       },
       {
         path: 'pricing',
-        children: [
-          { path: '', loadComponent: () => import('./pricing') },
-          {
-            path: ':id',
-            loadComponent: () => import('./block'),
-          },
-        ],
+        loadChildren: () => import('./pricing/routes'),
       },
       {
         path: 'testimonials',
-        children: [
-          { path: '', loadComponent: () => import('./testimonials') },
-          {
-            path: ':id',
-            loadComponent: () => import('./block'),
-          },
-        ],
+        loadChildren: () => import('./testimonials/routes'),
       },
       {
         path: 'team',
-        children: [
-          { path: '', loadComponent: () => import('./team') },
-          {
-            path: ':id',
-            loadComponent: () => import('./block'),
-          },
-        ],
+        loadChildren: () => import('./team/routes'),
       },
     ],
   },
