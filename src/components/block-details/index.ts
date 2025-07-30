@@ -1,4 +1,11 @@
-import { Component, computed, input, Input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  inject,
+  input,
+  Input,
+  signal,
+} from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import SectionHeader from '@components/section-header';
 import SectionNavigation from '@components/section-navigation';
@@ -7,6 +14,7 @@ import BDCode from './code';
 import BDFooter from './footer';
 import BDHeader from './header';
 import BDPreview from './preview';
+import NavigationState from '@services/navigation-state';
 
 @Component({
   selector: 'block-details',
@@ -19,10 +27,11 @@ import BDPreview from './preview';
     BDPreview,
     BDFooter,
   ],
+  providers: [NavigationState],
   template: `
     <section>
       <!-- Navigation Header -->
-      <section-navigation />
+      <section-navigation (navigationButton)="navigateTo($event)" />
       <!-- Header Section -->
       <section-header [data]="header()">
         <!-- Copy Button -->
@@ -71,7 +80,9 @@ import BDPreview from './preview';
   `,
 })
 export default class BlockDetails {
+  #navigationState = inject(NavigationState);
   public blockData = input<BlockData>();
+  public path = input('');
 
   public header = computed(() => ({
     title: this.blockData()!.title,
@@ -96,5 +107,11 @@ export default class BlockDetails {
 
   copyCurrentView() {
     const currentView = this.blockData()?.views[this.selectedTabIndex()];
+  }
+
+  navigateTo(direction: 'prev' | 'next') {
+    console.log('here');
+
+    this.#navigationState.navigateToBlock(direction, this.path());
   }
 }

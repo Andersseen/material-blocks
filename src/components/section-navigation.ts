@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -8,7 +8,6 @@ import NavigationState from '@services/navigation-state';
 @Component({
   selector: 'section-navigation',
   imports: [MatIcon, MatIconButton, MatTooltip, RouterLink],
-  providers: [NavigationState],
   template: `
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center gap-3">
@@ -21,11 +20,15 @@ import NavigationState from '@services/navigation-state';
         <button
           matIconButton
           matTooltip="Previous"
-          (click)="navigateTo('prev')"
+          (click)="navigationButton.emit('prev')"
         >
           <mat-icon>chevron_left</mat-icon>
         </button>
-        <button matIconButton matTooltip="Next" (click)="navigateTo('next')">
+        <button
+          matIconButton
+          matTooltip="Next"
+          (click)="navigationButton.emit('next')"
+        >
           <mat-icon>chevron_right</mat-icon>
         </button>
       </div>
@@ -33,9 +36,5 @@ import NavigationState from '@services/navigation-state';
   `,
 })
 export default class SectionNavigation {
-  #navigationState = inject(NavigationState);
-
-  navigateTo(direction: 'prev' | 'next') {
-    this.#navigationState.navigateTo(direction);
-  }
+  public navigationButton = output<'prev' | 'next'>();
 }

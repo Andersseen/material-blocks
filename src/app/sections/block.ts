@@ -11,7 +11,7 @@ import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 @Component({
   selector: 'page-block-details',
   imports: [BlockDetails],
-  template: `<block-details [blockData]="block()" />`,
+  template: `<block-details [blockData]="block()" [path]="path()" />`,
 })
 export default class BlockPage {
   #route = inject(ActivatedRoute);
@@ -19,7 +19,8 @@ export default class BlockPage {
   public parentPath = computed<string>(
     () => this.parentRoute()?.[0]?.path || ''
   );
-  public id = input<string>();
+  public id = input<string>('');
+  public path = input<string>('');
 
   public block = computed(() => {
     const key = this.parentPath() as keyof typeof sectionBlocks;

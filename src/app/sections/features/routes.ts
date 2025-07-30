@@ -5,6 +5,7 @@ const route: Routes = [
   {
     path: ':id',
     loadComponent: () => import('../block'),
+    data: { path: 'features' },
   },
 ];
 
