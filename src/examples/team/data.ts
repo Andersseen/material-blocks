@@ -34,7 +34,7 @@ export const teamBlocks: BlockCard[] = [
 ];
 
 export const teamSectionsData = {
-  title: 'Team Blocks Collection',
+  title: 'UI Team Blocks Collection',
   description: 'Different layouts to showcase your team members',
   path: 'team',
   blocks: [...teamBlocks],

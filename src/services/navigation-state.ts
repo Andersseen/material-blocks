@@ -6,6 +6,7 @@ type AppSection =
   | 'features'
   | 'pricing'
   | 'testimonials'
+  | 'team'
   | 'contact';
 
 interface SectionNavigation {
@@ -20,7 +21,8 @@ export default class NavigationState {
     heroes: { next: 'features' },
     features: { prev: 'heroes', next: 'pricing' },
     pricing: { prev: 'features', next: 'testimonials' },
-    testimonials: { prev: 'pricing', next: 'contact' },
+    testimonials: { prev: 'pricing', next: 'team' },
+    team: { prev: 'testimonials', next: 'contact' },
     contact: { prev: 'testimonials' },
   };
 
