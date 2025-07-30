@@ -1,11 +1,11 @@
-import { Component, input, Input } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { Component } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'example-hero1',
-  imports: [MatButtonModule, MatChipsModule, MatIconModule],
+  imports: [MatButton, MatChipsModule, MatIcon],
   template: `<section class="py-32">
     <div class="container mx-auto px-4">
       <div class="grid items-center gap-8 lg:grid-cols-2">
