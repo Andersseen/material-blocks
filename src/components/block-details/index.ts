@@ -41,7 +41,9 @@ import BDPreview from './preview';
 
       <!-- Content Section -->
       <div class="flex flex-col items-center">
-        <div class="h-[50dvh] border border-border rounded-lg w-96 sm:w-full">
+        <div
+          class="h-[50dvh] border border-border overflow-scroll rounded-lg w-96 sm:w-full"
+        >
           <!-- Code View -->
           @if (!isPreview()) {
           <bd-code

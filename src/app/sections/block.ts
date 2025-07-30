@@ -5,6 +5,7 @@ import BlockDetails from '@components/block-details';
 import { featureBlocksWithViews } from '@examples/features/data';
 import { heroBlocksWithViews } from '@examples/heroes/data';
 import { pricingBlocksWithViews } from '@examples/pricing/data';
+import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 
 @Component({
   selector: 'page-block-details',
@@ -30,4 +31,5 @@ const sectionBlocks = {
   heroes: heroBlocksWithViews,
   features: featureBlocksWithViews,
   pricing: pricingBlocksWithViews,
+  testimonials: testimonialBlocksWithViews,
 };
