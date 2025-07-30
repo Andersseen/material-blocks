@@ -5,6 +5,7 @@ import BlockDetails from '@components/block-details';
 import { featureBlocksWithViews } from '@examples/features/data';
 import { heroBlocksWithViews } from '@examples/heroes/data';
 import { pricingBlocksWithViews } from '@examples/pricing/data';
+import { teamBlocksWithViews } from '@examples/team/data';
 import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 
 @Component({
@@ -32,4 +33,5 @@ const sectionBlocks = {
   features: featureBlocksWithViews,
   pricing: pricingBlocksWithViews,
   testimonials: testimonialBlocksWithViews,
+  team: teamBlocksWithViews,
 };

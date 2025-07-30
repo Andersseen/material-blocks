@@ -45,6 +45,16 @@ const sectionRoutes: Routes = [
           },
         ],
       },
+      {
+        path: 'team',
+        children: [
+          { path: '', loadComponent: () => import('./team') },
+          {
+            path: ':id',
+            loadComponent: () => import('./block'),
+          },
+        ],
+      },
     ],
   },
 ];

@@ -17,6 +17,10 @@ const examplesRoutes: Routes = [
     path: 'testimonials',
     loadChildren: () => import('./testimonials/testimonials.routes'),
   },
+  {
+    path: 'team',
+    loadChildren: () => import('./team/team.routes'),
+  },
 ];
 
 export default examplesRoutes;
