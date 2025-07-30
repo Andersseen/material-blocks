@@ -1,13 +1,15 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import SectionHeader from '@components/section-header';
 import { SectionData } from '@shared/interfaces';
 import SectionNavigation from '../section-navigation';
 import Card from './card';
+import NavigationState from '@services/navigation-state';
 
 @Component({
   selector: 'blocks-list',
   imports: [SectionNavigation, Card, SectionHeader],
-  template: `<section-navigation />
+  providers: [NavigationState],
+  template: `<section-navigation (navigationButton)="navigateTo($event)" />
     <!-- Header Section -->
     <section-header [data]="header()" />
     <!-- Blocks Grid -->
@@ -18,9 +20,14 @@ import Card from './card';
     </div> `,
 })
 export default class BlocksList {
+  #navigationState = inject(NavigationState);
   public data = input<SectionData>();
   public header = computed(() => ({
     title: this.data()!.title,
     description: this.data()!.description,
   }));
+
+  navigateTo(direction: 'prev' | 'next') {
+    this.#navigationState.navigateToSection(direction);
+  }
 }

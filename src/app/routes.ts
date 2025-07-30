@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import routesConfig from '@data/routes.json';
-import exampleRoutes from '@examples/routes';
+import examplesRoutes from '@examples/routes';
 
 const COMPONENT_MAP: Record<string, () => Promise<any>> = {
   home: () => import('@app/home/routes'),
@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'examples',
-    children: [...exampleRoutes],
+    children: [...examplesRoutes],
     title: 'Block Example',
   },
   {

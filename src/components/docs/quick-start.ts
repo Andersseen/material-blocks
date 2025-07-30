@@ -8,7 +8,7 @@ import CommandTabs from './command-tabs';
   selector: 'quick-start',
   imports: [MatIconModule, MatCardModule, MatButtonModule, CommandTabs],
   template: `
-    <mat-card class="mb-8">
+    <mat-card class="mb-8 shadow-sm w-96 sm:w-full ">
       <div class="p-8">
         <h2 class="text-2xl font-semibold mb-6 flex items-center">
           <mat-icon class="mr-3">rocket_launch</mat-icon>
@@ -21,7 +21,6 @@ import CommandTabs from './command-tabs';
               <mat-icon class="mr-2">settings</mat-icon>
               Choose your package manager command
             </h3>
-
             <command-tabs [commands]="pmCommands" />
           </div>
           <div class="mb-8">
@@ -29,24 +28,24 @@ import CommandTabs from './command-tabs';
               <mat-icon class="mr-2">settings</mat-icon>
               Install Angular CLI globally
             </h3>
-            <pre class="p-2">
-            -g <code>&#64;angular/cli</code></pre>
+            <div class="flex justify-start">
+              <pre><span>-g</span> <code>&#64;angular/cli</code></pre>
+            </div>
           </div>
           <div class="mb-8">
             <h3 class="text-lg font-semibold mb-4 flex items-center">
               <mat-icon class="mr-2">settings</mat-icon>
               Install Angular Materia
             </h3>
-            <pre class="p-2">
-            <code>ng add &#64;angular/materia</code></pre>
+            <pre><code>ng add &#64;angular/materia</code></pre>
           </div>
           <div class="mb-8">
             <h3 class="text-lg font-semibold mb-4 flex items-center">
               <mat-icon class="mr-2">settings</mat-icon>
               Install Tailwind 4 Dependencies
             </h3>
-            <pre class="p-2">
-          <code>tailwindcss postcss autoprefixer</code></pre>
+
+            <pre><code>tailwindcss postcss autoprefixer</code></pre>
           </div>
 
           <div class="flex justify-between overflow-y-hidden relative"></div>

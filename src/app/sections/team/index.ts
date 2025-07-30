@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import BlocksList from '@components/block-list';
-import { pricingSectionsData } from '@examples/pricing/data';
+import { teamSectionsData } from '@examples/team/data';
 
 @Component({
   selector: 'page-blocks-list',
   imports: [BlocksList],
   template: ` <blocks-list [data]="data" />`,
 })
-export default class PricingPage {
-  public data = pricingSectionsData;
+export default class TeamPage {
+  public data = teamSectionsData;
 }

@@ -79,13 +79,15 @@ import routesConfig from '@data/routes.json';
   styles: [
     `
       .sidebar-container {
-        height: calc(100dvh - var(--mat-toolbar-standard-height));
+        position: fixed;
+        height: calc(100dvh - var(--mat-toolbar-height));
+        margin-top: var(--mat-toolbar-height);
       }
       .main-container {
-        min-height: calc(100dvh - var(--mat-toolbar-standard-height));
+        min-height: calc(100dvh - var(--mat-toolbar-height));
       }
       .main-margin-top {
-        margin-top: var(--mat-toolbar-standard-height);
+        margin-top: var(--mat-toolbar-height);
       }
     `,
   ],

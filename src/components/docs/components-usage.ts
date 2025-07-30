@@ -1,21 +1,14 @@
 import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatListModule } from '@angular/material/list';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+import { MatList, MatListItem } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'components-usage',
-  imports: [
-    MatCardModule,
-    MatIconModule,
-    MatButtonModule,
-    MatListModule,
-    RouterModule,
-  ],
+  imports: [MatCard, MatIcon, MatList, MatListItem, RouterModule],
   template: `
-    <mat-card class="mb-8 shadow-sm">
+    <mat-card class="mb-8 shadow-sm sm:w-full w-96">
       <div class="p-6">
         <!-- Header -->
         <div class="flex items-center mb-6">

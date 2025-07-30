@@ -1,4 +1,4 @@
-import { Section } from '../../shared/interfaces';
+import { Section } from '@shared/interfaces';
 
 export const sections: Section[] = [
   {

@@ -1,7 +1,7 @@
 import {
   Component,
   computed,
-  effect,
+  inject,
   input,
   Input,
   signal,
@@ -11,9 +11,10 @@ import SectionHeader from '@components/section-header';
 import SectionNavigation from '@components/section-navigation';
 import { type BlockData, type ViewMode } from '@shared/interfaces';
 import BDCode from './code';
+import BDFooter from './footer';
 import BDHeader from './header';
 import BDPreview from './preview';
-import BDFooter from './footer';
+import NavigationState from '@services/navigation-state';
 
 @Component({
   selector: 'block-details',
@@ -26,53 +27,62 @@ import BDFooter from './footer';
     BDPreview,
     BDFooter,
   ],
-  template: `<section>
-    <!-- Navigation Header -->
-    <section-navigation />
-    <!-- Header Section -->
-    <section-header [data]="header()">
-      <!-- Copy Button -->
-      <button
-        matIconButton
-        class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
-        matTooltip="Copy code"
-        (click)="copyCurrentView()"
-      >
-        <mat-icon class="!text-lg">content_copy</mat-icon>
-      </button>
-    </section-header>
+  providers: [NavigationState],
+  template: `
+    <section>
+      <!-- Navigation Header -->
+      <section-navigation (navigationButton)="navigateTo($event)" />
+      <!-- Header Section -->
+      <section-header [data]="header()">
+        <!-- Copy Button -->
+        <button
+          matIconButton
+          class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
+          matTooltip="Copy code"
+          (click)="copyCurrentView()"
+        >
+          <mat-icon class="!text-lg">content_copy</mat-icon>
+        </button>
+      </section-header>
 
-    <!-- View Mode Toggle -->
-    <bd-header [(viewMode)]="viewMode" />
+      <!-- View Mode Toggle -->
+      <bd-header [(viewMode)]="viewMode" />
 
-    <!-- Content Section -->
-    <div class="h-[50dvh] border border-border rounded-lg overflow-hidden">
-      <!-- Code View -->
-      @if (!isPreview()) {
-      <bd-code
-        [blockViews]="blockData()?.views"
-        [(selectedTabIndex)]="selectedTabIndex"
+      <!-- Content Section -->
+      <div class="flex flex-col items-center">
+        <div
+          class="h-[50dvh] border border-border overflow-scroll rounded-lg w-96 sm:w-full"
+        >
+          <!-- Code View -->
+          @if (!isPreview()) {
+          <bd-code
+            [blockViews]="blockData()?.views"
+            [(selectedTabIndex)]="selectedTabIndex"
+          />
+          } @else {
+          <!-- Preview View -->
+
+          <bd-preview
+            [showIframe]="!!blockData()?.previewUrl"
+            [path]="blockData()?.iframeUrl!"
+          />
+          }
+        </div>
+      </div>
+
+      <!-- Footer Info -->
+      <bd-footer
+        [show]="!isPreview()"
+        [viewsLength]="blockData()!.views.length"
+        [currentLanguage]="getCurrentLanguage()"
       />
-      } @else {
-      <!-- Preview View -->
-
-      <bd-preview
-        [showIframe]="!!blockData()?.previewUrl"
-        [path]="blockData()?.iframeUrl!"
-      />
-      }
-    </div>
-
-    <!-- Footer Info -->
-    <bd-footer
-      [show]="!isPreview()"
-      [viewsLength]="blockData()!.views.length"
-      [currentLanguage]="getCurrentLanguage()"
-    />
-  </section> `,
+    </section>
+  `,
 })
 export default class BlockDetails {
+  #navigationState = inject(NavigationState);
   public blockData = input<BlockData>();
+  public path = input('');
 
   public header = computed(() => ({
     title: this.blockData()!.title,
@@ -84,13 +94,6 @@ export default class BlockDetails {
 
   public viewMode = signal<ViewMode>('code');
   public isPreview = computed(() => this.viewMode() === 'preview');
-
-  constructor() {
-    effect(() => {
-      console.log(this.blockData());
-      console.log(this.header());
-    });
-  }
 
   // View mode methods
   setViewMode(mode: ViewMode) {
@@ -104,7 +107,11 @@ export default class BlockDetails {
 
   copyCurrentView() {
     const currentView = this.blockData()?.views[this.selectedTabIndex()];
-    console.log(currentView);
-    console.log(this.blockData());
+  }
+
+  navigateTo(direction: 'prev' | 'next') {
+    console.log('here');
+
+    this.#navigationState.navigateToBlock(direction, this.path());
   }
 }

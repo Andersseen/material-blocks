@@ -5,11 +5,13 @@ import BlockDetails from '@components/block-details';
 import { featureBlocksWithViews } from '@examples/features/data';
 import { heroBlocksWithViews } from '@examples/heroes/data';
 import { pricingBlocksWithViews } from '@examples/pricing/data';
+import { teamBlocksWithViews } from '@examples/team/data';
+import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 
 @Component({
   selector: 'page-block-details',
   imports: [BlockDetails],
-  template: `<block-details [blockData]="block()" />`,
+  template: `<block-details [blockData]="block()" [path]="path()" />`,
 })
 export default class BlockPage {
   #route = inject(ActivatedRoute);
@@ -17,7 +19,8 @@ export default class BlockPage {
   public parentPath = computed<string>(
     () => this.parentRoute()?.[0]?.path || ''
   );
-  public id = input<string>();
+  public id = input<string>('');
+  public path = input<string>('');
 
   public block = computed(() => {
     const key = this.parentPath() as keyof typeof sectionBlocks;
@@ -30,4 +33,6 @@ const sectionBlocks = {
   heroes: heroBlocksWithViews,
   features: featureBlocksWithViews,
   pricing: pricingBlocksWithViews,
+  testimonials: testimonialBlocksWithViews,
+  team: teamBlocksWithViews,
 };
