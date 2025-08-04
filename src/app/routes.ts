@@ -8,7 +8,7 @@ const COMPONENT_MAP: Record<string, () => Promise<any>> = {
   docs: () => import('@app/docs/routes'),
 };
 
-const getComponentLoader = (code: string) => {
+export const getComponentLoader = (code: string) => {
   const loader = COMPONENT_MAP[code];
   if (!loader) {
     throw new Error(`No component loader found for path: ${code}`);
