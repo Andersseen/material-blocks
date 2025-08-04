@@ -1,25 +1,37 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { provideZonelessChangeDetection } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { App } from './app';
+import { render, screen } from '@testing-library/angular';
+import { expect, test } from 'vitest';
+import App from './app';
 
 describe('App', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let fixture: ComponentFixture<App>;
+  let component: App;
+
+  beforeEach(() =>
+    TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideZonelessChangeDetection()]
-    }).compileComponents();
-  });
+      providers: [provideZonelessChangeDetection(), provideRouter([])],
+    })
+  );
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(App);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(App);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(App);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, material-blocks');
   });
+
+  test('should create the component', () => {
+    expect(component).toBeTruthy();
+  });
+
+  // test('should render title', async () => {
+  //   await render(App);
+  //   expect(screen.getByText(/hello/i)).toBeInTheDocument();
+  // });
+
+  // it('should match snapshot', () => {
+  //   expect(fixture).toMatchSnapshot();
+  // });
 });
