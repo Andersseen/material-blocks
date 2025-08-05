@@ -29,7 +29,7 @@ const appConfig: ApplicationConfig = {
         css: () => import('highlight.js/lib/languages/css'),
         xml: () => import('highlight.js/lib/languages/xml'),
       },
-      themePath: 'styles/github-dark.css',
+      themePath: 'styles/github-dark.min.css',
     }),
   ],
 };
