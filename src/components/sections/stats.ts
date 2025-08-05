@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { MatCard } from '@angular/material/card';
-import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-stats',
