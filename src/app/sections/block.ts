@@ -10,6 +10,8 @@ import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 import { contactBlocksWithViews } from '@examples/contact/data';
 import { footerBlocksWithViews } from '@examples/footers/data';
 import { ecommerceBlocksWithViews } from '@examples/ecommerce/data';
+import { blogBlocksWithViews } from '@examples/blog/data';
+import { navigationBlocksWithViews } from '@examples/navigation/data';
 
 @Component({
   selector: 'page-block-details',
@@ -34,11 +36,13 @@ export default class BlockPage {
 
 const sectionBlocks = {
   heroes: heroBlocksWithViews,
-    features: featureBlocksWithViews,
-    pricing: pricingBlocksWithViews,
-    ecommerce: ecommerceBlocksWithViews,
-    testimonials: testimonialBlocksWithViews,
-    team: teamBlocksWithViews,
-    contact: contactBlocksWithViews,
-    footers: footerBlocksWithViews,
-  };
+  ecommerce: ecommerceBlocksWithViews,
+  features: featureBlocksWithViews,
+  pricing: pricingBlocksWithViews,
+  testimonials: testimonialBlocksWithViews,
+  team: teamBlocksWithViews,
+  blog: blogBlocksWithViews,
+  contact: contactBlocksWithViews,
+  navigation: navigationBlocksWithViews,
+  footers: footerBlocksWithViews,
+};
