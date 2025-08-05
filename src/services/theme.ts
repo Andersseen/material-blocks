@@ -6,6 +6,7 @@ import {
   PLATFORM_ID,
   signal,
 } from '@angular/core';
+import { HighlightLoader } from 'ngx-highlightjs';
 
 type Theme = 'light' | 'dark';
 
@@ -13,6 +14,7 @@ type Theme = 'light' | 'dark';
 export default class ThemeState {
   #platformId = inject(PLATFORM_ID);
   #currentTheme = signal<Theme>('dark');
+  private hljsLoader: HighlightLoader = inject(HighlightLoader);
 
   readonly theme = this.#currentTheme.asReadonly();
   readonly isDark = computed(() => this.#currentTheme() === 'dark');
@@ -42,6 +44,9 @@ export default class ThemeState {
 
   toggleTheme() {
     this.applyTheme(this.isDark() ? 'light' : 'dark');
+    this.hljsLoader.setTheme(
+      this.isDark() ? 'styles/github-dark.min.css' : 'styles/github.min.css'
+    );
   }
 
   setTheme(theme: Theme) {

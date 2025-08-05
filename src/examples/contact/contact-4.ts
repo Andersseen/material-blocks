@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
         <mat-card class="p-6 text-center">
           <mat-icon class="mb-4 text-4xl text-primary-600">mail</mat-icon>
           <h3 class="text-xl font-semibold mb-2">Email</h3>
-          <p class="text-muted-foreground mb-4">support@example.com</p>
+          <p class="text-muted-foreground mb-4">support&#64;example.com</p>
           <button mat-stroked-button color="primary">Send Email</button>
         </mat-card>
         <mat-card class="p-6 text-center">

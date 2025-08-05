@@ -62,7 +62,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-modern-hero',
   templateUrl: './modern-hero.component.html',
-  styleUrls: ['./modern-hero.component.scss'],
+  styleUrls: ['./modern-hero.component.css'],
   standalone: true,
   imports: [MatButtonModule]
 })
@@ -248,7 +248,7 @@ export class VideoHeroComponent implements AfterViewInit {
       {
         label: 'Styles',
         content: codeTemplates[block.id].styles,
-        language: 'scss',
+        language: 'css',
       },
     ],
   };

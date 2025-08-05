@@ -4,10 +4,11 @@ import { MatIcon } from '@angular/material/icon';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
 import { MatTooltip } from '@angular/material/tooltip';
 import { BlockView } from '@shared/interfaces';
+import { Highlight } from 'ngx-highlightjs';
 
 @Component({
   selector: 'bd-code',
-  imports: [MatTabGroup, MatTab, MatIconButton, MatIcon, MatTooltip],
+  imports: [MatTabGroup, MatTab, MatIconButton, MatIcon, MatTooltip, Highlight],
   template: ` <mat-tab-group
     [(selectedIndex)]="selectedTabIndex"
     animationDuration="200ms"
@@ -31,7 +32,8 @@ import { BlockView } from '@shared/interfaces';
         <pre
           class="bg-card text-card-foreground p-4 overflow-x-auto text-sm leading-relaxed"
         >
-            <code [class]="'language-' + (view.language || 'typescript')">{{ view.content }}</code></pre>
+        <code [highlight]="view.content" [language]="view.language|| 'typescript'"></code>
+      </pre>
       </div>
     </mat-tab>
     }

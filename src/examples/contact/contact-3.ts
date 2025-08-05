@@ -30,7 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
           </div>
           <div class="flex items-center gap-3">
             <mat-icon>mail</mat-icon>
-            <span>info@example.com</span>
+            <span>info&#64;example.com</span>
           </div>
         </div>
       </div>

@@ -85,7 +85,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-testimonial-grid',
   templateUrl: './testimonial-grid.component.html',
-  styleUrls: ['./testimonial-grid.component.scss'],
+  styleUrls: ['./testimonial-grid.component.css'],
   standalone: true,
   imports: [MatIconModule],
 })
@@ -174,7 +174,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-color-card-testimonials',
   templateUrl: './color-card-testimonials.component.html',
-  styleUrls: ['./color-card-testimonials.component.scss'],
+  styleUrls: ['./color-card-testimonials.component.css'],
   standalone: true,
   imports: [MatIconModule],
 })
@@ -327,7 +327,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-carousel-testimonials',
   templateUrl: './carousel-testimonials.component.html',
-  styleUrls: ['./carousel-testimonials.component.scss'],
+  styleUrls: ['./carousel-testimonials.component.css'],
   standalone: true,
   imports: [MatIconModule, MatButtonModule],
 })
@@ -401,7 +401,7 @@ export class CarouselTestimonialsComponent {
         {
           label: 'Styles',
           content: codeTemplates[block.id].styles,
-          language: 'scss',
+          language: 'css',
         },
       ],
     };

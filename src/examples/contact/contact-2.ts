@@ -14,8 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
         <div class="space-y-4">
           <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
           <p class="text-muted-foreground">
-            We'd love to hear from you. Reach us through any of the
-            following ways or send us a message.
+            We'd love to hear from you. Reach us through any of the following
+            ways or send us a message.
           </p>
           <div class="flex items-center gap-3">
             <mat-icon>phone</mat-icon>
@@ -23,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
           </div>
           <div class="flex items-center gap-3">
             <mat-icon>mail</mat-icon>
-            <span>support@example.com</span>
+            <span>support&#64;example.com</span>
           </div>
           <div class="flex items-center gap-3">
             <mat-icon>place</mat-icon>
