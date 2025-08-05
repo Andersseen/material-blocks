@@ -21,12 +21,16 @@ const sectionRoutes: Routes = [
         path: 'testimonials',
         loadChildren: () => import('./testimonials/routes'),
       },
-      {
-        path: 'team',
-        loadChildren: () => import('./team/routes'),
-      },
-    ],
-  },
-];
+        {
+          path: 'team',
+          loadChildren: () => import('./team/routes'),
+        },
+        {
+          path: 'contact',
+          loadChildren: () => import('./contact/routes'),
+        },
+      ],
+    },
+  ];
 
 export default sectionRoutes;

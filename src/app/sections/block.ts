@@ -7,6 +7,7 @@ import { heroBlocksWithViews } from '@examples/heroes/data';
 import { pricingBlocksWithViews } from '@examples/pricing/data';
 import { teamBlocksWithViews } from '@examples/team/data';
 import { testimonialBlocksWithViews } from '@examples/testimonials/data';
+import { contactBlocksWithViews } from '@examples/contact/data';
 
 @Component({
   selector: 'page-block-details',
@@ -31,8 +32,9 @@ export default class BlockPage {
 
 const sectionBlocks = {
   heroes: heroBlocksWithViews,
-  features: featureBlocksWithViews,
-  pricing: pricingBlocksWithViews,
-  testimonials: testimonialBlocksWithViews,
-  team: teamBlocksWithViews,
-};
+    features: featureBlocksWithViews,
+    pricing: pricingBlocksWithViews,
+    testimonials: testimonialBlocksWithViews,
+    team: teamBlocksWithViews,
+    contact: contactBlocksWithViews,
+  };

@@ -21,6 +21,10 @@ const examplesRoutes: Routes = [
     path: 'team',
     loadChildren: () => import('./team/team.routes'),
   },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.routes'),
+  },
 ];
 
 export default examplesRoutes;
