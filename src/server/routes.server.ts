@@ -1,101 +1,35 @@
 import { PrerenderFallback, RenderMode, ServerRoute } from '@angular/ssr';
 
+const dynamicIds = [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
+
+const sectionPaths = [
+  'heroes',
+  'features',
+  'forms',
+  'pricing',
+  'testimonials',
+  'team',
+  'contact',
+  'footers',
+  'navigation',
+  'stats',
+  'blog',
+  'ecommerce',
+];
+
 export const serverRoutes: ServerRoute[] = [
   {
     path: '',
     renderMode: RenderMode.Client,
   },
-
-  {
-    path: 'sections/heroes/:id',
+  ...sectionPaths.map<ServerRoute>((section) => ({
+    path: `sections/${section}/:id`,
     renderMode: RenderMode.Prerender,
     fallback: PrerenderFallback.Client,
     async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
+      return dynamicIds;
     },
-  },
-
-  {
-    path: 'sections/features/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/pricing/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/testimonials/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/team/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/contact/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/footers/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/navigation/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/stats/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/blog/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-  {
-    path: 'sections/ecommerce/:id',
-    renderMode: RenderMode.Prerender,
-    fallback: PrerenderFallback.Client,
-    async getPrerenderParams() {
-      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
-    },
-  },
-
+  })),
   {
     path: '**',
     renderMode: RenderMode.Prerender,

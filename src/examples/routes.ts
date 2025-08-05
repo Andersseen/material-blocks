@@ -30,6 +30,10 @@ const examplesRoutes: Routes = [
     loadChildren: () => import('./blog/blog.routes'),
   },
   {
+    path: 'forms',
+    loadChildren: () => import('./forms/forms.routes'),
+  },
+  {
     path: 'contact',
     loadChildren: () => import('./contact/contact.routes'),
   },
