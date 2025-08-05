@@ -22,6 +22,10 @@ const examplesRoutes: Routes = [
     loadChildren: () => import('./team/team.routes'),
   },
   {
+    path: 'blog',
+    loadChildren: () => import('./blog/blog.routes'),
+  },
+  {
     path: 'contact',
     loadChildren: () => import('./contact/contact.routes'),
   },

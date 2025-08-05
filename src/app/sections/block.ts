@@ -9,6 +9,7 @@ import { teamBlocksWithViews } from '@examples/team/data';
 import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 import { contactBlocksWithViews } from '@examples/contact/data';
 import { footerBlocksWithViews } from '@examples/footers/data';
+import { blogBlocksWithViews } from '@examples/blog/data';
 import { navigationBlocksWithViews } from '@examples/navigation/data';
 
 @Component({
@@ -34,11 +35,12 @@ export default class BlockPage {
 
 const sectionBlocks = {
   heroes: heroBlocksWithViews,
-    features: featureBlocksWithViews,
-    pricing: pricingBlocksWithViews,
-    testimonials: testimonialBlocksWithViews,
-    team: teamBlocksWithViews,
-    contact: contactBlocksWithViews,
-    navigation: navigationBlocksWithViews,
-    footers: footerBlocksWithViews,
-  };
+  features: featureBlocksWithViews,
+  pricing: pricingBlocksWithViews,
+  testimonials: testimonialBlocksWithViews,
+  team: teamBlocksWithViews,
+  blog: blogBlocksWithViews,
+  contact: contactBlocksWithViews,
+  navigation: navigationBlocksWithViews,
+  footers: footerBlocksWithViews,
+};
