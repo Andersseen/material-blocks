@@ -14,6 +14,10 @@ const sectionRoutes: Routes = [
         loadChildren: () => import('./features/routes'),
       },
       {
+        path: 'forms',
+        loadChildren: () => import('./forms/routes'),
+      },
+      {
         path: 'pricing',
         loadChildren: () => import('./pricing/routes'),
       },
@@ -25,10 +29,10 @@ const sectionRoutes: Routes = [
         path: 'testimonials',
         loadChildren: () => import('./testimonials/routes'),
       },
-        {
-          path: 'team',
-          loadChildren: () => import('./team/routes'),
-        },
+      {
+        path: 'team',
+        loadChildren: () => import('./team/routes'),
+      },
       {
         path: 'blog',
         loadChildren: () => import('./blog/routes'),
