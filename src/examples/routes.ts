@@ -30,8 +30,16 @@ const examplesRoutes: Routes = [
     loadChildren: () => import('./contact/contact.routes'),
   },
   {
+    path: 'navigation',
+    loadChildren: () => import('./navigation/navigation.routes'),
+  },
+  {
     path: 'footer',
     loadChildren: () => import('./footers/footer.routes'),
+  },
+  {
+    path: 'stats',
+    loadChildren: () => import('./stats/stats.routes'),
   },
 ];
 

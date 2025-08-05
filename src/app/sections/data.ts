@@ -91,7 +91,7 @@ export const sections: Section[] = [
     description:
       'Data visualization, metrics display, counters, and achievement showcase components.',
     icon: 'analytics',
-    componentCount: 6,
+    componentCount: 4,
     tags: ['Data', 'Metrics', 'Counters', 'Charts'],
     gradient: 'bg-gradient-to-br from-red-500 to-red-600',
   },
