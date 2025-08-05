@@ -33,6 +33,10 @@ const sectionRoutes: Routes = [
         path: 'footers',
         loadChildren: () => import('./footers/routes'),
       },
+      {
+        path: 'stats',
+        loadChildren: () => import('./stats/routes'),
+      },
     ],
   },
 ];

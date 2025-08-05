@@ -29,6 +29,10 @@ const examplesRoutes: Routes = [
     path: 'footer',
     loadChildren: () => import('./footers/footer.routes'),
   },
+  {
+    path: 'stats',
+    loadChildren: () => import('./stats/stats.routes'),
+  },
 ];
 
 export default examplesRoutes;
