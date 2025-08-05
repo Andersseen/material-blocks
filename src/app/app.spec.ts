@@ -1,8 +1,9 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
-import { provideZonelessChangeDetection } from '@angular/core';
-import { render, screen } from '@testing-library/angular';
+import { provideHighlightOptions } from 'ngx-highlightjs';
 import { expect, test } from 'vitest';
+import { getHighlightOptions } from '@shared/highlight.config';
 import App from './app';
 
 describe('App', () => {
@@ -12,7 +13,11 @@ describe('App', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideZonelessChangeDetection(), provideRouter([])],
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter([]),
+        provideHighlightOptions(getHighlightOptions()),
+      ],
     })
   );
 
