@@ -80,7 +80,7 @@ export const teamBlocksWithViews: BlockData[] = teamBlocks.map((block) => {
       {
         label: 'Styles',
         content: codeTemplates[block.id].styles,
-        language: 'scss',
+        language: 'css',
       },
     ],
   };

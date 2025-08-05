@@ -32,7 +32,8 @@
             "outputMode": "server",
             "ssr": {
               "entry": "src/server/server.ts"
-            }
+            },
+            "allowedCommonJsDependencies": ["highlight.js"]
           },
           "configurations": {
             "production": {
