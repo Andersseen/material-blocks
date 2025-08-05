@@ -30,6 +30,10 @@ const sectionRoutes: Routes = [
         loadChildren: () => import('./contact/routes'),
       },
       {
+        path: 'navigation',
+        loadChildren: () => import('./navigation/routes'),
+      },
+      {
         path: 'footers',
         loadChildren: () => import('./footers/routes'),
       },
