@@ -30,9 +30,9 @@ import { ViewMode } from '@shared/interfaces';
     <!-- Additional Actions -->
     @if (isPreview()) {
     <div class="flex items-center gap-2">
-      <button matIconButton matTooltip="Refresh preview">
+      <!-- <button matIconButton matTooltip="Refresh preview">
         <mat-icon class="text-base">refresh</mat-icon>
-      </button>
+      </button> -->
 
       <button
         matIconButton
@@ -47,12 +47,12 @@ import { ViewMode } from '@shared/interfaces';
 })
 export default class BDHeader {
   public viewMode = model<ViewMode>('code');
+  public path = input('');
   public isPreview = computed(() => this.viewMode() === 'preview');
 
   openInNewTab() {
     const parsedUrl = new URL(window.location.href);
     const baseUrl = parsedUrl.origin;
-    console.log(baseUrl);
-    window.open(`${baseUrl}/examples`, '_blank');
+    window.open(`${baseUrl}${this.path()}`, '_blank');
   }
 }

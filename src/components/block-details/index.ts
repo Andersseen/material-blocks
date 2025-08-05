@@ -46,7 +46,7 @@ import NavigationState from '@services/navigation-state';
       </section-header>
 
       <!-- View Mode Toggle -->
-      <bd-header [(viewMode)]="viewMode" />
+      <bd-header [(viewMode)]="viewMode" [path]="blockData()?.iframeUrl!" />
 
       <!-- Content Section -->
       <div class="flex flex-col items-center">
