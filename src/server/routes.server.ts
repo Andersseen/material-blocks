@@ -71,6 +71,14 @@ export const serverRoutes: ServerRoute[] = [
       return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
     },
   },
+  {
+    path: 'sections/stats/:id',
+    renderMode: RenderMode.Prerender,
+    fallback: PrerenderFallback.Client,
+    async getPrerenderParams() {
+      return [{ id: '1' }, { id: '2' }, { id: '3' }, { id: '4' }];
+    },
+  },
 
   {
     path: '**',
