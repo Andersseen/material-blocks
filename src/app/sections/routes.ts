@@ -26,6 +26,10 @@ const sectionRoutes: Routes = [
           loadChildren: () => import('./team/routes'),
         },
       {
+        path: 'blog',
+        loadChildren: () => import('./blog/routes'),
+      },
+      {
         path: 'contact',
         loadChildren: () => import('./contact/routes'),
       },

@@ -9,6 +9,7 @@ import { teamBlocksWithViews } from '@examples/team/data';
 import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 import { contactBlocksWithViews } from '@examples/contact/data';
 import { footerBlocksWithViews } from '@examples/footers/data';
+import { blogBlocksWithViews } from '@examples/blog/data';
 
 @Component({
   selector: 'page-block-details',
@@ -37,6 +38,7 @@ const sectionBlocks = {
     pricing: pricingBlocksWithViews,
     testimonials: testimonialBlocksWithViews,
     team: teamBlocksWithViews,
+    blog: blogBlocksWithViews,
     contact: contactBlocksWithViews,
     footers: footerBlocksWithViews,
   };
