@@ -14,6 +14,10 @@ const examplesRoutes: Routes = [
     loadChildren: () => import('./pricing/pricing.routes'),
   },
   {
+    path: 'ecommerce',
+    loadChildren: () => import('./ecommerce/ecommerce.routes'),
+  },
+  {
     path: 'testimonials',
     loadChildren: () => import('./testimonials/testimonials.routes'),
   },

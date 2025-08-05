@@ -18,6 +18,10 @@ const sectionRoutes: Routes = [
         loadChildren: () => import('./pricing/routes'),
       },
       {
+        path: 'ecommerce',
+        loadChildren: () => import('./ecommerce/routes'),
+      },
+      {
         path: 'testimonials',
         loadChildren: () => import('./testimonials/routes'),
       },

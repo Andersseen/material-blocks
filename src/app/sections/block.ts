@@ -9,6 +9,7 @@ import { teamBlocksWithViews } from '@examples/team/data';
 import { testimonialBlocksWithViews } from '@examples/testimonials/data';
 import { contactBlocksWithViews } from '@examples/contact/data';
 import { footerBlocksWithViews } from '@examples/footers/data';
+import { ecommerceBlocksWithViews } from '@examples/ecommerce/data';
 import { blogBlocksWithViews } from '@examples/blog/data';
 import { navigationBlocksWithViews } from '@examples/navigation/data';
 
@@ -35,6 +36,7 @@ export default class BlockPage {
 
 const sectionBlocks = {
   heroes: heroBlocksWithViews,
+  ecommerce: ecommerceBlocksWithViews,
   features: featureBlocksWithViews,
   pricing: pricingBlocksWithViews,
   testimonials: testimonialBlocksWithViews,
