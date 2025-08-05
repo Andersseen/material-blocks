@@ -381,7 +381,7 @@ export class FeatureCarouselComponent {
       {
         label: 'Styles',
         content: codeTemplates[block.id].styles,
-        language: 'scss',
+        language: 'css',
       },
     ],
   };
