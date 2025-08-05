@@ -25,6 +25,10 @@ const examplesRoutes: Routes = [
     path: 'contact',
     loadChildren: () => import('./contact/contact.routes'),
   },
+  {
+    path: 'footer',
+    loadChildren: () => import('./footers/footer.routes'),
+  },
 ];
 
 export default examplesRoutes;
