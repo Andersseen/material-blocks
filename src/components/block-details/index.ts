@@ -6,28 +6,26 @@ import {
   Input,
   signal,
 } from '@angular/core';
-import { MatIcon } from '@angular/material/icon';
 import SectionHeader from '@components/section-header';
 import SectionNavigation from '@components/section-navigation';
+import NavigationState from '@services/navigation-state';
 import { type BlockData, type ViewMode } from '@shared/interfaces';
 import BDCode from './code';
+import { CopyButton } from './copy-button';
 import BDFooter from './footer';
 import BDHeader from './header';
 import BDPreview from './preview';
-import NavigationState from '@services/navigation-state';
-import { MatTooltip } from '@angular/material/tooltip';
 
 @Component({
   selector: 'block-details',
   imports: [
-    MatIcon,
-    MatTooltip,
     SectionNavigation,
     SectionHeader,
     BDHeader,
     BDCode,
     BDPreview,
     BDFooter,
+    CopyButton,
   ],
   providers: [NavigationState],
   template: `
@@ -37,14 +35,10 @@ import { MatTooltip } from '@angular/material/tooltip';
       <!-- Header Section -->
       <section-header [data]="header()">
         <!-- Copy Button -->
-        <button
-          matIconButton
-          class="!text-muted-foreground hover:!text-foreground transition-colors flex-shrink-0"
-          matTooltip="Copy full code"
-          (click)="copyCurrentView()"
-        >
-          <mat-icon class="!text-lg">content_copy</mat-icon>
-        </button>
+        <copy-button
+          tooltipText="Copy full code"
+          [content]="blockData()?.content ?? ''"
+        />
       </section-header>
 
       <!-- View Mode Toggle -->
@@ -105,12 +99,6 @@ export default class BlockDetails {
   getCurrentLanguage(): string {
     const currentView = this.blockData()!.views[this.selectedTabIndex()];
     return currentView.language || 'typescript';
-  }
-
-  copyCurrentView() {
-    const currentView = this.blockData()?.content;
-    console.log(currentView);
-    navigator.clipboard.writeText(currentView ?? '');
   }
 
   navigateTo(direction: 'prev' | 'next') {
