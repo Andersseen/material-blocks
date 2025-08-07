@@ -33,6 +33,7 @@ export interface BlockView {
 export interface BlockData extends BlockCard {
   tags?: string[];
   views: BlockView[];
+  content?: string;
 }
 
 export interface Route {
