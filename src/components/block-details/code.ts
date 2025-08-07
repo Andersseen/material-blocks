@@ -1,14 +1,12 @@
 import { Component, input, model, signal } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
 import { MatTab, MatTabGroup } from '@angular/material/tabs';
-import { MatTooltip } from '@angular/material/tooltip';
 import { BlockView } from '@shared/interfaces';
 import { Highlight } from 'ngx-highlightjs';
+import { CopyButton } from './copy-button';
 
 @Component({
   selector: 'bd-code',
-  imports: [MatTabGroup, MatTab, MatIconButton, MatIcon, MatTooltip, Highlight],
+  imports: [MatTabGroup, MatTab, Highlight, CopyButton],
   template: `
     <mat-tab-group
       [(selectedIndex)]="selectedTabIndex"
@@ -19,23 +17,7 @@ import { Highlight } from 'ngx-highlightjs';
         <!-- Code Content -->
         <div class="relative">
           <div class="absolute top-3 right-3 z-10">
-            <button
-              matIconButton
-              size="small"
-              class="relative"
-              matTooltip="Copy"
-              (click)="copyCode(view.content)"
-            >
-              <mat-icon class="!text-base">content_copy</mat-icon>
-              @if (copied()) {
-              <span
-                class="absolute -left-16 top-1/2 -translate-y-1/2
-           text-xs rounded px-2 py-1  animate-fade-out"
-              >
-                Copied!
-              </span>
-              }
-            </button>
+            <copy-button tooltipText="Copy" [content]="view.content" />
           </div>
 
           <pre
@@ -52,11 +34,4 @@ import { Highlight } from 'ngx-highlightjs';
 export default class BDCode {
   public blockViews = input<BlockView[]>();
   public selectedTabIndex = model(0);
-  public copied = signal(false);
-
-  copyCode(content: string) {
-    navigator.clipboard.writeText(content);
-    this.copied.set(true);
-    setTimeout(() => this.copied.set(false), 1000);
-  }
 }
