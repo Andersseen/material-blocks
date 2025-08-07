@@ -80,7 +80,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-grid.component.html',
 })
 export class BlogGridComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '2': {
       template: `<section class="py-24">
@@ -122,7 +122,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-list.component.html',
 })
 export class BlogListComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '3': {
       template: `<section class="py-24">
@@ -160,7 +160,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-featured.component.html',
 })
 export class BlogFeaturedComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '4': {
       template: `<section class="py-24">
@@ -199,16 +199,28 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-sidebar.component.html',
 })
 export class BlogSidebarComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
   };
 
   return {
     ...block,
     views: [
-      { label: 'Template', content: codeTemplates[block.id].template, language: 'html' },
-      { label: 'Component', content: codeTemplates[block.id].component, language: 'typescript' },
-      { label: 'Styles', content: codeTemplates[block.id].styles, language: 'css' },
+      {
+        label: 'Template',
+        content: codeTemplates[block.id].template,
+        language: 'html',
+      },
+      {
+        label: 'Component',
+        content: codeTemplates[block.id].component,
+        language: 'typescript',
+      },
+      {
+        label: 'Styles',
+        content: codeTemplates[block.id].styles,
+        language: 'css',
+      },
     ],
   };
 });

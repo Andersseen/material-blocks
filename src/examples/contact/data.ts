@@ -38,10 +38,11 @@ export const contactSectionData: SectionData = {
   blocks: [...contactBlocks],
 };
 
-export const contactBlocksWithViews: BlockData[] = contactBlocks.map((block) => {
-  const codeTemplates: any = {
-    '1': {
-      template: `<section class="py-24">
+export const contactBlocksWithViews: BlockData[] = contactBlocks.map(
+  (block) => {
+    const codeTemplates: any = {
+      '1': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 max-w-xl">
     <h2 class="text-3xl font-bold text-center mb-8">Contact Us</h2>
     <form class="grid gap-4">
@@ -63,7 +64,7 @@ export const contactBlocksWithViews: BlockData[] = contactBlocks.map((block) => 
     </form>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -75,10 +76,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './contact-1.component.html',
 })
 export class Contact1Component {}`,
-      styles: ``,
-    },
-    '2': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '2': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4">
     <div class="grid gap-8 md:grid-cols-2">
       <div class="space-y-4">
@@ -120,7 +121,7 @@ export class Contact1Component {}`,
     </div>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -133,10 +134,10 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './contact-2.component.html',
 })
 export class Contact2Component {}`,
-      styles: ``,
-    },
-    '3': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '3': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4">
     <div class="grid gap-8 md:grid-cols-2 items-start">
       <div class="rounded-md overflow-hidden shadow">
@@ -167,7 +168,7 @@ export class Contact2Component {}`,
     </div>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -177,10 +178,10 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './contact-3.component.html',
 })
 export class Contact3Component {}`,
-      styles: ``,
-    },
-    '4': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '4': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">Need Help?</h2>
     <div class="grid gap-6 md:grid-cols-3">
@@ -205,7 +206,7 @@ export class Contact3Component {}`,
     </div>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -217,28 +218,29 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './contact-4.component.html',
 })
 export class Contact4Component {}`,
-      styles: ``,
-    },
-  };
+        styles: `/* Tailwind is used directly in template */`,
+      },
+    };
 
-  return {
-    ...block,
-    views: [
-      {
-        label: 'Template',
-        content: codeTemplates[block.id].template,
-        language: 'html',
-      },
-      {
-        label: 'Component',
-        content: codeTemplates[block.id].component,
-        language: 'typescript',
-      },
-      {
-        label: 'Styles',
-        content: codeTemplates[block.id].styles,
-        language: 'scss',
-      },
-    ],
-  } as BlockData;
-});
+    return {
+      ...block,
+      views: [
+        {
+          label: 'Template',
+          content: codeTemplates[block.id].template,
+          language: 'html',
+        },
+        {
+          label: 'Component',
+          content: codeTemplates[block.id].component,
+          language: 'typescript',
+        },
+        {
+          label: 'Styles',
+          content: codeTemplates[block.id].styles,
+          language: 'scss',
+        },
+      ],
+    } as BlockData;
+  }
+);

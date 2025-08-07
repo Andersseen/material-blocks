@@ -69,7 +69,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './forms-1.component.html',
 })
 export class Forms1Component {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '2': {
       template: `<section class="py-24">
@@ -108,7 +108,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './forms-2.component.html',
 })
 export class Forms2Component {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '3': {
       template: `<section class="py-24 bg-primary-50">
@@ -136,7 +136,7 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './forms-3.component.html',
 })
 export class Forms3Component {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '4': {
       template: `<section class="py-24">
@@ -174,7 +174,7 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './forms-4.component.html',
 })
 export class Forms4Component {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
   };
 

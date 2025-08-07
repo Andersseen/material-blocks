@@ -61,7 +61,7 @@ import { MatIcon } from '@angular/material/icon';
   templateUrl: './footer-simple.component.html',
 })
 export class FooterSimpleComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '2': {
       template: `<footer class="py-10 bg-gray-800 text-gray-300">
@@ -101,7 +101,7 @@ export class FooterSimpleComponent {}`,
   templateUrl: './footer-links.component.html',
 })
 export class FooterLinksComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '3': {
       template: `<footer class="py-16 bg-gray-100 dark:bg-gray-800">
@@ -130,7 +130,7 @@ import { MatButton } from '@angular/material/button';
   templateUrl: './footer-newsletter.component.html',
 })
 export class FooterNewsletterComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
     '4': {
       template: `<footer class="py-10 bg-gray-900 text-gray-300">
@@ -152,16 +152,28 @@ export class FooterNewsletterComponent {}`,
   templateUrl: './footer-nav.component.html',
 })
 export class FooterNavComponent {}`,
-      styles: ``,
+      styles: `/* Tailwind is used directly in template */`,
     },
   };
 
   return {
     ...block,
     views: [
-      { label: 'Template', content: codeTemplates[block.id].template, language: 'html' },
-      { label: 'Component', content: codeTemplates[block.id].component, language: 'typescript' },
-      { label: 'Styles', content: codeTemplates[block.id].styles, language: 'css' },
+      {
+        label: 'Template',
+        content: codeTemplates[block.id].template,
+        language: 'html',
+      },
+      {
+        label: 'Component',
+        content: codeTemplates[block.id].component,
+        language: 'typescript',
+      },
+      {
+        label: 'Styles',
+        content: codeTemplates[block.id].styles,
+        language: 'css',
+      },
     ],
   };
 });
