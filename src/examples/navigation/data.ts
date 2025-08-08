@@ -1,4 +1,10 @@
-import { BlockCard, BlockData, SectionData } from '@shared/interfaces';
+import { type BlockCard, type BlockData, type SectionData } from '@shared/interfaces';
+import navigation1 from './navigation-1.ts?raw';
+import navigation2 from './navigation-2.ts?raw';
+import navigation3 from './navigation-3.ts?raw';
+import navigation4 from './navigation-4.ts?raw';
+
+const componentContent = [navigation1, navigation2, navigation3, navigation4];
 
 export const navigationBlocks: BlockCard[] = [
   {
@@ -39,7 +45,7 @@ export const navigationSectionData: SectionData = {
 };
 
 export const navigationBlocksWithViews: BlockData[] = navigationBlocks.map(
-  (block) => {
+  (block, index) => {
     const codeTemplates: any = {
       '1': {
         template: `<mat-toolbar class=\"bg-primary-600 text-white\">
@@ -157,6 +163,7 @@ export class Navigation4Component {}`,
 
     return {
       ...block,
+      content: componentContent[index],
       views: [
         {
           label: 'Template',

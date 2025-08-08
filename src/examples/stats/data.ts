@@ -1,4 +1,10 @@
-import { BlockCard, BlockData, SectionData } from '@shared/interfaces';
+import { type BlockCard, type BlockData, type SectionData } from '@shared/interfaces';
+import stats1 from './stats-1.ts?raw';
+import stats2 from './stats-2.ts?raw';
+import stats3 from './stats-3.ts?raw';
+import stats4 from './stats-4.ts?raw';
+
+const componentContent = [stats1, stats2, stats3, stats4];
 
 export const statsBlocks: BlockCard[] = [
   {
@@ -38,7 +44,7 @@ export const statsSectionData: SectionData = {
   blocks: [...statsBlocks],
 };
 
-export const statsBlocksWithViews: BlockData[] = statsBlocks.map((block) => {
+export const statsBlocksWithViews: BlockData[] = statsBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       template: `<section class="py-24">
@@ -179,6 +185,7 @@ export class Stats4Component {}`,
 
   return {
     ...block,
+    content: componentContent[index],
     views: [
       {
         label: 'Template',

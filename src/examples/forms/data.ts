@@ -1,4 +1,10 @@
-import { BlockCard, SectionData, BlockData } from '@shared/interfaces';
+import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import forms1 from './forms-1.ts?raw';
+import forms2 from './forms-2.ts?raw';
+import forms3 from './forms-3.ts?raw';
+import forms4 from './forms-4.ts?raw';
+
+const componentContent = [forms1, forms2, forms3, forms4];
 
 export const formsBlocks: BlockCard[] = [
   {
@@ -38,7 +44,7 @@ export const formsSectionData: SectionData = {
   blocks: [...formsBlocks],
 };
 
-export const formsBlocksWithViews: BlockData[] = formsBlocks.map((block) => {
+export const formsBlocksWithViews: BlockData[] = formsBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       template: `<section class="py-24">
@@ -180,6 +186,7 @@ export class Forms4Component {}`,
 
   return {
     ...block,
+    content: componentContent[index],
     views: [
       {
         label: 'Template',

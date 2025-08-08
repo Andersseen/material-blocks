@@ -1,4 +1,10 @@
-import { BlockCard, SectionData, BlockData } from '@shared/interfaces';
+import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import contact1 from './contact-1.ts?raw';
+import contact2 from './contact-2.ts?raw';
+import contact3 from './contact-3.ts?raw';
+import contact4 from './contact-4.ts?raw';
+
+const componentContent = [contact1, contact2, contact3, contact4];
 
 export const contactBlocks: BlockCard[] = [
   {
@@ -39,7 +45,7 @@ export const contactSectionData: SectionData = {
 };
 
 export const contactBlocksWithViews: BlockData[] = contactBlocks.map(
-  (block) => {
+  (block, index) => {
     const codeTemplates: any = {
       '1': {
         template: `<section class="py-24">
@@ -224,6 +230,7 @@ export class Contact4Component {}`,
 
     return {
       ...block,
+      content: componentContent[index],
       views: [
         {
           label: 'Template',

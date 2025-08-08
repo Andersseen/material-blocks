@@ -1,4 +1,10 @@
-import { BlockCard, SectionData, BlockData } from '@shared/interfaces';
+import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import blog1 from './blog-1.ts?raw';
+import blog2 from './blog-2.ts?raw';
+import blog3 from './blog-3.ts?raw';
+import blog4 from './blog-4.ts?raw';
+
+const componentContent = [blog1, blog2, blog3, blog4];
 
 export const blogBlocks: BlockCard[] = [
   {
@@ -38,7 +44,7 @@ export const blogSectionData: SectionData = {
   blocks: [...blogBlocks],
 };
 
-export const blogBlocksWithViews: BlockData[] = blogBlocks.map((block) => {
+export const blogBlocksWithViews: BlockData[] = blogBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       template: `<section class="py-24">
@@ -205,6 +211,7 @@ export class BlogSidebarComponent {}`,
 
   return {
     ...block,
+    content: componentContent[index],
     views: [
       {
         label: 'Template',

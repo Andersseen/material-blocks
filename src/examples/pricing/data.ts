@@ -1,8 +1,14 @@
 import {
   type BlockData,
   type BlockCard,
-  SectionData,
+  type SectionData,
 } from '@shared/interfaces';
+import pricing1 from './pricing-1.ts?raw';
+import pricing2 from './pricing-2.ts?raw';
+import pricing3 from './pricing-3.ts?raw';
+import pricing4 from './pricing-4.ts?raw';
+
+const componentContent = [pricing1, pricing2, pricing3, pricing4];
 
 export const pricingBlocks: BlockCard[] = [
   {
@@ -44,7 +50,7 @@ export const pricingSectionsData: SectionData = {
 };
 
 export const pricingBlocksWithViews: BlockData[] = pricingBlocks.map(
-  (block) => {
+  (block, index) => {
     const codeTemplates: any = {
       '1': {
         template: `<section class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
@@ -357,6 +363,7 @@ export class PricingFlexibleComponent {}`,
 
     return {
       ...block,
+      content: componentContent[index],
       views: [
         {
           label: 'Template',

@@ -1,4 +1,10 @@
 import { type BlockData, type BlockCard } from '@shared/interfaces';
+import ecommerce1 from './ecommerce-1.ts?raw';
+import ecommerce2 from './ecommerce-2.ts?raw';
+import ecommerce3 from './ecommerce-3.ts?raw';
+import ecommerce4 from './ecommerce-4.ts?raw';
+
+const componentContent = [ecommerce1, ecommerce2, ecommerce3, ecommerce4];
 
 export const ecommerceBlocks: BlockCard[] = [
   {
@@ -38,7 +44,7 @@ export const ecommerceSectionsData = {
   blocks: [...ecommerceBlocks],
 };
 
-export const ecommerceBlocksWithViews: BlockData[] = ecommerceBlocks.map((block) => {
+export const ecommerceBlocksWithViews: BlockData[] = ecommerceBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       template: '<example-ecommerce-1></example-ecommerce-1>',
@@ -63,6 +69,7 @@ export const ecommerceBlocksWithViews: BlockData[] = ecommerceBlocks.map((block)
   };
   return {
     ...block,
+    content: componentContent[index],
     views: [
       { label: 'Template', content: codeTemplates[block.id].template, language: 'html' },
       { label: 'Component', content: codeTemplates[block.id].component, language: 'typescript' },

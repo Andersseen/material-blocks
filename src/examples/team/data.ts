@@ -1,4 +1,10 @@
-import { type BlockData, type BlockCard } from '@shared/interfaces';
+import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import team1 from './team-1.ts?raw';
+import team2 from './team-2.ts?raw';
+import team3 from './team-3.ts?raw';
+import team4 from './team-4.ts?raw';
+
+const componentContent = [team1, team2, team3, team4];
 
 export const teamBlocks: BlockCard[] = [
   {
@@ -41,7 +47,7 @@ export const teamSectionsData = {
 };
 
 // Optional: include code snippets for documentation purposes.
-export const teamBlocksWithViews: BlockData[] = teamBlocks.map((block) => {
+export const teamBlocksWithViews: BlockData[] = teamBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       template: `<section class="py-24">
@@ -317,6 +323,7 @@ export default class ExampleTeam2Component {
   };
   return {
     ...block,
+    content: componentContent[index],
     views: [
       {
         label: 'Template',

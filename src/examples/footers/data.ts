@@ -1,4 +1,10 @@
-import { BlockCard, SectionData, BlockData } from '@shared/interfaces';
+import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import footer1 from './footer-1.ts?raw';
+import footer2 from './footer-2.ts?raw';
+import footer3 from './footer-3.ts?raw';
+import footer4 from './footer-4.ts?raw';
+
+const componentContent = [footer1, footer2, footer3, footer4];
 
 export const footerBlocks: BlockCard[] = [
   {
@@ -38,7 +44,7 @@ export const footerSectionData: SectionData = {
   blocks: [...footerBlocks],
 };
 
-export const footerBlocksWithViews: BlockData[] = footerBlocks.map((block) => {
+export const footerBlocksWithViews: BlockData[] = footerBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       template: `<footer class="py-8 bg-gray-100 dark:bg-gray-900">
@@ -158,6 +164,7 @@ export class FooterNavComponent {}`,
 
   return {
     ...block,
+    content: componentContent[index],
     views: [
       {
         label: 'Template',

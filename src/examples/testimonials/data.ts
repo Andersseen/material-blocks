@@ -1,8 +1,14 @@
 import {
   type BlockData,
   type BlockCard,
-  SectionData,
+  type SectionData,
 } from '@shared/interfaces';
+import testimonial1 from './testimonial-1.ts?raw';
+import testimonial2 from './testimonial-2.ts?raw';
+import testimonial3 from './testimonial-3.ts?raw';
+import testimonial4 from './testimonial-4.ts?raw';
+
+const componentContent = [testimonial1, testimonial2, testimonial3, testimonial4];
 
 export const testimonialBlocks: BlockCard[] = [
   {
@@ -46,7 +52,7 @@ export const testimonialSectionsData: SectionData = {
 };
 
 export const testimonialBlocksWithViews: BlockData[] = testimonialBlocks.map(
-  (block) => {
+  (block, index) => {
     const codeTemplates: any = {
       '1': {
         template: `<section class="py-24">
@@ -387,6 +393,7 @@ export class CarouselTestimonialsComponent {
 
     return {
       ...block,
+      content: componentContent[index],
       views: [
         {
           label: 'Template',
