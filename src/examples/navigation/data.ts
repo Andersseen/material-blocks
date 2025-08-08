@@ -1,4 +1,52 @@
-import { BlockCard, BlockData, SectionData } from '@shared/interfaces';
+import { type BlockData, type BlockCard } from '@shared/interfaces';
+
+const componentContent = [
+  `import { Component } from '@angular/core';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatButton } from '@angular/material/button';
+
+@Component({
+  selector: 'example-navigation-1',
+  imports: [MatToolbar, MatButton],
+  template: \`\n    <mat-toolbar class="bg-primary-600 text-white">\n      <div class="container mx-auto flex justify-between items-center">\n        <span class="text-xl font-bold">Brand</span>\n        <nav class="flex items-center gap-4">\n          <a mat-button>Home</a>\n          <a mat-button>Features</a>\n          <a mat-button>Pricing</a>\n        </nav>\n      </div>\n    </mat-toolbar>\n  \`,
+  styles: [],
+})
+export default class Navigation1 {}`,
+  `import { Component } from '@angular/core';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-navigation-2',
+  imports: [MatToolbar, MatButton, MatIconButton, MatIcon],
+  template: \`\n    <mat-toolbar class="bg-white dark:bg-gray-900">\n      <div class="container mx-auto flex justify-between items-center">\n        <button mat-icon-button class="md:hidden">\n          <mat-icon>menu</mat-icon>\n        </button>\n        <a class="text-xl font-bold">Brand</a>\n        <nav class="hidden md:flex items-center gap-4">\n          <a mat-button>Docs</a>\n          <a mat-button>Blog</a>\n          <a mat-button>Contact</a>\n        </nav>\n        <button mat-raised-button color="primary" class="hidden md:block">\n          Sign Up\n        </button>\n      </div>\n    </mat-toolbar>\n  \`,
+  styles: [],
+})
+export default class Navigation2 {}`,
+  `import { Component } from '@angular/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-navigation-3',
+  imports: [MatSidenavModule, MatListModule, MatIcon],
+  template: \`\n    <mat-sidenav-container class="h-64 border rounded">\n      <mat-sidenav mode="side" opened class="w-64 p-4">\n        <mat-nav-list>\n          <a mat-list-item href="#">\n            <mat-icon matListItemIcon>home</mat-icon>\n            <span matListItemTitle>Dashboard</span>\n          </a>\n          <a mat-list-item href="#">\n            <mat-icon matListItemIcon>person</mat-icon>\n            <span matListItemTitle>Profile</span>\n          </a>\n          <a mat-list-item href="#">\n            <mat-icon matListItemIcon>settings</mat-icon>\n            <span matListItemTitle>Settings</span>\n          </a>\n        </mat-nav-list>\n      </mat-sidenav>\n      <mat-sidenav-content class="p-4">\n        <h2 class="text-2xl font-bold mb-2">Content Area</h2>\n        <p>Add your main content here.</p>\n      </mat-sidenav-content>\n    </mat-sidenav-container>\n  \`,
+  styles: [],
+})
+export default class Navigation3 {}`,
+  `import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-navigation-4',
+  imports: [MatIcon],
+  template: \`\n    <nav\n      class="flex items-center text-sm text-gray-600 dark:text-gray-300"\n      aria-label="Breadcrumb"\n    >\n      <a class="hover:underline" href="#">Home</a>\n      <mat-icon class="mx-2 text-base">chevron_right</mat-icon>\n      <a class="hover:underline" href="#">Library</a>\n      <mat-icon class="mx-2 text-base">chevron_right</mat-icon>\n      <span class="text-gray-800 dark:text-white">Data</span>\n    </nav>\n  \`,
+  styles: [],
+})
+export default class Navigation4 {}`,
+];
 
 export const navigationBlocks: BlockCard[] = [
   {
@@ -31,7 +79,7 @@ export const navigationBlocks: BlockCard[] = [
   },
 ];
 
-export const navigationSectionData: SectionData = {
+export const navigationSectionData = {
   title: 'UI Navigation Collection',
   description: 'Navigation bars, side menus, and breadcrumb components.',
   path: 'navigation',
@@ -39,7 +87,7 @@ export const navigationSectionData: SectionData = {
 };
 
 export const navigationBlocksWithViews: BlockData[] = navigationBlocks.map(
-  (block) => {
+  (block, index) => {
     const codeTemplates: any = {
       '1': {
         template: `<mat-toolbar class=\"bg-primary-600 text-white\">
@@ -57,7 +105,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-  selector: 'example-navigation1',
+  selector: 'example-navigation-1',
   standalone: true,
   imports: [MatToolbar, MatButton],
   templateUrl: './navigation-1.component.html',
@@ -88,7 +136,7 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'example-navigation2',
+  selector: 'example-navigation-2',
   standalone: true,
   imports: [MatToolbar, MatButton, MatIconButton, MatIcon],
   templateUrl: './navigation-2.component.html',
@@ -125,7 +173,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'example-navigation3',
+  selector: 'example-navigation-3',
   standalone: true,
   imports: [MatSidenavModule, MatListModule, MatIcon],
   templateUrl: './navigation-3.component.html',
@@ -145,7 +193,7 @@ export class Navigation3Component {}`,
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
-  selector: 'example-navigation4',
+  selector: 'example-navigation-4',
   standalone: true,
   imports: [MatIcon],
   templateUrl: './navigation-4.component.html',
@@ -157,6 +205,7 @@ export class Navigation4Component {}`,
 
     return {
       ...block,
+      content: componentContent[index],
       views: [
         {
           label: 'Template',
@@ -171,7 +220,7 @@ export class Navigation4Component {}`,
         {
           label: 'Styles',
           content: codeTemplates[block.id].styles,
-          language: 'scss',
+          language: 'css',
         },
       ],
     } as BlockData;
