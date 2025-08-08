@@ -1,5 +1,319 @@
-import { BlockCard, SectionData } from '@shared/interfaces';
+import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
 
+const componentContent = [
+`import { Component } from '@angular/core';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-features-1',
+  imports: [MatCard, MatIcon],
+  template: \`<section class="py-20 px-4 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+        >
+          Why Choose Our Components?
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          Built with modern best practices and designed for developer
+          productivity
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <mat-card
+          class="p-6 text-center hover:shadow-lg transition-shadow duration-300 animate-slide-up"
+        >
+          <div
+            class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <mat-icon class="text-3xl">speed</mat-icon>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Fast Development</h3>
+          <p>
+            Copy and paste components to build your UI in minutes, not hours.
+          </p>
+        </mat-card>
+
+        <mat-card
+          class="p-6 text-center hover:shadow-lg transition-shadow duration-300 animate-slide-up"
+          style="animation-delay: 0.1s;"
+        >
+          <div
+            class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <mat-icon class="text-3xl text-green-600 dark:text-green-400"
+              >devices</mat-icon
+            >
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Responsive Design
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            All components are mobile-first and work perfectly on all screen
+            sizes.
+          </p>
+        </mat-card>
+
+        <mat-card
+          class="p-6 text-center hover:shadow-lg transition-shadow duration-300 animate-slide-up"
+          style="animation-delay: 0.2s;"
+        >
+          <div
+            class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <mat-icon class="text-3xl text-purple-600 dark:text-purple-400"
+              >palette</mat-icon
+            >
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+            Customizable
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300">
+            Easily customize colors, spacing, and styling to match your brand.
+          </p>
+        </mat-card>
+      </div>
+    </div>
+  </section>\`,
+})
+export default class Features1 {}
+`,
+`import { Component } from '@angular/core';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-features-2',
+  imports: [MatCard, MatIcon],
+  template: \`
+    <section class="py-20 px-4 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4"
+          >
+            Built for Developers
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Developer-first components for speed, flexibility, and consistency
+          </p>
+        </div>
+
+        <div class="grid gap-10 md:grid-cols-3">
+          <mat-card
+            class="p-6 transition-shadow hover:shadow-xl duration-300 text-left animate-slide-up"
+          >
+            <mat-icon
+              class="text-primary-600 dark:text-primary-400 text-4xl mb-4"
+              >bolt</mat-icon
+            >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+            >
+              Performance
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Lightweight components optimized for fast loading and smooth
+              interactions.
+            </p>
+          </mat-card>
+
+          <mat-card
+            class="p-6 transition-shadow hover:shadow-xl duration-300 text-left animate-slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <mat-icon class="text-green-600 dark:text-green-400 text-4xl mb-4"
+              >build</mat-icon
+            >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+            >
+              Flexible API
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Designed to be composable and extendable for advanced use cases.
+            </p>
+          </mat-card>
+
+          <mat-card
+            class="p-6 transition-shadow hover:shadow-xl duration-300 text-left animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <mat-icon class="text-purple-600 dark:text-purple-400 text-4xl mb-4"
+              >verified</mat-icon
+            >
+            <h3
+              class="text-xl font-semibold text-gray-900 dark:text-white mb-2"
+            >
+              Accessibility
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Fully accessible out of the box, following the latest WCAG
+              standards.
+            </p>
+          </mat-card>
+        </div>
+      </div>
+    </section>
+  \`,
+})
+export default class Features2 {}
+`,
+`import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-features-3',
+  imports: [MatIcon],
+  template: \`
+    <section class="py-20 px-4 bg-gray-100 dark:bg-gray-800">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-10"
+        >
+          How It Works
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-10">
+          <div class="flex flex-col items-center text-center animate-slide-up">
+            <div
+              class="bg-primary-100 dark:bg-primary-900 w-16 h-16 rounded-full flex items-center justify-center mb-4"
+            >
+              <mat-icon class="text-3xl text-primary-600 dark:text-primary-400"
+                >cloud_download</mat-icon
+              >
+            </div>
+            <h3
+              class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+            >
+              Install
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Add the package and install all dependencies easily.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col items-center text-center animate-slide-up"
+            style="animation-delay: 0.1s"
+          >
+            <div
+              class="bg-green-100 dark:bg-green-900 w-16 h-16 rounded-full flex items-center justify-center mb-4"
+            >
+              <mat-icon class="text-3xl text-green-600 dark:text-green-400"
+                >integration_instructions</mat-icon
+              >
+            </div>
+            <h3
+              class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+            >
+              Integrate
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Use the components in your Angular templates with full Tailwind
+              support.
+            </p>
+          </div>
+
+          <div
+            class="flex flex-col items-center text-center animate-slide-up"
+            style="animation-delay: 0.2s"
+          >
+            <div
+              class="bg-purple-100 dark:bg-purple-900 w-16 h-16 rounded-full flex items-center justify-center mb-4"
+            >
+              <mat-icon class="text-3xl text-purple-600 dark:text-purple-400"
+                >rocket_launch</mat-icon
+              >
+            </div>
+            <h3
+              class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"
+            >
+              Launch
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Ship beautiful UIs faster than ever — with confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  \`,
+})
+export default class Features3 {}
+`,
+`import { Component } from '@angular/core';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'example-features-4',
+  imports: [MatIcon],
+  template: \`
+    <section class="py-20 px-4 bg-white dark:bg-gray-900">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+            Everything You Need
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="animate-slide-up">
+            <mat-icon
+              class="text-3xl mb-2 text-primary-600 dark:text-primary-400"
+              >code</mat-icon
+            >
+            <h3 class="font-semibold text-gray-900 dark:text-white">
+              Clean Code
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Well-structured and readable.
+            </p>
+          </div>
+          <div class="animate-slide-up" style="animation-delay: 0.1s">
+            <mat-icon class="text-3xl mb-2 text-green-600 dark:text-green-400"
+              >settings</mat-icon
+            >
+            <h3 class="font-semibold text-gray-900 dark:text-white">
+              Configurable
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Options for any project scale.
+            </p>
+          </div>
+          <div class="animate-slide-up" style="animation-delay: 0.2s">
+            <mat-icon class="text-3xl mb-2 text-purple-600 dark:text-purple-400"
+              >grid_view</mat-icon
+            >
+            <h3 class="font-semibold text-gray-900 dark:text-white">
+              Component Library
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Plenty of ready-to-use UI blocks.
+            </p>
+          </div>
+          <div class="animate-slide-up" style="animation-delay: 0.3s">
+            <mat-icon class="text-3xl mb-2 text-yellow-600 dark:text-yellow-400"
+              >support</mat-icon
+            >
+            <h3 class="font-semibold text-gray-900 dark:text-white">
+              Community Support
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300">
+              Active and growing user base.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  \`,
+})
+export default class Features4 {}
+`,
+];
 // Features Section
 export const featureBlocks: BlockCard[] = [
   {
@@ -40,7 +354,7 @@ export const featuresSectionData: SectionData = {
   blocks: [...featureBlocks],
 };
 
-export const featureBlocksWithViews = featureBlocks.map((block) => {
+export const featureBlocksWithViews: BlockData[] = featureBlocks.map((block, index) => {
   const codeTemplates: any = {
     '1': {
       // Feature Grid
@@ -367,6 +681,7 @@ export class FeatureCarouselComponent {
 
   return {
     ...block,
+    content: componentContent[index],
     views: [
       {
         label: 'Template',
@@ -387,36 +702,3 @@ export class FeatureCarouselComponent {
   };
 });
 
-// Pricing Section
-export const pricingBlocks: BlockCard[] = [
-  {
-    id: '1',
-    title: 'Three-Tier Pricing',
-    description: 'Classic pricing cards with three different plan options',
-    previewUrl: 'https://placehold.co/600x400?text=Three-Tier+Pricing',
-  },
-  {
-    id: '2',
-    title: 'Toggle Pricing',
-    description: 'Monthly/Annual toggle with dynamic price updates',
-    previewUrl: 'https://placehold.co/600x400?text=Toggle+Pricing',
-  },
-  {
-    id: '3',
-    title: 'Enterprise Pricing',
-    description: 'Custom pricing section for enterprise solutions',
-    previewUrl: 'https://placehold.co/600x400?text=Enterprise+Pricing',
-  },
-  {
-    id: '4',
-    title: 'Pricing with Feature Matrix',
-    description: 'Detailed pricing with feature comparison matrix',
-    previewUrl: 'https://placehold.co/600x400?text=Pricing+Matrix',
-  },
-];
-
-export const pricingSectionData = {
-  title: 'UI Pricing Collection',
-  description: 'Convert visitors with clear, attractive pricing sections.',
-  blocks: [...pricingBlocks],
-};
