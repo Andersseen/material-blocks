@@ -232,28 +232,28 @@ export const heroBlocks: BlockCard[] = [
     title: 'Modern Hero Section',
     description:
       'Clean design with call-to-action button and gradient background',
-    previewUrl: 'https://placehold.co/600x400?text=Modern+Hero',
+    previewUrl: 'blocks/hero/hero-1.webp',
     iframeUrl: '/examples/hero/1',
   },
   {
     id: '2',
     title: 'Product Hero',
     description: 'Showcase your product with image and feature highlights',
-    previewUrl: 'https://placehold.co/600x400?text=Product+Hero',
+    previewUrl: 'blocks/hero/hero-2.webp',
     iframeUrl: '/examples/hero/2',
   },
   {
     id: '3',
     title: 'Minimal Hero',
     description: 'Typography-focused with subtle animations',
-    previewUrl: 'https://placehold.co/600x400?text=Minimal+Hero',
+    previewUrl: 'blocks/hero/hero-3.webp',
     iframeUrl: '/examples/hero/3',
   },
   {
     id: '4',
     title: 'Video Background Hero',
     description: 'Full-screen video background with overlay content',
-    previewUrl: 'https://placehold.co/600x400?text=Video+Hero',
+    previewUrl: 'blocks/hero/hero-4.webp',
     iframeUrl: '/examples/hero/4',
   },
 ];
