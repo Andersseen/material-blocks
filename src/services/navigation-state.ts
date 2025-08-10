@@ -7,7 +7,13 @@ type AppSection =
   | 'pricing'
   | 'testimonials'
   | 'team'
-  | 'contact';
+  | 'contact'
+  | 'footers'
+  | 'navigation'
+  | 'stats'
+  | 'blog'
+  | 'ecommerce'
+  | 'forms';
 
 type SectioBlock = '1' | '2' | '3' | '4';
 
@@ -25,12 +31,18 @@ export default class NavigationState {
   #router = inject(Router);
 
   private readonly navigationMap: Record<AppSection, SectionNavigation> = {
-    heroes: { next: 'features' },
+    heroes: { prev: 'forms', next: 'features' },
     features: { prev: 'heroes', next: 'pricing' },
     pricing: { prev: 'features', next: 'testimonials' },
     testimonials: { prev: 'pricing', next: 'team' },
     team: { prev: 'testimonials', next: 'contact' },
-    contact: { prev: 'testimonials' },
+    contact: { prev: 'testimonials', next: 'footers' },
+    footers: { prev: 'contact', next: 'navigation' },
+    navigation: { prev: 'footers', next: 'stats' },
+    stats: { prev: 'navigation', next: 'blog' },
+    blog: { prev: 'stats', next: 'ecommerce' },
+    ecommerce: { prev: 'blog', next: 'forms' },
+    forms: { prev: 'ecommerce', next: 'heroes' },
   };
 
   private readonly exampleBlocks: Record<SectioBlock, BlockNavigation> = {
