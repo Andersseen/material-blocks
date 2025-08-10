@@ -1,7 +1,11 @@
-import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import {
+  type BlockData,
+  type BlockCard,
+  type SectionData,
+} from '@shared/interfaces';
 
 const componentContent = [
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 
@@ -81,7 +85,7 @@ import { MatIcon } from '@angular/material/icon';
 })
 export default class Features1 {}
 `,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 
@@ -162,7 +166,7 @@ import { MatIcon } from '@angular/material/icon';
 })
 export default class Features2 {}
 `,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
@@ -245,7 +249,7 @@ import { MatIcon } from '@angular/material/icon';
 })
 export default class Features3 {}
 `,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
@@ -320,28 +324,28 @@ export const featureBlocks: BlockCard[] = [
     id: '1',
     title: 'Feature Grid',
     description: 'Responsive grid layout showcasing key features with icons',
-    previewUrl: 'https://placehold.co/600x400?text=Feature+Grid',
+    previewUrl: 'blocks/features/feature-1.webp',
     iframeUrl: '/examples/features/1',
   },
   {
     id: '2',
     title: 'Feature Tabs',
     description: 'Interactive tabs to display different feature sets',
-    previewUrl: 'https://placehold.co/600x400?text=Feature+Tabs',
+    previewUrl: 'blocks/features/feature-2.webp',
     iframeUrl: '/examples/features/2',
   },
   {
     id: '3',
     title: 'Comparison Table',
     description: 'Side-by-side feature comparison between plans',
-    previewUrl: 'https://placehold.co/600x400?text=Comparison+Table',
+    previewUrl: 'blocks/features/feature-3.webp',
     iframeUrl: '/examples/features/3',
   },
   {
     id: '4',
     title: 'Feature Carousel',
     description: 'Animated carousel to highlight product features',
-    previewUrl: 'https://placehold.co/600x400?text=Feature+Carousel',
+    previewUrl: 'blocks/features/feature-4.webp',
     iframeUrl: '/examples/features/4',
   },
 ];
@@ -354,11 +358,12 @@ export const featuresSectionData: SectionData = {
   blocks: [...featureBlocks],
 };
 
-export const featureBlocksWithViews: BlockData[] = featureBlocks.map((block, index) => {
-  const codeTemplates: any = {
-    '1': {
-      // Feature Grid
-      template: `<div class="features-grid py-16 bg-gray-50 dark:bg-gray-900">
+export const featureBlocksWithViews: BlockData[] = featureBlocks.map(
+  (block, index) => {
+    const codeTemplates: any = {
+      '1': {
+        // Feature Grid
+        template: `<div class="features-grid py-16 bg-gray-50 dark:bg-gray-900">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">{{ title }}</h2>
     <div class="grid md:grid-cols-3 gap-8">
@@ -372,7 +377,7 @@ export const featureBlocksWithViews: BlockData[] = featureBlocks.map((block, ind
     </div>
   </div>
 </div>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -401,7 +406,7 @@ export class FeatureGridComponent {
     }
   ];
 }`,
-      styles: `.features-grid {
+        styles: `.features-grid {
   .feature-card {
     @apply bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow;
     
@@ -410,10 +415,10 @@ export class FeatureGridComponent {
     }
   }
 }`,
-    },
-    '2': {
-      // Feature Tabs
-      template: `<div class="feature-tabs py-16">
+      },
+      '2': {
+        // Feature Tabs
+        template: `<div class="feature-tabs py-16">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">{{ title }}</h2>
     
@@ -438,7 +443,7 @@ export class FeatureGridComponent {
     </mat-tab-group>
   </div>
 </div>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -475,7 +480,7 @@ export class FeatureTabsComponent {
     }
   ];
 }`,
-      styles: `.feature-tabs {
+        styles: `.feature-tabs {
   .mat-mdc-tab-body-content {
     @apply py-6;
   }
@@ -484,10 +489,10 @@ export class FeatureTabsComponent {
     @apply border-b border-gray-200;
   }
 }`,
-    },
-    '3': {
-      // Comparison Table
-      template: `<div class="comparison-table py-16 bg-white dark:bg-gray-900">
+      },
+      '3': {
+        // Comparison Table
+        template: `<div class="comparison-table py-16 bg-white dark:bg-gray-900">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">{{ title }}</h2>
     
@@ -532,7 +537,7 @@ export class FeatureTabsComponent {
     </div>
   </div>
 </div>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -552,7 +557,7 @@ export class ComparisonTableComponent {
     { feature: 'Custom Integrations', basic: false, pro: true, enterprise: true }
   ];
 }`,
-      styles: `.comparison-table {
+        styles: `.comparison-table {
   .mat-mdc-table {
     @apply shadow-md;
   }
@@ -573,10 +578,10 @@ export class ComparisonTableComponent {
     }
   }
 }`,
-    },
-    '4': {
-      // Feature Carousel
-      template: `<div class="feature-carousel py-16 bg-gray-50 dark:bg-gray-900">
+      },
+      '4': {
+        // Feature Carousel
+        template: `<div class="feature-carousel py-16 bg-gray-50 dark:bg-gray-900">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-12">{{ title }}</h2>
     
@@ -619,7 +624,7 @@ export class ComparisonTableComponent {
     </div>
   </div>
 </div>`,
-      component: `import { Component, ViewChild, ElementRef } from '@angular/core';
+        component: `import { Component, ViewChild, ElementRef } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -667,7 +672,7 @@ export class FeatureCarouselComponent {
       \`translateX(-\${this.currentIndex * 100}%)\`;
   }
 }`,
-      styles: `.feature-carousel {
+        styles: `.feature-carousel {
   .carousel-slide {
     transition: opacity 0.3s ease;
   }
@@ -676,29 +681,29 @@ export class FeatureCarouselComponent {
     @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm;
   }
 }`,
-    },
-  };
+      },
+    };
 
-  return {
-    ...block,
-    content: componentContent[index],
-    views: [
-      {
-        label: 'Template',
-        content: codeTemplates[block.id].template,
-        language: 'html',
-      },
-      {
-        label: 'Component',
-        content: codeTemplates[block.id].component,
-        language: 'typescript',
-      },
-      {
-        label: 'Styles',
-        content: codeTemplates[block.id].styles,
-        language: 'css',
-      },
-    ],
-  };
-});
-
+    return {
+      ...block,
+      content: componentContent[index],
+      views: [
+        {
+          label: 'Template',
+          content: codeTemplates[block.id].template,
+          language: 'html',
+        },
+        {
+          label: 'Component',
+          content: codeTemplates[block.id].component,
+          language: 'typescript',
+        },
+        {
+          label: 'Styles',
+          content: codeTemplates[block.id].styles,
+          language: 'css',
+        },
+      ],
+    };
+  }
+);
