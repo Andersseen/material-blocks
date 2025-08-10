@@ -1,7 +1,11 @@
-import { type BlockData, type BlockCard, type SectionData } from '@shared/interfaces';
+import {
+  type BlockData,
+  type BlockCard,
+  type SectionData,
+} from '@shared/interfaces';
 
 const componentContent = [
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -34,7 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
   </section>\`,
 })
 export default class Contact1 {}`,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -88,7 +92,7 @@ import { MatIconModule } from '@angular/material/icon';
   </section>\`,
 })
 export default class Contact2 {}`,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -128,7 +132,7 @@ import { MatIconModule } from '@angular/material/icon';
   </section>\`,
 })
 export default class Contact3 {}`,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -171,28 +175,28 @@ export const contactBlocks: BlockCard[] = [
     id: '1',
     title: 'Simple Contact Form',
     description: 'Basic form with name, email and message fields',
-    previewUrl: 'https://placehold.co/600x400?text=Contact+Form',
+    previewUrl: 'blocks/contacts/contact-1.webp',
     iframeUrl: '/examples/contact/1',
   },
   {
     id: '2',
     title: 'Contact Info with Form',
     description: 'Two-column layout with contact details and form',
-    previewUrl: 'https://placehold.co/600x400?text=Contact+Info',
+    previewUrl: 'blocks/contacts/contact-2.webp',
     iframeUrl: '/examples/contact/2',
   },
   {
     id: '3',
     title: 'Map with Contact Details',
     description: 'Display office location alongside contact information',
-    previewUrl: 'https://placehold.co/600x400?text=Map+Contact',
+    previewUrl: 'blocks/contacts/contact-3.webp',
     iframeUrl: '/examples/contact/3',
   },
   {
     id: '4',
     title: 'Support Options',
     description: 'Cards with multiple support channels',
-    previewUrl: 'https://placehold.co/600x400?text=Support+Cards',
+    previewUrl: 'blocks/contacts/contact-4.webp',
     iframeUrl: '/examples/contact/4',
   },
 ];
@@ -411,4 +415,3 @@ export class Contact4Component {}`,
     };
   }
 );
-
