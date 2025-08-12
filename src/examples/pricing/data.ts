@@ -310,28 +310,28 @@ export const pricingBlocks: BlockCard[] = [
     id: '1',
     title: 'Basic Plan',
     description: 'A perfect start for individuals and small teams.',
-    previewUrl: 'https://placehold.co/600x400?text=Classic+Pricing',
+    previewUrl: 'blocks/pricing/pricing-1.webp',
     iframeUrl: '/examples/pricing/1',
   },
   {
     id: '2',
     title: 'Classic Pricing Grid',
     description: 'Three-column pricing layout with clear plan comparisons.',
-    previewUrl: 'https://placehold.co/600x400?text=Classic+Pricing',
+    previewUrl: 'blocks/pricing/pricing-2.webp',
     iframeUrl: '/examples/pricing/2',
   },
   {
     id: '3',
     title: 'Pricing with Highlights',
     description: 'Highlights the most popular plan using visual emphasis.',
-    previewUrl: 'https://placehold.co/600x400?text=Highlighted+Plan',
+    previewUrl: 'blocks/pricing/pricing-3.webp',
     iframeUrl: '/examples/pricing/3',
   },
   {
     id: '4',
     title: 'Flexible Pricing Layout',
     description: 'Modern responsive pricing with subtle animation.',
-    previewUrl: 'https://placehold.co/600x400?text=Flexible+Pricing',
+    previewUrl: 'blocks/pricing/pricing-4.webp',
     iframeUrl: '/examples/pricing/4',
   },
 ];
@@ -677,5 +677,5 @@ export class PricingFlexibleComponent {}`,
         },
       ],
     };
-  },
+  }
 );
