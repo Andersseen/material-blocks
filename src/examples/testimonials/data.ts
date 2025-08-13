@@ -10,7 +10,7 @@ export const testimonialBlocks: BlockCard[] = [
     title: 'Basic Testimonials Grid',
     description:
       'Three-column grid with avatars, roles, reviews and star ratings',
-    previewUrl: 'https://placehold.co/600x400?text=Basic+Testimonials',
+    previewUrl: 'blocks/testimonials/testimonial-1.webp',
     iframeUrl: '/examples/testimonials/1',
   },
   {
@@ -18,14 +18,14 @@ export const testimonialBlocks: BlockCard[] = [
     title: 'Colorful Card Testimonials',
     description:
       'Cards with colored headers, overlapping avatar and rating stars',
-    previewUrl: 'https://placehold.co/600x400?text=Colorful+Testimonials',
+    previewUrl: 'blocks/testimonials/testimonial-2.webp',
     iframeUrl: '/examples/testimonials/2',
   },
   {
     id: '3',
     title: 'Two Column Testimonials',
     description: 'Minimalist two‑column layout showing quotes and author names',
-    previewUrl: 'https://placehold.co/600x400?text=Two+Column+Testimonials',
+    previewUrl: 'blocks/testimonials/testimonial-3.webp',
     iframeUrl: '/examples/testimonials/3',
   },
   {
@@ -33,7 +33,7 @@ export const testimonialBlocks: BlockCard[] = [
     title: 'Carousel Testimonials',
     description:
       'Single‑card carousel with navigation buttons and star ratings',
-    previewUrl: 'https://placehold.co/600x400?text=Carousel+Testimonials',
+    previewUrl: 'blocks/testimonials/testimonial-4.webp',
     iframeUrl: '/examples/testimonials/4',
   },
 ];
