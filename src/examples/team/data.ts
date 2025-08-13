@@ -6,7 +6,7 @@ export const teamBlocks: BlockCard[] = [
     title: 'Team Grid',
     description:
       'Simple grid of four members with avatars, roles and social icons',
-    previewUrl: 'https://placehold.co/600x400?text=Team+Grid',
+    previewUrl: 'blocks/team/team-1.webp',
     iframeUrl: '/examples/team/1',
   },
   {
@@ -14,21 +14,21 @@ export const teamBlocks: BlockCard[] = [
     title: 'Overlay Cards',
     description:
       'Image cards with an overlay showing name, role and social icons on hover',
-    previewUrl: 'https://placehold.co/600x400?text=Overlay+Cards',
+    previewUrl: 'blocks/team/team-2.webp',
     iframeUrl: '/examples/team/2',
   },
   {
     id: '3',
     title: 'Detailed Cards',
     description: 'Two‑column cards with image, biography and social links',
-    previewUrl: 'https://placehold.co/600x400?text=Detailed+Cards',
+    previewUrl: 'blocks/team/team-3.webp',
     iframeUrl: '/examples/team/3',
   },
   {
     id: '4',
     title: 'Split Layout',
     description: 'Mixed layout with intro text and a 2×2 grid of team members',
-    previewUrl: 'https://placehold.co/600x400?text=Split+Layout',
+    previewUrl: 'blocks/team/team-4.webp',
     iframeUrl: '/examples/team/4',
   },
 ];

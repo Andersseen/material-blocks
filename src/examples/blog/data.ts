@@ -1,7 +1,11 @@
-import { type BlockCard, type SectionData, type BlockData } from '@shared/interfaces';
+import {
+  type BlockCard,
+  type SectionData,
+  type BlockData,
+} from '@shared/interfaces';
 
 const componentContent = [
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -40,7 +44,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export default class Blog1 {}
 `,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -79,7 +83,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export default class Blog2 {}
 `,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -114,7 +118,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export default class Blog3 {}
 `,
-`import { Component } from '@angular/core';
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -149,7 +153,7 @@ import { MatButtonModule } from '@angular/material/button';
 </section>\`,
 })
 export default class Blog4 {}
-`
+`,
 ];
 
 export const blogBlocks: BlockCard[] = [
@@ -157,28 +161,28 @@ export const blogBlocks: BlockCard[] = [
     id: '1',
     title: 'Blog Cards Grid',
     description: 'Three column grid of blog posts with images',
-    previewUrl: 'https://placehold.co/600x400?text=Blog+Grid',
+    previewUrl: 'blocks/blog/blog-1.webp',
     iframeUrl: '/examples/blog/1',
   },
   {
     id: '2',
     title: 'Blog List',
     description: 'Vertical list of blog posts with thumbnails',
-    previewUrl: 'https://placehold.co/600x400?text=Blog+List',
+    previewUrl: 'blocks/blog/blog-2.webp',
     iframeUrl: '/examples/blog/2',
   },
   {
     id: '3',
     title: 'Featured Blog Post',
     description: 'Highlighted article with supporting posts',
-    previewUrl: 'https://placehold.co/600x400?text=Featured+Post',
+    previewUrl: 'blocks/blog/blog-3.webp',
     iframeUrl: '/examples/blog/3',
   },
   {
     id: '4',
     title: 'Blog with Sidebar',
     description: 'Layout with article list and sidebar categories',
-    previewUrl: 'https://placehold.co/600x400?text=Blog+Sidebar',
+    previewUrl: 'blocks/blog/blog-4.webp',
     iframeUrl: '/examples/blog/4',
   },
 ];
@@ -193,8 +197,8 @@ export const blogSectionData: SectionData = {
 export const blogBlocksWithViews: BlockData[] = blogBlocks.map(
   (block, index) => {
     const codeTemplates: any = {
-    '1': {
-      template: `<section class="py-24">
+      '1': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 grid gap-8 md:grid-cols-3">
     <mat-card class="flex flex-col">
       <img src="https://placehold.co/600x400" alt="Blog post 1" class="h-40 w-full object-cover rounded-t-md" />
@@ -222,7 +226,7 @@ export const blogBlocksWithViews: BlockData[] = blogBlocks.map(
     </mat-card>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -233,10 +237,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-grid.component.html',
 })
 export class BlogGridComponent {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-    '2': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '2': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 space-y-6">
     <mat-card class="flex flex-col sm:flex-row gap-4">
       <img src="https://placehold.co/200x150" alt="thumb" class="w-full sm:w-48 h-32 object-cover rounded-md" />
@@ -264,7 +268,7 @@ export class BlogGridComponent {}`,
     </mat-card>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -275,10 +279,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-list.component.html',
 })
 export class BlogListComponent {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-    '3': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '3': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 space-y-8">
     <mat-card class="overflow-hidden">
       <img src="https://placehold.co/800x300" alt="featured" class="w-full h-48 object-cover">
@@ -302,7 +306,7 @@ export class BlogListComponent {}`,
     </div>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -313,10 +317,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-featured.component.html',
 })
 export class BlogFeaturedComponent {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-    '4': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '4': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 grid gap-8 md:grid-cols-3">
     <div class="md:col-span-2 space-y-6">
       <mat-card>
@@ -340,7 +344,7 @@ export class BlogFeaturedComponent {}`,
     </aside>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -352,30 +356,30 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './blog-sidebar.component.html',
 })
 export class BlogSidebarComponent {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-  };
+        styles: `/* Tailwind is used directly in template */`,
+      },
+    };
 
-  return {
-    ...block,
-    content: componentContent[index],
-    views: [
-      {
-        label: 'Template',
-        content: codeTemplates[block.id].template,
-        language: 'html',
-      },
-      {
-        label: 'Component',
-        content: codeTemplates[block.id].component,
-        language: 'typescript',
-      },
-      {
-        label: 'Styles',
-        content: codeTemplates[block.id].styles,
-        language: 'css',
-      },
-    ],
-  };
+    return {
+      ...block,
+      content: componentContent[index],
+      views: [
+        {
+          label: 'Template',
+          content: codeTemplates[block.id].template,
+          language: 'html',
+        },
+        {
+          label: 'Component',
+          content: codeTemplates[block.id].component,
+          language: 'typescript',
+        },
+        {
+          label: 'Styles',
+          content: codeTemplates[block.id].styles,
+          language: 'css',
+        },
+      ],
+    };
   }
 );
