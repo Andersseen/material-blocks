@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import { BlockCard, BlockData, SectionData } from '@shared/interfaces';
 
 export const statsBlocks: BlockCard[] = [
@@ -5,28 +6,28 @@ export const statsBlocks: BlockCard[] = [
     id: '1',
     title: 'Simple Stats',
     description: 'Four column layout showing key metrics',
-    previewUrl: 'https://placehold.co/600x400?text=Simple+Stats',
+    previewUrl: `${CDN_PUBLIC_URL}/stats-1.webp`,
     iframeUrl: '/examples/stats/1',
   },
   {
     id: '2',
     title: 'Stats with Icons',
     description: 'Metrics paired with icons in a responsive grid',
-    previewUrl: 'https://placehold.co/600x400?text=Icon+Stats',
+    previewUrl: `${CDN_PUBLIC_URL}/stats-2.webp`,
     iframeUrl: '/examples/stats/2',
   },
   {
     id: '3',
     title: 'Divided Grid Stats',
     description: 'Bordered grid layout for statistics',
-    previewUrl: 'https://placehold.co/600x400?text=Grid+Stats',
+    previewUrl: `${CDN_PUBLIC_URL}/stats-3.webp`,
     iframeUrl: '/examples/stats/3',
   },
   {
     id: '4',
     title: 'Stats Cards',
     description: 'Statistics displayed inside cards',
-    previewUrl: 'https://placehold.co/600x400?text=Card+Stats',
+    previewUrl: `${CDN_PUBLIC_URL}/stats-4.webp`,
     iframeUrl: '/examples/stats/4',
   },
 ];

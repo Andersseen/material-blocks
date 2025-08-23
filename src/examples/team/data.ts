@@ -335,5 +335,5 @@ export default class ExampleTeam2Component {
         language: 'css',
       },
     ],
-  };
+  } as BlockData;
 });
