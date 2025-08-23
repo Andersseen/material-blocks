@@ -1,4 +1,8 @@
-import { type BlockCard, type SectionData, type BlockData } from '@shared/interfaces';
+import {
+  type BlockCard,
+  type SectionData,
+  type BlockData,
+} from '@shared/interfaces';
 
 const componentContent = [
   `import { Component } from '@angular/core';
@@ -124,7 +128,7 @@ import { MatSelectModule } from '@angular/material/select';
   </section>\`,
 })
 export default class Forms4 {}
-`
+`,
 ];
 
 export const formsBlocks: BlockCard[] = [
@@ -132,28 +136,28 @@ export const formsBlocks: BlockCard[] = [
     id: '1',
     title: 'Login Form',
     description: 'Simple sign in form with email and password fields',
-    previewUrl: 'https://placehold.co/600x400?text=Login+Form',
+    previewUrl: 'blocks/form/form-1.webp',
     iframeUrl: '/examples/forms/1',
   },
   {
     id: '2',
     title: 'Registration Form',
     description: 'Form for creating a new account with name and password',
-    previewUrl: 'https://placehold.co/600x400?text=Registration+Form',
+    previewUrl: 'blocks/form/form-2.webp',
     iframeUrl: '/examples/forms/2',
   },
   {
     id: '3',
     title: 'Newsletter Sign Up',
     description: 'Email subscription form with call to action',
-    previewUrl: 'https://placehold.co/600x400?text=Newsletter+Form',
+    previewUrl: 'blocks/form/form-3.webp',
     iframeUrl: '/examples/forms/3',
   },
   {
     id: '4',
     title: 'Feedback Form',
     description: 'Collect user rating and comments',
-    previewUrl: 'https://placehold.co/600x400?text=Feedback+Form',
+    previewUrl: 'blocks/form/form-4.webp',
     iframeUrl: '/examples/forms/4',
   },
 ];
@@ -165,10 +169,11 @@ export const formsSectionData: SectionData = {
   blocks: [...formsBlocks],
 };
 
-export const formsBlocksWithViews: BlockData[] = formsBlocks.map((block, index) => {
-  const codeTemplates: any = {
-    '1': {
-      template: `<section class="py-24">
+export const formsBlocksWithViews: BlockData[] = formsBlocks.map(
+  (block, index) => {
+    const codeTemplates: any = {
+      '1': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 max-w-md">
     <h2 class="text-3xl font-bold text-center mb-8">Sign In</h2>
     <form class="grid gap-4">
@@ -184,7 +189,7 @@ export const formsBlocksWithViews: BlockData[] = formsBlocks.map((block, index) 
     </form>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -196,10 +201,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './forms-1.component.html',
 })
 export class Forms1Component {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-    '2': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '2': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 max-w-lg">
     <h2 class="text-3xl font-bold text-center mb-8">Create Account</h2>
     <form class="grid gap-4">
@@ -223,7 +228,7 @@ export class Forms1Component {}`,
     </form>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -235,10 +240,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './forms-2.component.html',
 })
 export class Forms2Component {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-    '3': {
-      template: `<section class="py-24 bg-primary-50">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '3': {
+        template: `<section class="py-24 bg-primary-50">
   <div class="container mx-auto px-4 max-w-2xl text-center">
     <h2 class="text-3xl font-bold mb-4">Subscribe to our newsletter</h2>
     <p class="text-muted-foreground mb-8">Get the latest updates right in your inbox.</p>
@@ -251,7 +256,7 @@ export class Forms2Component {}`,
     </form>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -263,10 +268,10 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './forms-3.component.html',
 })
 export class Forms3Component {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-    '4': {
-      template: `<section class="py-24">
+        styles: `/* Tailwind is used directly in template */`,
+      },
+      '4': {
+        template: `<section class="py-24">
   <div class="container mx-auto px-4 max-w-xl">
     <h2 class="text-3xl font-bold text-center mb-8">Feedback</h2>
     <form class="grid gap-4">
@@ -288,7 +293,7 @@ export class Forms3Component {}`,
     </form>
   </div>
 </section>`,
-      component: `import { Component } from '@angular/core';
+        component: `import { Component } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -301,29 +306,30 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './forms-4.component.html',
 })
 export class Forms4Component {}`,
-      styles: `/* Tailwind is used directly in template */`,
-    },
-  };
+        styles: `/* Tailwind is used directly in template */`,
+      },
+    };
 
-  return {
-    ...block,
-    content: componentContent[index],
-    views: [
-      {
-        label: 'Template',
-        content: codeTemplates[block.id].template,
-        language: 'html',
-      },
-      {
-        label: 'Component',
-        content: codeTemplates[block.id].component,
-        language: 'typescript',
-      },
-      {
-        label: 'Styles',
-        content: codeTemplates[block.id].styles,
-        language: 'css',
-      },
-    ],
-  } as BlockData;
-});
+    return {
+      ...block,
+      content: componentContent[index],
+      views: [
+        {
+          label: 'Template',
+          content: codeTemplates[block.id].template,
+          language: 'html',
+        },
+        {
+          label: 'Component',
+          content: codeTemplates[block.id].component,
+          language: 'typescript',
+        },
+        {
+          label: 'Styles',
+          content: codeTemplates[block.id].styles,
+          language: 'css',
+        },
+      ],
+    } as BlockData;
+  }
+);
