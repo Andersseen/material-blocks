@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { Component, input } from '@angular/core';
 import { MatCard, MatCardContent } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
@@ -5,7 +6,7 @@ import { type BlockCard } from '@shared/interfaces';
 
 @Component({
   selector: 'card',
-  imports: [MatCard, MatCardContent, RouterLink],
+  imports: [MatCard, MatCardContent, RouterLink, NgOptimizedImage],
   template: `
     <a [routerLink]="['/sections/' + path(), block()?.id]">
       <mat-card
@@ -14,7 +15,9 @@ import { type BlockCard } from '@shared/interfaces';
         <!-- Preview Image -->
         <div class="h-48 relative overflow-hidden">
           <img
-            [src]="block()?.previewUrl"
+            [ngSrc]="block()!.previewUrl"
+            fill
+            loading="lazy"
             [alt]="block()?.title"
             class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
