@@ -81,7 +81,6 @@ export default class NavigationState {
   navigateToBlock(direction: 'prev' | 'next', category: string): void {
     const links = this.getNavigationLinksToBlock();
     const target = links[direction];
-    console.log(`sections/${category}/${target}`);
 
     if (target) {
       this.#router.navigate([`sections/${category}/${target}`]);

@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import { type BlockData, type BlockCard } from '@shared/interfaces';
 
 export const teamBlocks: BlockCard[] = [
@@ -6,7 +7,7 @@ export const teamBlocks: BlockCard[] = [
     title: 'Team Grid',
     description:
       'Simple grid of four members with avatars, roles and social icons',
-    previewUrl: 'blocks/team/team-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/team-1.webp`,
     iframeUrl: '/examples/team/1',
   },
   {
@@ -14,21 +15,21 @@ export const teamBlocks: BlockCard[] = [
     title: 'Overlay Cards',
     description:
       'Image cards with an overlay showing name, role and social icons on hover',
-    previewUrl: 'blocks/team/team-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/team-2.webp`,
     iframeUrl: '/examples/team/2',
   },
   {
     id: '3',
     title: 'Detailed Cards',
     description: 'Two‑column cards with image, biography and social links',
-    previewUrl: 'blocks/team/team-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/team-3.webp`,
     iframeUrl: '/examples/team/3',
   },
   {
     id: '4',
     title: 'Split Layout',
     description: 'Mixed layout with intro text and a 2×2 grid of team members',
-    previewUrl: 'blocks/team/team-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/team-4.webp`,
     iframeUrl: '/examples/team/4',
   },
 ];
@@ -334,5 +335,5 @@ export default class ExampleTeam2Component {
         language: 'css',
       },
     ],
-  };
+  } as BlockData;
 });

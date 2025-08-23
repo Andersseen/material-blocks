@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import { type BlockData, type BlockCard } from '@shared/interfaces';
 const componentContent = [
   `import { Component } from '@angular/core';
@@ -232,28 +233,28 @@ export const heroBlocks: BlockCard[] = [
     title: 'Modern Hero Section',
     description:
       'Clean design with call-to-action button and gradient background',
-    previewUrl: 'blocks/hero/hero-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/hero-1.webp`,
     iframeUrl: '/examples/hero/1',
   },
   {
     id: '2',
     title: 'Product Hero',
     description: 'Showcase your product with image and feature highlights',
-    previewUrl: 'blocks/hero/hero-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/hero-2.webp`,
     iframeUrl: '/examples/hero/2',
   },
   {
     id: '3',
     title: 'Minimal Hero',
     description: 'Typography-focused with subtle animations',
-    previewUrl: 'blocks/hero/hero-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/hero-3.webp`,
     iframeUrl: '/examples/hero/3',
   },
   {
     id: '4',
     title: 'Video Background Hero',
     description: 'Full-screen video background with overlay content',
-    previewUrl: 'blocks/hero/hero-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/hero-4.webp`,
     iframeUrl: '/examples/hero/4',
   },
 ];

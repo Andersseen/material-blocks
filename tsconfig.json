@@ -19,7 +19,8 @@
       "@examples/*": ["./src/examples/*"],
       "@server/*": ["./src/server/*"],
       "@services/*": ["./src/services/*"],
-      "@shared/*": ["./src/shared/*"]
+      "@shared/*": ["./src/shared/*"],
+      "@environments/*": ["./src/environments/*"]
     }
   },
   "angularCompilerOptions": {

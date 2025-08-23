@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import { type BlockData, type BlockCard } from '@shared/interfaces';
 
 const componentContent = [
@@ -53,28 +54,28 @@ export const navigationBlocks: BlockCard[] = [
     id: '1',
     title: 'Basic Navbar',
     description: 'Simple top navigation bar with links',
-    previewUrl: 'blocks/navigation/navigation-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/navigation-1.webp`,
     iframeUrl: '/examples/navigation/1',
   },
   {
     id: '2',
     title: 'Responsive Navbar',
     description: 'Navbar with mobile menu and sign up button',
-    previewUrl: 'blocks/navigation/navigation-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/navigation-2.webp`,
     iframeUrl: '/examples/navigation/2',
   },
   {
     id: '3',
     title: 'Sidebar Navigation',
     description: 'Dashboard layout with persistent sidebar',
-    previewUrl: 'blocks/navigation/navigation-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/navigation-3.webp`,
     iframeUrl: '/examples/navigation/3',
   },
   {
     id: '4',
     title: 'Breadcrumb',
     description: 'Breadcrumb navigation for hierarchical pages',
-    previewUrl: 'blocks/navigation/navigation-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/navigation-4.webp`,
     iframeUrl: '/examples/navigation/4',
   },
 ];

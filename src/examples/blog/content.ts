@@ -1,54 +1,13 @@
-import CDN_PUBLIC_URL from '@shared/cdn';
-import {
-  type BlockCard,
-  type SectionData,
-  type BlockData,
-} from '@shared/interfaces';
-import CONTENT from './content';
+const CONTENT = [
+  `import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
-export const blogBlocks: BlockCard[] = [
-  {
-    id: '1',
-    title: 'Blog Cards Grid',
-    description: 'Three column grid of blog posts with images',
-    previewUrl: `${CDN_PUBLIC_URL}/blog-1.webp`,
-    iframeUrl: '/examples/blog/1',
-  },
-  {
-    id: '2',
-    title: 'Blog List',
-    description: 'Vertical list of blog posts with thumbnails',
-    previewUrl: `${CDN_PUBLIC_URL}/blog-2.webp`,
-    iframeUrl: '/examples/blog/2',
-  },
-  {
-    id: '3',
-    title: 'Featured Blog Post',
-    description: 'Highlighted article with supporting posts',
-    previewUrl: `${CDN_PUBLIC_URL}/blog-3.webp`,
-    iframeUrl: '/examples/blog/3',
-  },
-  {
-    id: '4',
-    title: 'Blog with Sidebar',
-    description: 'Layout with article list and sidebar categories',
-    previewUrl: `${CDN_PUBLIC_URL}/blog-4.webp`,
-    iframeUrl: '/examples/blog/4',
-  },
-];
-
-export const blogSectionData: SectionData = {
-  title: 'UI Blog Collection',
-  description: 'Display articles and news with these blog layouts.',
-  path: 'blog',
-  blocks: [...blogBlocks],
-};
-
-export const blogBlocksWithViews: BlockData[] = blogBlocks.map(
-  (block, index) => {
-    const codeTemplates: any = {
-      '1': {
-        template: `<section class="py-24">
+@Component({
+  selector: 'example-blog-1',
+  standalone: true,
+  imports: [MatCardModule, MatButtonModule],
+  template: \`<section class="py-24">
   <div class="container mx-auto px-4 grid gap-8 md:grid-cols-3">
     <mat-card class="flex flex-col">
       <img src="https://placehold.co/600x400" alt="Blog post 1" class="h-40 w-full object-cover rounded-t-md" />
@@ -75,22 +34,19 @@ export const blogBlocksWithViews: BlockData[] = blogBlocks.map(
       </mat-card-content>
     </mat-card>
   </div>
-</section>`,
-        component: `import { Component } from '@angular/core';
+</section>\`,
+})
+export default class Blog1 {}
+`,
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-blog-grid',
+  selector: 'example-blog-2',
   standalone: true,
   imports: [MatCardModule, MatButtonModule],
-  templateUrl: './blog-grid.component.html',
-})
-export class BlogGridComponent {}`,
-        styles: `/* Tailwind is used directly in template */`,
-      },
-      '2': {
-        template: `<section class="py-24">
+  template: \`<section class="py-24">
   <div class="container mx-auto px-4 space-y-6">
     <mat-card class="flex flex-col sm:flex-row gap-4">
       <img src="https://placehold.co/200x150" alt="thumb" class="w-full sm:w-48 h-32 object-cover rounded-md" />
@@ -117,22 +73,19 @@ export class BlogGridComponent {}`,
       </mat-card-content>
     </mat-card>
   </div>
-</section>`,
-        component: `import { Component } from '@angular/core';
+</section>\`,
+})
+export default class Blog2 {}
+`,
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-blog-list',
+  selector: 'example-blog-3',
   standalone: true,
   imports: [MatCardModule, MatButtonModule],
-  templateUrl: './blog-list.component.html',
-})
-export class BlogListComponent {}`,
-        styles: `/* Tailwind is used directly in template */`,
-      },
-      '3': {
-        template: `<section class="py-24">
+  template: \`<section class="py-24">
   <div class="container mx-auto px-4 space-y-8">
     <mat-card class="overflow-hidden">
       <img src="https://placehold.co/800x300" alt="featured" class="w-full h-48 object-cover">
@@ -155,22 +108,20 @@ export class BlogListComponent {}`,
       </mat-card>
     </div>
   </div>
-</section>`,
-        component: `import { Component } from '@angular/core';
+</section>\`,
+})
+export default class Blog3 {}
+`,
+  `import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-blog-featured',
+  selector: 'example-blog-4',
   standalone: true,
-  imports: [MatCardModule, MatButtonModule],
-  templateUrl: './blog-featured.component.html',
-})
-export class BlogFeaturedComponent {}`,
-        styles: `/* Tailwind is used directly in template */`,
-      },
-      '4': {
-        template: `<section class="py-24">
+  imports: [MatCardModule, MatListModule, MatButtonModule],
+  template: \`<section class="py-24">
   <div class="container mx-auto px-4 grid gap-8 md:grid-cols-3">
     <div class="md:col-span-2 space-y-6">
       <mat-card>
@@ -193,43 +144,9 @@ export class BlogFeaturedComponent {}`,
       </mat-nav-list>
     </aside>
   </div>
-</section>`,
-        component: `import { Component } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { MatButtonModule } from '@angular/material/button';
-
-@Component({
-  selector: 'app-blog-sidebar',
-  standalone: true,
-  imports: [MatCardModule, MatListModule, MatButtonModule],
-  templateUrl: './blog-sidebar.component.html',
+</section>\`,
 })
-export class BlogSidebarComponent {}`,
-        styles: `/* Tailwind is used directly in template */`,
-      },
-    };
-
-    return {
-      ...block,
-      content: CONTENT[index],
-      views: [
-        {
-          label: 'Template',
-          content: codeTemplates[block.id].template,
-          language: 'html',
-        },
-        {
-          label: 'Component',
-          content: codeTemplates[block.id].component,
-          language: 'typescript',
-        },
-        {
-          label: 'Styles',
-          content: codeTemplates[block.id].styles,
-          language: 'css',
-        },
-      ],
-    };
-  }
-);
+export default class Blog4 {}
+`,
+];
+export default CONTENT;

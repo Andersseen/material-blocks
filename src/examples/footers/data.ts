@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import { BlockCard, SectionData, BlockData } from '@shared/interfaces';
 
 export const footerBlocks: BlockCard[] = [
@@ -5,28 +6,28 @@ export const footerBlocks: BlockCard[] = [
     id: '1',
     title: 'Simple Footer',
     description: 'Centered text and icons for basic projects',
-    previewUrl: 'blocks/footer/footer-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/footer-1.webp`,
     iframeUrl: '/examples/footer/1',
   },
   {
     id: '2',
     title: 'Links Footer',
     description: 'Three-column layout with navigation links',
-    previewUrl: 'blocks/footer/footer-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/footer-2.webp`,
     iframeUrl: '/examples/footer/2',
   },
   {
     id: '3',
     title: 'Newsletter Footer',
     description: 'Footer with email subscription form',
-    previewUrl: 'blocks/footer/footer-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/footer-3.webp`,
     iframeUrl: '/examples/footer/3',
   },
   {
     id: '4',
     title: 'Navigation Footer',
     description: 'Footer with logo and navigation menu',
-    previewUrl: 'blocks/footer/footer-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/footer-4.webp`,
     iframeUrl: '/examples/footer/4',
   },
 ];

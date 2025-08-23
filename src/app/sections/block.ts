@@ -13,6 +13,7 @@ import { ecommerceBlocksWithViews } from '@examples/ecommerce/data';
 import { blogBlocksWithViews } from '@examples/blog/data';
 import { navigationBlocksWithViews } from '@examples/navigation/data';
 import { formsBlocksWithViews } from '@examples/forms/data';
+import { statsBlocksWithViews } from '@examples/stats/data';
 
 @Component({
   selector: 'page-block-details',
@@ -47,4 +48,5 @@ const sectionBlocks = {
   blog: blogBlocksWithViews,
   contact: contactBlocksWithViews,
   navigation: navigationBlocksWithViews,
+  stats: statsBlocksWithViews,
 };

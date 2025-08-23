@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import {
   type BlockData,
   type BlockCard,
@@ -324,28 +325,28 @@ export const featureBlocks: BlockCard[] = [
     id: '1',
     title: 'Feature Grid',
     description: 'Responsive grid layout showcasing key features with icons',
-    previewUrl: 'blocks/features/feature-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/feature-1.webp`,
     iframeUrl: '/examples/features/1',
   },
   {
     id: '2',
     title: 'Feature Tabs',
     description: 'Interactive tabs to display different feature sets',
-    previewUrl: 'blocks/features/feature-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/feature-2.webp`,
     iframeUrl: '/examples/features/2',
   },
   {
     id: '3',
     title: 'Comparison Table',
     description: 'Side-by-side feature comparison between plans',
-    previewUrl: 'blocks/features/feature-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/feature-3.webp`,
     iframeUrl: '/examples/features/3',
   },
   {
     id: '4',
     title: 'Feature Carousel',
     description: 'Animated carousel to highlight product features',
-    previewUrl: 'blocks/features/feature-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/feature-4.webp`,
     iframeUrl: '/examples/features/4',
   },
 ];
