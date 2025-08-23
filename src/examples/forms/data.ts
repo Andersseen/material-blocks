@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import {
   type BlockCard,
   type SectionData,
@@ -136,28 +137,28 @@ export const formsBlocks: BlockCard[] = [
     id: '1',
     title: 'Login Form',
     description: 'Simple sign in form with email and password fields',
-    previewUrl: 'blocks/form/form-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/form-1.webp`,
     iframeUrl: '/examples/forms/1',
   },
   {
     id: '2',
     title: 'Registration Form',
     description: 'Form for creating a new account with name and password',
-    previewUrl: 'blocks/form/form-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/form-2.webp`,
     iframeUrl: '/examples/forms/2',
   },
   {
     id: '3',
     title: 'Newsletter Sign Up',
     description: 'Email subscription form with call to action',
-    previewUrl: 'blocks/form/form-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/form-3.webp`,
     iframeUrl: '/examples/forms/3',
   },
   {
     id: '4',
     title: 'Feedback Form',
     description: 'Collect user rating and comments',
-    previewUrl: 'blocks/form/form-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/form-4.webp`,
     iframeUrl: '/examples/forms/4',
   },
 ];

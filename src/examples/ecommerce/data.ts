@@ -1,3 +1,4 @@
+import CDN_PUBLIC_URL from '@shared/cdn';
 import { type BlockData, type BlockCard } from '@shared/interfaces';
 
 const componentContent = [
@@ -75,28 +76,28 @@ export const ecommerceBlocks: BlockCard[] = [
     id: '1',
     title: 'Product Grid',
     description: 'Responsive product card grid for storefronts',
-    previewUrl: 'blocks/ecommerce/ecommerce-1.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/ecommerce-1.webp`,
     iframeUrl: '/examples/ecommerce/1',
   },
   {
     id: '2',
     title: 'Product Showcase',
     description: 'Featured product layout with actions',
-    previewUrl: 'blocks/ecommerce/ecommerce-2.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/ecommerce-2.webp`,
     iframeUrl: '/examples/ecommerce/2',
   },
   {
     id: '3',
     title: 'Cart Summary',
     description: 'Shopping cart summary with totals',
-    previewUrl: 'blocks/ecommerce/ecommerce-3.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/ecommerce-3.webp`,
     iframeUrl: '/examples/ecommerce/3',
   },
   {
     id: '4',
     title: 'Checkout Summary',
     description: 'Checkout form with order summary',
-    previewUrl: 'blocks/ecommerce/ecommerce-4.webp',
+    previewUrl: `${CDN_PUBLIC_URL}/ecommerce-4.webp`,
     iframeUrl: '/examples/ecommerce/4',
   },
 ];
